@@ -11,6 +11,7 @@ BM_login_btn = "xpath://button[@ng-click='manager()']"
 BM_addCx_tab = "xpath://button[contains(text(), 'Add Customer')]"
 BM_openAcc_tab = "xpath://button[contains(text(), 'Open Account')]"
 BM_CxList_tab = "xpath://button[contains(text(), 'Customers')]"
+Home_btn = "xpath://button[text()='Home']"
 
 BM_addCx_tab_fName = "xpath://input[@placeholder='First Name']"
 BM_addCx_tab_lName = "xpath://input[@placeholder='Last Name']"

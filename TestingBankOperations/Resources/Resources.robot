@@ -36,13 +36,18 @@ open account for new Cx as bank manager
 check customer details in DB
     [Arguments]    ${fName}     ${lName}
     click button    ${BM_CxList_tab}
-
     ${CustomerCount}=   get element count    ${BM_CXList_CxCount}
     log to console   ${CustomerCount}
 
     table row should contain    ${BM_CxList_tab_CxTable}    ${CustomerCount}    ${fName}
 
+    # Scrolling till bottom
+    scroll element into view    //table[@class='table table-bordered table-striped']/tbody/tr/td[text()="${fName}"]
 
+    click button    ${Home_btn}
+
+close browser session
+    close all browsers
 
 
 
