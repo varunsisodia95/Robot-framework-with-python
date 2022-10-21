@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.7.4 on win32)" generated="20221019 13:37:27.584" rpa="false" schemaversion="3">
-<suite id="s1" name="BankOperations" source="C:\Users\Z0042JXJ\Desktop\Self-study\TestingBankOperations\TestCases\BankOperations.robot">
+<robot generator="Robot 5.0.1 (Python 3.7.4 on win32)" generated="20221020 12:52:11.585" rpa="false" schemaversion="3">
+<suite id="s1" name="BankOperations positiveScenarios" source="C:\Users\Z0042JXJ\Desktop\Self-study\TestingBankOperations\TestCases\BankOperations_positiveScenarios.robot">
 <kw name="open bank site" library="Resources" type="SETUP">
 <arg>${SiteUrl}</arg>
 <arg>${browser}</arg>
@@ -8,35 +8,41 @@
 <arg>${bankSite}</arg>
 <arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20221019 13:37:32.026" level="INFO">Opening browser 'Chrome' to base url 'https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login'.</msg>
-<status status="PASS" starttime="20221019 13:37:32.024" endtime="20221019 13:37:36.284"/>
+<msg timestamp="20221020 12:52:13.528" level="INFO">Opening browser 'Chrome' to base url 'https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login'.</msg>
+<status status="PASS" starttime="20221020 12:52:13.528" endtime="20221020 12:52:16.600"/>
 </kw>
-<status status="PASS" starttime="20221019 13:37:32.024" endtime="20221019 13:37:36.284"/>
+<status status="PASS" starttime="20221020 12:52:13.528" endtime="20221020 12:52:16.600"/>
 </kw>
-<test id="s1-t1" name="TC1_BankManager_workflow" line="16">
+<test id="s1-t1" name="TC1_BankManager_workflow_positive" line="16">
 <kw name="Bank manager operations">
 <arg>Roger</arg>
 <arg>Moore</arg>
 <arg>12345</arg>
 <arg>Rupee</arg>
+<arg>1000</arg>
+<arg>500</arg>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221020 12:52:16.604" endtime="20221020 12:52:16.723"/>
+</kw>
 <kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
 <arg>2 seconds</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20221019 13:37:36.300" endtime="20221019 13:37:36.308"/>
+<status status="PASS" starttime="20221020 12:52:16.723" endtime="20221020 12:52:16.724"/>
 </kw>
 <kw name="Set Selenium Speed" library="SeleniumLibrary">
 <arg>0.5 seconds</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" starttime="20221019 13:37:36.308" endtime="20221019 13:37:36.308"/>
+<status status="PASS" starttime="20221020 12:52:16.724" endtime="20221020 12:52:16.725"/>
 </kw>
 <kw name="login as bank manager" library="Resources">
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_login_btn}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:37:36.308" level="INFO">Clicking button 'xpath://button[@ng-click='manager()']'.</msg>
-<status status="PASS" starttime="20221019 13:37:36.308" endtime="20221019 13:37:39.635"/>
+<msg timestamp="20221020 12:52:16.726" level="INFO">Clicking button 'xpath://button[@ng-click='manager()']'.</msg>
+<status status="PASS" starttime="20221020 12:52:16.725" endtime="20221020 12:52:19.833"/>
 </kw>
-<status status="PASS" starttime="20221019 13:37:36.308" endtime="20221019 13:37:39.635"/>
+<status status="PASS" starttime="20221020 12:52:16.725" endtime="20221020 12:52:19.833"/>
 </kw>
 <kw name="add Cx as bank manager" library="Resources">
 <arg>${FNAME}</arg>
@@ -45,43 +51,43 @@
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_addCx_tab}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:37:39.637" level="INFO">Clicking button 'xpath://button[contains(text(), 'Add Customer')]'.</msg>
-<status status="PASS" starttime="20221019 13:37:39.637" endtime="20221019 13:37:42.344"/>
+<msg timestamp="20221020 12:52:19.833" level="INFO">Clicking button 'xpath://button[contains(text(), 'Add Customer')]'.</msg>
+<status status="PASS" starttime="20221020 12:52:19.833" endtime="20221020 12:52:22.432"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${BM_addCx_tab_fName}</arg>
 <arg>${fName}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221019 13:37:42.344" level="INFO">Typing text 'Roger' into text field 'xpath://input[@placeholder='First Name']'.</msg>
-<status status="PASS" starttime="20221019 13:37:42.344" endtime="20221019 13:37:44.040"/>
+<msg timestamp="20221020 12:52:22.432" level="INFO">Typing text 'Roger' into text field 'xpath://input[@placeholder='First Name']'.</msg>
+<status status="PASS" starttime="20221020 12:52:22.432" endtime="20221020 12:52:24.056"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${BM_addCx_tab_lName}</arg>
 <arg>${lName}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221019 13:37:44.040" level="INFO">Typing text 'Moore' into text field 'xpath://input[@placeholder='Last Name']'.</msg>
-<status status="PASS" starttime="20221019 13:37:44.040" endtime="20221019 13:37:45.759"/>
+<msg timestamp="20221020 12:52:24.056" level="INFO">Typing text 'Moore' into text field 'xpath://input[@placeholder='Last Name']'.</msg>
+<status status="PASS" starttime="20221020 12:52:24.056" endtime="20221020 12:52:25.661"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${BM_addCx_tab_postCode}</arg>
 <arg>${pincode}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221019 13:37:45.759" level="INFO">Typing text '12345' into text field 'xpath://input[@placeholder='Post Code']'.</msg>
-<status status="PASS" starttime="20221019 13:37:45.759" endtime="20221019 13:37:47.453"/>
+<msg timestamp="20221020 12:52:25.661" level="INFO">Typing text '12345' into text field 'xpath://input[@placeholder='Post Code']'.</msg>
+<status status="PASS" starttime="20221020 12:52:25.661" endtime="20221020 12:52:27.286"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_addCx_tab_btn}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:37:47.453" level="INFO">Clicking button 'xpath://button[text()='Add Customer']'.</msg>
-<status status="PASS" starttime="20221019 13:37:47.453" endtime="20221019 13:37:50.097"/>
+<msg timestamp="20221020 12:52:27.286" level="INFO">Clicking button 'xpath://button[text()='Add Customer']'.</msg>
+<status status="PASS" starttime="20221020 12:52:27.286" endtime="20221020 12:52:29.910"/>
 </kw>
 <kw name="Handle Alert" library="SeleniumLibrary">
 <arg>ACCEPT</arg>
 <doc>Handles the current alert and returns its message.</doc>
-<msg timestamp="20221019 13:37:50.097" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<status status="PASS" starttime="20221019 13:37:50.097" endtime="20221019 13:37:51.620"/>
+<msg timestamp="20221020 12:52:29.910" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20221020 12:52:29.910" endtime="20221020 12:52:31.437"/>
 </kw>
-<status status="PASS" starttime="20221019 13:37:39.635" endtime="20221019 13:37:51.620"/>
+<status status="PASS" starttime="20221020 12:52:19.833" endtime="20221020 12:52:31.438"/>
 </kw>
 <kw name="open account for new Cx as bank manager" library="Resources">
 <arg>${FNAME}</arg>
@@ -90,49 +96,49 @@
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_openAcc_tab}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:37:51.622" level="INFO">Clicking button 'xpath://button[contains(text(), 'Open Account')]'.</msg>
-<status status="PASS" starttime="20221019 13:37:51.622" endtime="20221019 13:37:54.250"/>
+<msg timestamp="20221020 12:52:31.440" level="INFO">Clicking button 'xpath://button[contains(text(), 'Open Account')]'.</msg>
+<status status="PASS" starttime="20221020 12:52:31.439" endtime="20221020 12:52:34.048"/>
 </kw>
 <kw name="Catenate" library="BuiltIn">
 <var>${fullName}</var>
 <arg>${fName}</arg>
 <arg>${lName}</arg>
 <doc>Catenates the given items together and returns the resulted string.</doc>
-<msg timestamp="20221019 13:37:54.250" level="INFO">${fullName} = Roger Moore</msg>
-<status status="PASS" starttime="20221019 13:37:54.250" endtime="20221019 13:37:54.250"/>
+<msg timestamp="20221020 12:52:34.048" level="INFO">${fullName} = Roger Moore</msg>
+<status status="PASS" starttime="20221020 12:52:34.048" endtime="20221020 12:52:34.048"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${fullName}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20221019 13:37:54.250" endtime="20221019 13:37:54.258"/>
+<status status="PASS" starttime="20221020 12:52:34.048" endtime="20221020 12:52:34.048"/>
 </kw>
 <kw name="Select From List By Label" library="SeleniumLibrary">
 <arg>${BM_openAcc_tab_CxDropDownName}</arg>
 <arg>${fullName}</arg>
 <doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<msg timestamp="20221019 13:37:54.258" level="INFO">Selecting options from selection list 'userSelect' by label Roger Moore.</msg>
-<status status="PASS" starttime="20221019 13:37:54.258" endtime="20221019 13:37:57.426"/>
+<msg timestamp="20221020 12:52:34.048" level="INFO">Selecting options from selection list 'userSelect' by label Roger Moore.</msg>
+<status status="PASS" starttime="20221020 12:52:34.048" endtime="20221020 12:52:37.123"/>
 </kw>
 <kw name="Select From List By Value" library="SeleniumLibrary">
 <arg>${BM_openAcc_tab_currencyListName}</arg>
 <arg>${currency}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<msg timestamp="20221019 13:37:57.428" level="INFO">Selecting options from selection list 'currency' by value Rupee.</msg>
-<status status="PASS" starttime="20221019 13:37:57.426" endtime="20221019 13:38:00.541"/>
+<msg timestamp="20221020 12:52:37.123" level="INFO">Selecting options from selection list 'currency' by value Rupee.</msg>
+<status status="PASS" starttime="20221020 12:52:37.123" endtime="20221020 12:52:40.226"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_openAcc_tab_process_Btn}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:38:00.541" level="INFO">Clicking button 'xpath://button[text()='Process']'.</msg>
-<status status="PASS" starttime="20221019 13:38:00.541" endtime="20221019 13:38:03.147"/>
+<msg timestamp="20221020 12:52:40.226" level="INFO">Clicking button 'xpath://button[text()='Process']'.</msg>
+<status status="PASS" starttime="20221020 12:52:40.226" endtime="20221020 12:52:42.819"/>
 </kw>
 <kw name="Handle Alert" library="SeleniumLibrary">
 <arg>ACCEPT</arg>
 <doc>Handles the current alert and returns its message.</doc>
-<msg timestamp="20221019 13:38:03.147" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<status status="PASS" starttime="20221019 13:38:03.147" endtime="20221019 13:38:04.669"/>
+<msg timestamp="20221020 12:52:42.819" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20221020 12:52:42.819" endtime="20221020 12:52:44.349"/>
 </kw>
-<status status="PASS" starttime="20221019 13:37:51.620" endtime="20221019 13:38:04.669"/>
+<status status="PASS" starttime="20221020 12:52:31.438" endtime="20221020 12:52:44.349"/>
 </kw>
 <kw name="check customer details in DB" library="Resources">
 <arg>${FNAME}</arg>
@@ -140,70 +146,375 @@
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_CxList_tab}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:38:04.669" level="INFO">Clicking button 'xpath://button[contains(text(), 'Customers')]'.</msg>
-<status status="PASS" starttime="20221019 13:38:04.669" endtime="20221019 13:38:07.260"/>
+<msg timestamp="20221020 12:52:44.349" level="INFO">Clicking button 'xpath://button[contains(text(), 'Customers')]'.</msg>
+<status status="PASS" starttime="20221020 12:52:44.349" endtime="20221020 12:52:46.944"/>
 </kw>
 <kw name="Get Element Count" library="SeleniumLibrary">
 <var>${CustomerCount}</var>
 <arg>${BM_CXList_CxCount}</arg>
 <doc>Returns the number of elements matching ``locator``.</doc>
-<msg timestamp="20221019 13:38:07.784" level="INFO">${CustomerCount} = 6</msg>
-<status status="PASS" starttime="20221019 13:38:07.260" endtime="20221019 13:38:07.784"/>
+<msg timestamp="20221020 12:52:47.444" level="INFO">${CustomerCount} = 6</msg>
+<status status="PASS" starttime="20221020 12:52:46.944" endtime="20221020 12:52:47.444"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${CustomerCount}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20221019 13:38:07.784" endtime="20221019 13:38:07.784"/>
+<status status="PASS" starttime="20221020 12:52:47.444" endtime="20221020 12:52:47.444"/>
 </kw>
 <kw name="Table Row Should Contain" library="SeleniumLibrary">
 <arg>${BM_CxList_tab_CxTable}</arg>
 <arg>${CustomerCount}</arg>
 <arg>${fName}</arg>
 <doc>Verifies that table row contains text ``expected``.</doc>
-<status status="PASS" starttime="20221019 13:38:07.784" endtime="20221019 13:38:09.866"/>
+<status status="PASS" starttime="20221020 12:52:47.444" endtime="20221020 12:52:49.511"/>
 </kw>
 <kw name="Scroll Element Into View" library="SeleniumLibrary">
 <arg>//table[@class='table table-bordered table-striped']/tbody/tr/td[text()="${fName}"]</arg>
 <doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" starttime="20221019 13:38:09.866" endtime="20221019 13:38:11.177"/>
+<status status="PASS" starttime="20221020 12:52:49.511" endtime="20221020 12:52:50.825"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${Home_btn}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:38:11.177" level="INFO">Clicking button 'xpath://button[text()='Home']'.</msg>
-<status status="PASS" starttime="20221019 13:38:11.177" endtime="20221019 13:38:13.804"/>
+<msg timestamp="20221020 12:52:50.825" level="INFO">Clicking button 'xpath://button[text()='Home']'.</msg>
+<status status="PASS" starttime="20221020 12:52:50.825" endtime="20221020 12:52:53.425"/>
 </kw>
-<status status="PASS" starttime="20221019 13:38:04.669" endtime="20221019 13:38:13.804"/>
+<status status="PASS" starttime="20221020 12:52:44.349" endtime="20221020 12:52:53.425"/>
 </kw>
-<status status="PASS" starttime="20221019 13:37:36.300" endtime="20221019 13:38:13.804"/>
+<kw name="Customer operations">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${CURRENCY}</arg>
+<arg>${DEPOSIT}</arg>
+<arg>${WITHDRAWL}</arg>
+<kw name="login as customer" library="Resources">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${CURRENCY}</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_Login_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:52:53.427" level="INFO">Clicking button 'xpath://button[text()='Customer Login']'.</msg>
+<status status="PASS" starttime="20221020 12:52:53.427" endtime="20221020 12:52:56.015"/>
 </kw>
-<tag>Bank_manager_workflow</tag>
-<status status="PASS" starttime="20221019 13:37:36.292" endtime="20221019 13:38:13.804"/>
+<kw name="Catenate" library="BuiltIn">
+<var>${CXname}</var>
+<arg>${fName}</arg>
+<arg>${lName}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20221020 12:52:56.015" level="INFO">${CXname} = Roger Moore</msg>
+<status status="PASS" starttime="20221020 12:52:56.015" endtime="20221020 12:52:56.015"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CX_dropDown_name}</arg>
+<arg>${CXname}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20221020 12:52:56.015" level="INFO">Selecting options from selection list 'userSelect' by label Roger Moore.</msg>
+<status status="PASS" starttime="20221020 12:52:56.015" endtime="20221020 12:52:59.087"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_dropDown_login_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:52:59.087" level="INFO">Clicking button 'xpath://button[text()='Login']'.</msg>
+<status status="PASS" starttime="20221020 12:52:59.087" endtime="20221020 12:53:01.696"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Welcome</arg>
+<arg>${CXname}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:53:02.710" level="INFO">Current page contains text 'Welcome'.</msg>
+<status status="PASS" starttime="20221020 12:53:01.696" endtime="20221020 12:53:02.710"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Balance : 0</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:53:03.748" level="INFO">Current page contains text 'Balance : 0'.</msg>
+<status status="PASS" starttime="20221020 12:53:02.710" endtime="20221020 12:53:03.748"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Currency : ${currency}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:53:04.784" level="INFO">Current page contains text 'Currency : Rupee'.</msg>
+<status status="PASS" starttime="20221020 12:53:03.748" endtime="20221020 12:53:04.784"/>
+</kw>
+<status status="PASS" starttime="20221020 12:52:53.427" endtime="20221020 12:53:04.784"/>
+</kw>
+<kw name="deposit money as a customer" library="Resources">
+<var>${newBalanceAfterDeposit}</var>
+<arg>${DEPOSIT}</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_depositTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:53:04.784" level="INFO">Clicking button 'xpath://button[contains(text(),'Deposit')]'.</msg>
+<status status="PASS" starttime="20221020 12:53:04.784" endtime="20221020 12:53:07.369"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CX_depositTab_inputAmount}</arg>
+<arg>${depositAmount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221020 12:53:07.369" level="INFO">Typing text '1000' into text field 'xpath://input[@placeholder='amount']'.</msg>
+<status status="PASS" starttime="20221020 12:53:07.369" endtime="20221020 12:53:08.967"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_depositTab_deposit_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:53:08.967" level="INFO">Clicking button 'xpath://button[text()='Deposit']'.</msg>
+<status status="PASS" starttime="20221020 12:53:08.967" endtime="20221020 12:53:11.558"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${depositAmount}</var>
+<arg>${depositAmount}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221020 12:53:11.558" level="INFO">${depositAmount} = 1000</msg>
+<status status="PASS" starttime="20221020 12:53:11.558" endtime="20221020 12:53:11.558"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${depositAmount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:53:11.558" endtime="20221020 12:53:11.558"/>
+</kw>
+<if>
+<branch type="IF" condition="${depositAmount} &gt; 0">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Deposit Successful</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:53:12.598" level="INFO">Current page contains text 'Deposit Successful'.</msg>
+<status status="PASS" starttime="20221020 12:53:11.560" endtime="20221020 12:53:12.598"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${newBalance}</var>
+<arg>${depositAmount}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221020 12:53:12.598" level="INFO">${newBalance} = 1000</msg>
+<status status="PASS" starttime="20221020 12:53:12.598" endtime="20221020 12:53:12.598"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Balance : ${newBalance}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:53:13.630" level="INFO">Current page contains text 'Balance : 1000'.</msg>
+<status status="PASS" starttime="20221020 12:53:12.598" endtime="20221020 12:53:13.630"/>
+</kw>
+<status status="PASS" starttime="20221020 12:53:11.560" endtime="20221020 12:53:13.630"/>
+</branch>
+<status status="PASS" starttime="20221020 12:53:11.560" endtime="20221020 12:53:13.630"/>
+</if>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${newBalance}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:53:13.630" endtime="20221020 12:53:13.630"/>
+</kw>
+<msg timestamp="20221020 12:53:13.630" level="INFO">${newBalanceAfterDeposit} = 1000</msg>
+<status status="PASS" starttime="20221020 12:53:04.784" endtime="20221020 12:53:13.630"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>New balance after deposit: ${newBalanceAfterDeposit}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:53:13.630" endtime="20221020 12:53:13.632"/>
+</kw>
+<kw name="check customer transactions table" library="Resources">
+<arg>${newBalanceAfterDeposit}</arg>
+<arg>Credit</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_transactionsTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:53:13.632" level="INFO">Clicking button 'xpath://button[contains(text(),'Transactions')]'.</msg>
+<status status="PASS" starttime="20221020 12:53:13.632" endtime="20221020 12:53:16.220"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${transactionsCount}</var>
+<arg>${CX_transactionsTab_tableRows}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221020 12:53:16.737" level="INFO">${transactionsCount} = 1</msg>
+<status status="PASS" starttime="20221020 12:53:16.220" endtime="20221020 12:53:16.737"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Number of transactions: ${transactionsCount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:53:16.737" endtime="20221020 12:53:16.737"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${lastTransactionAmt}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221020 12:53:16.737" endtime="20221020 12:53:19.854"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${transactionType}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221020 12:53:19.854" endtime="20221020 12:53:22.910"/>
+</kw>
+<status status="PASS" starttime="20221020 12:53:13.632" endtime="20221020 12:53:22.910"/>
+</kw>
+<kw name="withdraw money as a customer" library="Resources">
+<var>${newBalanceAfterWithdrawl}</var>
+<arg>${newBalanceAfterDeposit}</arg>
+<arg>${WITHDRAWL}</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_back_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:53:22.912" level="INFO">Clicking button 'xpath://button[text()='Back']'.</msg>
+<status status="PASS" starttime="20221020 12:53:22.910" endtime="20221020 12:53:25.528"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_withdrawlTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:53:25.528" level="INFO">Clicking button 'xpath://button[contains(text(),'Withdrawl')]'.</msg>
+<status status="PASS" starttime="20221020 12:53:25.528" endtime="20221020 12:53:28.130"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CX_withdrawlTab_ipWithdrawl}</arg>
+<arg>${withdrawlAmount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221020 12:53:28.130" level="INFO">Typing text '500' into text field 'xpath://input[@placeholder='amount']'.</msg>
+<status status="PASS" starttime="20221020 12:53:28.130" endtime="20221020 12:53:29.734"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${withdrawlAmount}</var>
+<arg>${withdrawlAmount}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221020 12:53:29.734" level="INFO">${withdrawlAmount} = 500</msg>
+<status status="PASS" starttime="20221020 12:53:29.734" endtime="20221020 12:53:29.734"/>
+</kw>
+<if>
+<branch type="IF" condition="${withdrawlAmount} &gt; 0 and ${withdrawlAmount} &lt; ${newBalanceAfterDeposit}">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_withdrawlTab_withdraw_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:53:29.736" level="INFO">Clicking button 'xpath://button[text()='Withdraw']'.</msg>
+<status status="PASS" starttime="20221020 12:53:29.736" endtime="20221020 12:53:32.313"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${newBalAfterWithdrawl}</var>
+<arg>${newBalanceAfterDeposit} - ${withdrawlAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221020 12:53:32.313" level="INFO">${newBalAfterWithdrawl} = 500</msg>
+<status status="PASS" starttime="20221020 12:53:32.313" endtime="20221020 12:53:32.313"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Transaction successful</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:53:33.317" level="INFO">Current page contains text 'Transaction successful'.</msg>
+<status status="PASS" starttime="20221020 12:53:32.313" endtime="20221020 12:53:33.317"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Balance : ${newBalAfterWithdrawl}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:53:34.325" level="INFO">Current page contains text 'Balance : 500'.</msg>
+<status status="PASS" starttime="20221020 12:53:33.317" endtime="20221020 12:53:34.325"/>
+</kw>
+<status status="PASS" starttime="20221020 12:53:29.736" endtime="20221020 12:53:34.325"/>
+</branch>
+<status status="PASS" starttime="20221020 12:53:29.734" endtime="20221020 12:53:34.325"/>
+</if>
+<msg timestamp="20221020 12:53:34.325" level="INFO">${newBalanceAfterWithdrawl} = 500</msg>
+<status status="PASS" starttime="20221020 12:53:22.910" endtime="20221020 12:53:34.325"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>New balance after withdrawl: ${newBalanceAfterWithdrawl}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:53:34.325" endtime="20221020 12:53:34.325"/>
+</kw>
+<kw name="check customer transactions table" library="Resources">
+<arg>${WITHDRAWL}</arg>
+<arg>Debit</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_transactionsTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:53:34.327" level="INFO">Clicking button 'xpath://button[contains(text(),'Transactions')]'.</msg>
+<status status="PASS" starttime="20221020 12:53:34.327" endtime="20221020 12:53:36.931"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${transactionsCount}</var>
+<arg>${CX_transactionsTab_tableRows}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221020 12:53:37.443" level="INFO">${transactionsCount} = 2</msg>
+<status status="PASS" starttime="20221020 12:53:36.931" endtime="20221020 12:53:37.443"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Number of transactions: ${transactionsCount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:53:37.443" endtime="20221020 12:53:37.443"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${lastTransactionAmt}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221020 12:53:37.443" endtime="20221020 12:53:39.493"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${transactionType}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221020 12:53:39.493" endtime="20221020 12:53:41.502"/>
+</kw>
+<status status="PASS" starttime="20221020 12:53:34.325" endtime="20221020 12:53:41.502"/>
+</kw>
+<kw name="click back button" library="Resources">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_back_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:53:41.502" level="INFO">Clicking button 'xpath://button[text()='Back']'.</msg>
+<status status="PASS" starttime="20221020 12:53:41.502" endtime="20221020 12:53:44.042"/>
+</kw>
+<status status="PASS" starttime="20221020 12:53:41.502" endtime="20221020 12:53:44.042"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_logout_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:53:44.042" level="INFO">Clicking button 'xpath://button[text()='Logout']'.</msg>
+<status status="PASS" starttime="20221020 12:53:44.042" endtime="20221020 12:53:46.586"/>
+</kw>
+<kw name="go to home" library="Resources">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${Home_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:53:46.586" level="INFO">Clicking button 'xpath://button[text()='Home']'.</msg>
+<status status="PASS" starttime="20221020 12:53:46.586" endtime="20221020 12:53:49.136"/>
+</kw>
+<status status="PASS" starttime="20221020 12:53:46.586" endtime="20221020 12:53:49.136"/>
+</kw>
+<status status="PASS" starttime="20221020 12:52:53.425" endtime="20221020 12:53:49.136"/>
+</kw>
+<status status="PASS" starttime="20221020 12:52:16.603" endtime="20221020 12:53:49.136"/>
+</kw>
+<tag>Bank_manager_postive_workflow</tag>
+<status status="PASS" starttime="20221020 12:52:16.600" endtime="20221020 12:53:49.136"/>
 </test>
-<test id="s1-t2" name="TC1_BankManager_workflow" line="16">
+<test id="s1-t2" name="TC1_BankManager_workflow_positive" line="16">
 <kw name="Bank manager operations">
 <arg>John</arg>
 <arg>Rambo</arg>
 <arg>67890</arg>
 <arg>Dollar</arg>
+<arg>1234</arg>
+<arg>123</arg>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221020 12:53:49.136" endtime="20221020 12:53:49.638"/>
+</kw>
 <kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
 <arg>2 seconds</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20221019 13:38:13.810" endtime="20221019 13:38:14.327"/>
+<status status="PASS" starttime="20221020 12:53:49.638" endtime="20221020 12:53:50.141"/>
 </kw>
 <kw name="Set Selenium Speed" library="SeleniumLibrary">
 <arg>0.5 seconds</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" starttime="20221019 13:38:14.327" endtime="20221019 13:38:14.327"/>
+<status status="PASS" starttime="20221020 12:53:50.141" endtime="20221020 12:53:50.141"/>
 </kw>
 <kw name="login as bank manager" library="Resources">
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_login_btn}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:38:14.327" level="INFO">Clicking button 'xpath://button[@ng-click='manager()']'.</msg>
-<status status="PASS" starttime="20221019 13:38:14.327" endtime="20221019 13:38:16.955"/>
+<msg timestamp="20221020 12:53:50.141" level="INFO">Clicking button 'xpath://button[@ng-click='manager()']'.</msg>
+<status status="PASS" starttime="20221020 12:53:50.141" endtime="20221020 12:53:52.687"/>
 </kw>
-<status status="PASS" starttime="20221019 13:38:14.327" endtime="20221019 13:38:16.955"/>
+<status status="PASS" starttime="20221020 12:53:50.141" endtime="20221020 12:53:52.687"/>
 </kw>
 <kw name="add Cx as bank manager" library="Resources">
 <arg>${FNAME}</arg>
@@ -212,43 +523,43 @@
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_addCx_tab}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:38:16.955" level="INFO">Clicking button 'xpath://button[contains(text(), 'Add Customer')]'.</msg>
-<status status="PASS" starttime="20221019 13:38:16.955" endtime="20221019 13:38:19.546"/>
+<msg timestamp="20221020 12:53:52.687" level="INFO">Clicking button 'xpath://button[contains(text(), 'Add Customer')]'.</msg>
+<status status="PASS" starttime="20221020 12:53:52.687" endtime="20221020 12:53:55.245"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${BM_addCx_tab_fName}</arg>
 <arg>${fName}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221019 13:38:19.546" level="INFO">Typing text 'John' into text field 'xpath://input[@placeholder='First Name']'.</msg>
-<status status="PASS" starttime="20221019 13:38:19.546" endtime="20221019 13:38:21.214"/>
+<msg timestamp="20221020 12:53:55.245" level="INFO">Typing text 'John' into text field 'xpath://input[@placeholder='First Name']'.</msg>
+<status status="PASS" starttime="20221020 12:53:55.245" endtime="20221020 12:53:56.835"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${BM_addCx_tab_lName}</arg>
 <arg>${lName}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221019 13:38:21.214" level="INFO">Typing text 'Rambo' into text field 'xpath://input[@placeholder='Last Name']'.</msg>
-<status status="PASS" starttime="20221019 13:38:21.214" endtime="20221019 13:38:22.884"/>
+<msg timestamp="20221020 12:53:56.835" level="INFO">Typing text 'Rambo' into text field 'xpath://input[@placeholder='Last Name']'.</msg>
+<status status="PASS" starttime="20221020 12:53:56.835" endtime="20221020 12:53:58.427"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${BM_addCx_tab_postCode}</arg>
 <arg>${pincode}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221019 13:38:22.884" level="INFO">Typing text '67890' into text field 'xpath://input[@placeholder='Post Code']'.</msg>
-<status status="PASS" starttime="20221019 13:38:22.884" endtime="20221019 13:38:24.567"/>
+<msg timestamp="20221020 12:53:58.427" level="INFO">Typing text '67890' into text field 'xpath://input[@placeholder='Post Code']'.</msg>
+<status status="PASS" starttime="20221020 12:53:58.427" endtime="20221020 12:54:00.036"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_addCx_tab_btn}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:38:24.567" level="INFO">Clicking button 'xpath://button[text()='Add Customer']'.</msg>
-<status status="PASS" starttime="20221019 13:38:24.567" endtime="20221019 13:38:27.180"/>
+<msg timestamp="20221020 12:54:00.036" level="INFO">Clicking button 'xpath://button[text()='Add Customer']'.</msg>
+<status status="PASS" starttime="20221020 12:54:00.036" endtime="20221020 12:54:02.583"/>
 </kw>
 <kw name="Handle Alert" library="SeleniumLibrary">
 <arg>ACCEPT</arg>
 <doc>Handles the current alert and returns its message.</doc>
-<msg timestamp="20221019 13:38:27.180" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<status status="PASS" starttime="20221019 13:38:27.180" endtime="20221019 13:38:28.705"/>
+<msg timestamp="20221020 12:54:02.583" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20221020 12:54:02.583" endtime="20221020 12:54:04.119"/>
 </kw>
-<status status="PASS" starttime="20221019 13:38:16.955" endtime="20221019 13:38:28.705"/>
+<status status="PASS" starttime="20221020 12:53:52.687" endtime="20221020 12:54:04.119"/>
 </kw>
 <kw name="open account for new Cx as bank manager" library="Resources">
 <arg>${FNAME}</arg>
@@ -257,49 +568,49 @@
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_openAcc_tab}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:38:28.705" level="INFO">Clicking button 'xpath://button[contains(text(), 'Open Account')]'.</msg>
-<status status="PASS" starttime="20221019 13:38:28.705" endtime="20221019 13:38:31.299"/>
+<msg timestamp="20221020 12:54:04.119" level="INFO">Clicking button 'xpath://button[contains(text(), 'Open Account')]'.</msg>
+<status status="PASS" starttime="20221020 12:54:04.119" endtime="20221020 12:54:06.675"/>
 </kw>
 <kw name="Catenate" library="BuiltIn">
 <var>${fullName}</var>
 <arg>${fName}</arg>
 <arg>${lName}</arg>
 <doc>Catenates the given items together and returns the resulted string.</doc>
-<msg timestamp="20221019 13:38:31.299" level="INFO">${fullName} = John Rambo</msg>
-<status status="PASS" starttime="20221019 13:38:31.299" endtime="20221019 13:38:31.299"/>
+<msg timestamp="20221020 12:54:06.675" level="INFO">${fullName} = John Rambo</msg>
+<status status="PASS" starttime="20221020 12:54:06.675" endtime="20221020 12:54:06.675"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${fullName}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20221019 13:38:31.299" endtime="20221019 13:38:31.299"/>
+<status status="PASS" starttime="20221020 12:54:06.675" endtime="20221020 12:54:06.675"/>
 </kw>
 <kw name="Select From List By Label" library="SeleniumLibrary">
 <arg>${BM_openAcc_tab_CxDropDownName}</arg>
 <arg>${fullName}</arg>
 <doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<msg timestamp="20221019 13:38:31.299" level="INFO">Selecting options from selection list 'userSelect' by label John Rambo.</msg>
-<status status="PASS" starttime="20221019 13:38:31.299" endtime="20221019 13:38:34.394"/>
+<msg timestamp="20221020 12:54:06.675" level="INFO">Selecting options from selection list 'userSelect' by label John Rambo.</msg>
+<status status="PASS" starttime="20221020 12:54:06.675" endtime="20221020 12:54:09.756"/>
 </kw>
 <kw name="Select From List By Value" library="SeleniumLibrary">
 <arg>${BM_openAcc_tab_currencyListName}</arg>
 <arg>${currency}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<msg timestamp="20221019 13:38:34.394" level="INFO">Selecting options from selection list 'currency' by value Dollar.</msg>
-<status status="PASS" starttime="20221019 13:38:34.394" endtime="20221019 13:38:37.546"/>
+<msg timestamp="20221020 12:54:09.756" level="INFO">Selecting options from selection list 'currency' by value Dollar.</msg>
+<status status="PASS" starttime="20221020 12:54:09.756" endtime="20221020 12:54:12.846"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_openAcc_tab_process_Btn}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:38:37.546" level="INFO">Clicking button 'xpath://button[text()='Process']'.</msg>
-<status status="PASS" starttime="20221019 13:38:37.546" endtime="20221019 13:38:40.182"/>
+<msg timestamp="20221020 12:54:12.847" level="INFO">Clicking button 'xpath://button[text()='Process']'.</msg>
+<status status="PASS" starttime="20221020 12:54:12.847" endtime="20221020 12:54:15.474"/>
 </kw>
 <kw name="Handle Alert" library="SeleniumLibrary">
 <arg>ACCEPT</arg>
 <doc>Handles the current alert and returns its message.</doc>
-<msg timestamp="20221019 13:38:40.182" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<status status="PASS" starttime="20221019 13:38:40.182" endtime="20221019 13:38:41.698"/>
+<msg timestamp="20221020 12:54:15.475" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20221020 12:54:15.474" endtime="20221020 12:54:16.999"/>
 </kw>
-<status status="PASS" starttime="20221019 13:38:28.705" endtime="20221019 13:38:41.698"/>
+<status status="PASS" starttime="20221020 12:54:04.119" endtime="20221020 12:54:16.999"/>
 </kw>
 <kw name="check customer details in DB" library="Resources">
 <arg>${FNAME}</arg>
@@ -307,70 +618,375 @@
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_CxList_tab}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:38:41.698" level="INFO">Clicking button 'xpath://button[contains(text(), 'Customers')]'.</msg>
-<status status="PASS" starttime="20221019 13:38:41.698" endtime="20221019 13:38:44.328"/>
+<msg timestamp="20221020 12:54:17.000" level="INFO">Clicking button 'xpath://button[contains(text(), 'Customers')]'.</msg>
+<status status="PASS" starttime="20221020 12:54:17.000" endtime="20221020 12:54:19.624"/>
 </kw>
 <kw name="Get Element Count" library="SeleniumLibrary">
 <var>${CustomerCount}</var>
 <arg>${BM_CXList_CxCount}</arg>
 <doc>Returns the number of elements matching ``locator``.</doc>
-<msg timestamp="20221019 13:38:44.845" level="INFO">${CustomerCount} = 7</msg>
-<status status="PASS" starttime="20221019 13:38:44.328" endtime="20221019 13:38:44.845"/>
+<msg timestamp="20221020 12:54:20.142" level="INFO">${CustomerCount} = 7</msg>
+<status status="PASS" starttime="20221020 12:54:19.624" endtime="20221020 12:54:20.142"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${CustomerCount}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20221019 13:38:44.845" endtime="20221019 13:38:44.845"/>
+<status status="PASS" starttime="20221020 12:54:20.142" endtime="20221020 12:54:20.144"/>
 </kw>
 <kw name="Table Row Should Contain" library="SeleniumLibrary">
 <arg>${BM_CxList_tab_CxTable}</arg>
 <arg>${CustomerCount}</arg>
 <arg>${fName}</arg>
 <doc>Verifies that table row contains text ``expected``.</doc>
-<status status="PASS" starttime="20221019 13:38:44.845" endtime="20221019 13:38:46.935"/>
+<status status="PASS" starttime="20221020 12:54:20.144" endtime="20221020 12:54:22.213"/>
 </kw>
 <kw name="Scroll Element Into View" library="SeleniumLibrary">
 <arg>//table[@class='table table-bordered table-striped']/tbody/tr/td[text()="${fName}"]</arg>
 <doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" starttime="20221019 13:38:46.935" endtime="20221019 13:38:48.239"/>
+<status status="PASS" starttime="20221020 12:54:22.213" endtime="20221020 12:54:23.525"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${Home_btn}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:38:48.239" level="INFO">Clicking button 'xpath://button[text()='Home']'.</msg>
-<status status="PASS" starttime="20221019 13:38:48.239" endtime="20221019 13:38:50.820"/>
+<msg timestamp="20221020 12:54:23.525" level="INFO">Clicking button 'xpath://button[text()='Home']'.</msg>
+<status status="PASS" starttime="20221020 12:54:23.525" endtime="20221020 12:54:26.090"/>
 </kw>
-<status status="PASS" starttime="20221019 13:38:41.698" endtime="20221019 13:38:50.820"/>
+<status status="PASS" starttime="20221020 12:54:17.000" endtime="20221020 12:54:26.090"/>
 </kw>
-<status status="PASS" starttime="20221019 13:38:13.810" endtime="20221019 13:38:50.820"/>
+<kw name="Customer operations">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${CURRENCY}</arg>
+<arg>${DEPOSIT}</arg>
+<arg>${WITHDRAWL}</arg>
+<kw name="login as customer" library="Resources">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${CURRENCY}</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_Login_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:54:26.093" level="INFO">Clicking button 'xpath://button[text()='Customer Login']'.</msg>
+<status status="PASS" starttime="20221020 12:54:26.092" endtime="20221020 12:54:28.669"/>
 </kw>
-<tag>Bank_manager_workflow</tag>
-<status status="PASS" starttime="20221019 13:38:13.804" endtime="20221019 13:38:50.820"/>
+<kw name="Catenate" library="BuiltIn">
+<var>${CXname}</var>
+<arg>${fName}</arg>
+<arg>${lName}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20221020 12:54:28.669" level="INFO">${CXname} = John Rambo</msg>
+<status status="PASS" starttime="20221020 12:54:28.669" endtime="20221020 12:54:28.669"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CX_dropDown_name}</arg>
+<arg>${CXname}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20221020 12:54:28.669" level="INFO">Selecting options from selection list 'userSelect' by label John Rambo.</msg>
+<status status="PASS" starttime="20221020 12:54:28.669" endtime="20221020 12:54:31.781"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_dropDown_login_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:54:31.782" level="INFO">Clicking button 'xpath://button[text()='Login']'.</msg>
+<status status="PASS" starttime="20221020 12:54:31.781" endtime="20221020 12:54:34.381"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Welcome</arg>
+<arg>${CXname}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:54:35.420" level="INFO">Current page contains text 'Welcome'.</msg>
+<status status="PASS" starttime="20221020 12:54:34.382" endtime="20221020 12:54:35.420"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Balance : 0</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:54:36.440" level="INFO">Current page contains text 'Balance : 0'.</msg>
+<status status="PASS" starttime="20221020 12:54:35.421" endtime="20221020 12:54:36.440"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Currency : ${currency}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:54:37.462" level="INFO">Current page contains text 'Currency : Dollar'.</msg>
+<status status="PASS" starttime="20221020 12:54:36.440" endtime="20221020 12:54:37.462"/>
+</kw>
+<status status="PASS" starttime="20221020 12:54:26.091" endtime="20221020 12:54:37.462"/>
+</kw>
+<kw name="deposit money as a customer" library="Resources">
+<var>${newBalanceAfterDeposit}</var>
+<arg>${DEPOSIT}</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_depositTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:54:37.463" level="INFO">Clicking button 'xpath://button[contains(text(),'Deposit')]'.</msg>
+<status status="PASS" starttime="20221020 12:54:37.463" endtime="20221020 12:54:40.080"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CX_depositTab_inputAmount}</arg>
+<arg>${depositAmount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221020 12:54:40.081" level="INFO">Typing text '1234' into text field 'xpath://input[@placeholder='amount']'.</msg>
+<status status="PASS" starttime="20221020 12:54:40.080" endtime="20221020 12:54:41.678"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_depositTab_deposit_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:54:41.679" level="INFO">Clicking button 'xpath://button[text()='Deposit']'.</msg>
+<status status="PASS" starttime="20221020 12:54:41.679" endtime="20221020 12:54:44.295"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${depositAmount}</var>
+<arg>${depositAmount}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221020 12:54:44.296" level="INFO">${depositAmount} = 1234</msg>
+<status status="PASS" starttime="20221020 12:54:44.296" endtime="20221020 12:54:44.296"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${depositAmount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:54:44.296" endtime="20221020 12:54:44.297"/>
+</kw>
+<if>
+<branch type="IF" condition="${depositAmount} &gt; 0">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Deposit Successful</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:54:45.331" level="INFO">Current page contains text 'Deposit Successful'.</msg>
+<status status="PASS" starttime="20221020 12:54:44.297" endtime="20221020 12:54:45.331"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${newBalance}</var>
+<arg>${depositAmount}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221020 12:54:45.332" level="INFO">${newBalance} = 1234</msg>
+<status status="PASS" starttime="20221020 12:54:45.331" endtime="20221020 12:54:45.332"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Balance : ${newBalance}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:54:46.365" level="INFO">Current page contains text 'Balance : 1234'.</msg>
+<status status="PASS" starttime="20221020 12:54:45.332" endtime="20221020 12:54:46.365"/>
+</kw>
+<status status="PASS" starttime="20221020 12:54:44.297" endtime="20221020 12:54:46.365"/>
+</branch>
+<status status="PASS" starttime="20221020 12:54:44.297" endtime="20221020 12:54:46.365"/>
+</if>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${newBalance}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:54:46.365" endtime="20221020 12:54:46.366"/>
+</kw>
+<msg timestamp="20221020 12:54:46.366" level="INFO">${newBalanceAfterDeposit} = 1234</msg>
+<status status="PASS" starttime="20221020 12:54:37.462" endtime="20221020 12:54:46.366"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>New balance after deposit: ${newBalanceAfterDeposit}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:54:46.366" endtime="20221020 12:54:46.367"/>
+</kw>
+<kw name="check customer transactions table" library="Resources">
+<arg>${newBalanceAfterDeposit}</arg>
+<arg>Credit</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_transactionsTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:54:46.367" level="INFO">Clicking button 'xpath://button[contains(text(),'Transactions')]'.</msg>
+<status status="PASS" starttime="20221020 12:54:46.367" endtime="20221020 12:54:48.985"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${transactionsCount}</var>
+<arg>${CX_transactionsTab_tableRows}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221020 12:54:49.499" level="INFO">${transactionsCount} = 1</msg>
+<status status="PASS" starttime="20221020 12:54:48.985" endtime="20221020 12:54:49.499"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Number of transactions: ${transactionsCount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:54:49.499" endtime="20221020 12:54:49.500"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${lastTransactionAmt}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221020 12:54:49.500" endtime="20221020 12:54:52.612"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${transactionType}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221020 12:54:52.612" endtime="20221020 12:54:55.725"/>
+</kw>
+<status status="PASS" starttime="20221020 12:54:46.367" endtime="20221020 12:54:55.725"/>
+</kw>
+<kw name="withdraw money as a customer" library="Resources">
+<var>${newBalanceAfterWithdrawl}</var>
+<arg>${newBalanceAfterDeposit}</arg>
+<arg>${WITHDRAWL}</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_back_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:54:55.726" level="INFO">Clicking button 'xpath://button[text()='Back']'.</msg>
+<status status="PASS" starttime="20221020 12:54:55.726" endtime="20221020 12:54:58.347"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_withdrawlTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:54:58.348" level="INFO">Clicking button 'xpath://button[contains(text(),'Withdrawl')]'.</msg>
+<status status="PASS" starttime="20221020 12:54:58.347" endtime="20221020 12:55:00.940"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CX_withdrawlTab_ipWithdrawl}</arg>
+<arg>${withdrawlAmount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221020 12:55:00.941" level="INFO">Typing text '123' into text field 'xpath://input[@placeholder='amount']'.</msg>
+<status status="PASS" starttime="20221020 12:55:00.940" endtime="20221020 12:55:02.528"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${withdrawlAmount}</var>
+<arg>${withdrawlAmount}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221020 12:55:02.528" level="INFO">${withdrawlAmount} = 123</msg>
+<status status="PASS" starttime="20221020 12:55:02.528" endtime="20221020 12:55:02.528"/>
+</kw>
+<if>
+<branch type="IF" condition="${withdrawlAmount} &gt; 0 and ${withdrawlAmount} &lt; ${newBalanceAfterDeposit}">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_withdrawlTab_withdraw_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:55:02.529" level="INFO">Clicking button 'xpath://button[text()='Withdraw']'.</msg>
+<status status="PASS" starttime="20221020 12:55:02.528" endtime="20221020 12:55:05.128"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${newBalAfterWithdrawl}</var>
+<arg>${newBalanceAfterDeposit} - ${withdrawlAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221020 12:55:05.128" level="INFO">${newBalAfterWithdrawl} = 1111</msg>
+<status status="PASS" starttime="20221020 12:55:05.128" endtime="20221020 12:55:05.128"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Transaction successful</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:55:06.163" level="INFO">Current page contains text 'Transaction successful'.</msg>
+<status status="PASS" starttime="20221020 12:55:05.128" endtime="20221020 12:55:06.163"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Balance : ${newBalAfterWithdrawl}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:55:07.192" level="INFO">Current page contains text 'Balance : 1111'.</msg>
+<status status="PASS" starttime="20221020 12:55:06.163" endtime="20221020 12:55:07.192"/>
+</kw>
+<status status="PASS" starttime="20221020 12:55:02.528" endtime="20221020 12:55:07.192"/>
+</branch>
+<status status="PASS" starttime="20221020 12:55:02.528" endtime="20221020 12:55:07.192"/>
+</if>
+<msg timestamp="20221020 12:55:07.192" level="INFO">${newBalanceAfterWithdrawl} = 1111</msg>
+<status status="PASS" starttime="20221020 12:54:55.726" endtime="20221020 12:55:07.192"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>New balance after withdrawl: ${newBalanceAfterWithdrawl}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:55:07.193" endtime="20221020 12:55:07.193"/>
+</kw>
+<kw name="check customer transactions table" library="Resources">
+<arg>${WITHDRAWL}</arg>
+<arg>Debit</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_transactionsTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:55:07.194" level="INFO">Clicking button 'xpath://button[contains(text(),'Transactions')]'.</msg>
+<status status="PASS" starttime="20221020 12:55:07.194" endtime="20221020 12:55:09.815"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${transactionsCount}</var>
+<arg>${CX_transactionsTab_tableRows}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221020 12:55:10.325" level="INFO">${transactionsCount} = 2</msg>
+<status status="PASS" starttime="20221020 12:55:09.815" endtime="20221020 12:55:10.325"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Number of transactions: ${transactionsCount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:55:10.325" endtime="20221020 12:55:10.326"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${lastTransactionAmt}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221020 12:55:10.326" endtime="20221020 12:55:12.387"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${transactionType}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221020 12:55:12.387" endtime="20221020 12:55:14.448"/>
+</kw>
+<status status="PASS" starttime="20221020 12:55:07.193" endtime="20221020 12:55:14.448"/>
+</kw>
+<kw name="click back button" library="Resources">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_back_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:55:14.449" level="INFO">Clicking button 'xpath://button[text()='Back']'.</msg>
+<status status="PASS" starttime="20221020 12:55:14.449" endtime="20221020 12:55:17.060"/>
+</kw>
+<status status="PASS" starttime="20221020 12:55:14.448" endtime="20221020 12:55:17.060"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_logout_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:55:17.061" level="INFO">Clicking button 'xpath://button[text()='Logout']'.</msg>
+<status status="PASS" starttime="20221020 12:55:17.060" endtime="20221020 12:55:19.657"/>
+</kw>
+<kw name="go to home" library="Resources">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${Home_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:55:19.658" level="INFO">Clicking button 'xpath://button[text()='Home']'.</msg>
+<status status="PASS" starttime="20221020 12:55:19.657" endtime="20221020 12:55:22.260"/>
+</kw>
+<status status="PASS" starttime="20221020 12:55:19.657" endtime="20221020 12:55:22.260"/>
+</kw>
+<status status="PASS" starttime="20221020 12:54:26.090" endtime="20221020 12:55:22.260"/>
+</kw>
+<status status="PASS" starttime="20221020 12:53:49.136" endtime="20221020 12:55:22.260"/>
+</kw>
+<tag>Bank_manager_postive_workflow</tag>
+<status status="PASS" starttime="20221020 12:53:49.136" endtime="20221020 12:55:22.261"/>
 </test>
-<test id="s1-t3" name="TC1_BankManager_workflow" line="16">
+<test id="s1-t3" name="TC1_BankManager_workflow_positive" line="16">
 <kw name="Bank manager operations">
 <arg>Jack</arg>
 <arg>Reacher</arg>
 <arg>11121</arg>
 <arg>Pound</arg>
+<arg>89500</arg>
+<arg>84000</arg>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221020 12:55:22.266" endtime="20221020 12:55:22.779"/>
+</kw>
 <kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
 <arg>2 seconds</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20221019 13:38:50.835" endtime="20221019 13:38:51.346"/>
+<status status="PASS" starttime="20221020 12:55:22.779" endtime="20221020 12:55:23.296"/>
 </kw>
 <kw name="Set Selenium Speed" library="SeleniumLibrary">
 <arg>0.5 seconds</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" starttime="20221019 13:38:51.346" endtime="20221019 13:38:51.346"/>
+<status status="PASS" starttime="20221020 12:55:23.296" endtime="20221020 12:55:23.296"/>
 </kw>
 <kw name="login as bank manager" library="Resources">
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_login_btn}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:38:51.346" level="INFO">Clicking button 'xpath://button[@ng-click='manager()']'.</msg>
-<status status="PASS" starttime="20221019 13:38:51.346" endtime="20221019 13:38:53.991"/>
+<msg timestamp="20221020 12:55:23.297" level="INFO">Clicking button 'xpath://button[@ng-click='manager()']'.</msg>
+<status status="PASS" starttime="20221020 12:55:23.296" endtime="20221020 12:55:25.901"/>
 </kw>
-<status status="PASS" starttime="20221019 13:38:51.346" endtime="20221019 13:38:53.991"/>
+<status status="PASS" starttime="20221020 12:55:23.296" endtime="20221020 12:55:25.902"/>
 </kw>
 <kw name="add Cx as bank manager" library="Resources">
 <arg>${FNAME}</arg>
@@ -379,43 +995,43 @@
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_addCx_tab}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:38:53.991" level="INFO">Clicking button 'xpath://button[contains(text(), 'Add Customer')]'.</msg>
-<status status="PASS" starttime="20221019 13:38:53.991" endtime="20221019 13:38:56.577"/>
+<msg timestamp="20221020 12:55:25.903" level="INFO">Clicking button 'xpath://button[contains(text(), 'Add Customer')]'.</msg>
+<status status="PASS" starttime="20221020 12:55:25.903" endtime="20221020 12:55:28.507"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${BM_addCx_tab_fName}</arg>
 <arg>${fName}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221019 13:38:56.577" level="INFO">Typing text 'Jack' into text field 'xpath://input[@placeholder='First Name']'.</msg>
-<status status="PASS" starttime="20221019 13:38:56.577" endtime="20221019 13:38:58.239"/>
+<msg timestamp="20221020 12:55:28.507" level="INFO">Typing text 'Jack' into text field 'xpath://input[@placeholder='First Name']'.</msg>
+<status status="PASS" starttime="20221020 12:55:28.507" endtime="20221020 12:55:30.118"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${BM_addCx_tab_lName}</arg>
 <arg>${lName}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221019 13:38:58.239" level="INFO">Typing text 'Reacher' into text field 'xpath://input[@placeholder='Last Name']'.</msg>
-<status status="PASS" starttime="20221019 13:38:58.239" endtime="20221019 13:38:59.901"/>
+<msg timestamp="20221020 12:55:30.118" level="INFO">Typing text 'Reacher' into text field 'xpath://input[@placeholder='Last Name']'.</msg>
+<status status="PASS" starttime="20221020 12:55:30.118" endtime="20221020 12:55:31.707"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${BM_addCx_tab_postCode}</arg>
 <arg>${pincode}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221019 13:38:59.901" level="INFO">Typing text '11121' into text field 'xpath://input[@placeholder='Post Code']'.</msg>
-<status status="PASS" starttime="20221019 13:38:59.901" endtime="20221019 13:39:01.566"/>
+<msg timestamp="20221020 12:55:31.708" level="INFO">Typing text '11121' into text field 'xpath://input[@placeholder='Post Code']'.</msg>
+<status status="PASS" starttime="20221020 12:55:31.707" endtime="20221020 12:55:33.300"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_addCx_tab_btn}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:39:01.566" level="INFO">Clicking button 'xpath://button[text()='Add Customer']'.</msg>
-<status status="PASS" starttime="20221019 13:39:01.566" endtime="20221019 13:39:04.178"/>
+<msg timestamp="20221020 12:55:33.300" level="INFO">Clicking button 'xpath://button[text()='Add Customer']'.</msg>
+<status status="PASS" starttime="20221020 12:55:33.300" endtime="20221020 12:55:35.887"/>
 </kw>
 <kw name="Handle Alert" library="SeleniumLibrary">
 <arg>ACCEPT</arg>
 <doc>Handles the current alert and returns its message.</doc>
-<msg timestamp="20221019 13:39:04.178" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<status status="PASS" starttime="20221019 13:39:04.178" endtime="20221019 13:39:05.703"/>
+<msg timestamp="20221020 12:55:35.887" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20221020 12:55:35.887" endtime="20221020 12:55:37.434"/>
 </kw>
-<status status="PASS" starttime="20221019 13:38:53.991" endtime="20221019 13:39:05.703"/>
+<status status="PASS" starttime="20221020 12:55:25.902" endtime="20221020 12:55:37.434"/>
 </kw>
 <kw name="open account for new Cx as bank manager" library="Resources">
 <arg>${FNAME}</arg>
@@ -424,49 +1040,49 @@
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_openAcc_tab}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:39:05.703" level="INFO">Clicking button 'xpath://button[contains(text(), 'Open Account')]'.</msg>
-<status status="PASS" starttime="20221019 13:39:05.703" endtime="20221019 13:39:08.308"/>
+<msg timestamp="20221020 12:55:37.434" level="INFO">Clicking button 'xpath://button[contains(text(), 'Open Account')]'.</msg>
+<status status="PASS" starttime="20221020 12:55:37.434" endtime="20221020 12:55:40.038"/>
 </kw>
 <kw name="Catenate" library="BuiltIn">
 <var>${fullName}</var>
 <arg>${fName}</arg>
 <arg>${lName}</arg>
 <doc>Catenates the given items together and returns the resulted string.</doc>
-<msg timestamp="20221019 13:39:08.308" level="INFO">${fullName} = Jack Reacher</msg>
-<status status="PASS" starttime="20221019 13:39:08.308" endtime="20221019 13:39:08.308"/>
+<msg timestamp="20221020 12:55:40.039" level="INFO">${fullName} = Jack Reacher</msg>
+<status status="PASS" starttime="20221020 12:55:40.038" endtime="20221020 12:55:40.039"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${fullName}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20221019 13:39:08.308" endtime="20221019 13:39:08.308"/>
+<status status="PASS" starttime="20221020 12:55:40.039" endtime="20221020 12:55:40.039"/>
 </kw>
 <kw name="Select From List By Label" library="SeleniumLibrary">
 <arg>${BM_openAcc_tab_CxDropDownName}</arg>
 <arg>${fullName}</arg>
 <doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<msg timestamp="20221019 13:39:08.308" level="INFO">Selecting options from selection list 'userSelect' by label Jack Reacher.</msg>
-<status status="PASS" starttime="20221019 13:39:08.308" endtime="20221019 13:39:11.410"/>
+<msg timestamp="20221020 12:55:40.040" level="INFO">Selecting options from selection list 'userSelect' by label Jack Reacher.</msg>
+<status status="PASS" starttime="20221020 12:55:40.040" endtime="20221020 12:55:43.149"/>
 </kw>
 <kw name="Select From List By Value" library="SeleniumLibrary">
 <arg>${BM_openAcc_tab_currencyListName}</arg>
 <arg>${currency}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<msg timestamp="20221019 13:39:11.411" level="INFO">Selecting options from selection list 'currency' by value Pound.</msg>
-<status status="PASS" starttime="20221019 13:39:11.410" endtime="20221019 13:39:14.502"/>
+<msg timestamp="20221020 12:55:43.149" level="INFO">Selecting options from selection list 'currency' by value Pound.</msg>
+<status status="PASS" starttime="20221020 12:55:43.149" endtime="20221020 12:55:46.262"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_openAcc_tab_process_Btn}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:39:14.502" level="INFO">Clicking button 'xpath://button[text()='Process']'.</msg>
-<status status="PASS" starttime="20221019 13:39:14.502" endtime="20221019 13:39:17.094"/>
+<msg timestamp="20221020 12:55:46.262" level="INFO">Clicking button 'xpath://button[text()='Process']'.</msg>
+<status status="PASS" starttime="20221020 12:55:46.262" endtime="20221020 12:55:48.857"/>
 </kw>
 <kw name="Handle Alert" library="SeleniumLibrary">
 <arg>ACCEPT</arg>
 <doc>Handles the current alert and returns its message.</doc>
-<msg timestamp="20221019 13:39:17.094" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<status status="PASS" starttime="20221019 13:39:17.094" endtime="20221019 13:39:18.618"/>
+<msg timestamp="20221020 12:55:48.857" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20221020 12:55:48.857" endtime="20221020 12:55:50.406"/>
 </kw>
-<status status="PASS" starttime="20221019 13:39:05.703" endtime="20221019 13:39:18.618"/>
+<status status="PASS" starttime="20221020 12:55:37.434" endtime="20221020 12:55:50.406"/>
 </kw>
 <kw name="check customer details in DB" library="Resources">
 <arg>${FNAME}</arg>
@@ -474,70 +1090,375 @@
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_CxList_tab}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:39:18.618" level="INFO">Clicking button 'xpath://button[contains(text(), 'Customers')]'.</msg>
-<status status="PASS" starttime="20221019 13:39:18.618" endtime="20221019 13:39:21.249"/>
+<msg timestamp="20221020 12:55:50.406" level="INFO">Clicking button 'xpath://button[contains(text(), 'Customers')]'.</msg>
+<status status="PASS" starttime="20221020 12:55:50.406" endtime="20221020 12:55:53.018"/>
 </kw>
 <kw name="Get Element Count" library="SeleniumLibrary">
 <var>${CustomerCount}</var>
 <arg>${BM_CXList_CxCount}</arg>
 <doc>Returns the number of elements matching ``locator``.</doc>
-<msg timestamp="20221019 13:39:21.760" level="INFO">${CustomerCount} = 8</msg>
-<status status="PASS" starttime="20221019 13:39:21.249" endtime="20221019 13:39:21.760"/>
+<msg timestamp="20221020 12:55:53.535" level="INFO">${CustomerCount} = 8</msg>
+<status status="PASS" starttime="20221020 12:55:53.018" endtime="20221020 12:55:53.535"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${CustomerCount}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20221019 13:39:21.760" endtime="20221019 13:39:21.760"/>
+<status status="PASS" starttime="20221020 12:55:53.535" endtime="20221020 12:55:53.536"/>
 </kw>
 <kw name="Table Row Should Contain" library="SeleniumLibrary">
 <arg>${BM_CxList_tab_CxTable}</arg>
 <arg>${CustomerCount}</arg>
 <arg>${fName}</arg>
 <doc>Verifies that table row contains text ``expected``.</doc>
-<status status="PASS" starttime="20221019 13:39:21.762" endtime="20221019 13:39:23.855"/>
+<status status="PASS" starttime="20221020 12:55:53.536" endtime="20221020 12:55:55.611"/>
 </kw>
 <kw name="Scroll Element Into View" library="SeleniumLibrary">
 <arg>//table[@class='table table-bordered table-striped']/tbody/tr/td[text()="${fName}"]</arg>
 <doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" starttime="20221019 13:39:23.855" endtime="20221019 13:39:25.144"/>
+<status status="PASS" starttime="20221020 12:55:55.611" endtime="20221020 12:55:56.917"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${Home_btn}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:39:25.144" level="INFO">Clicking button 'xpath://button[text()='Home']'.</msg>
-<status status="PASS" starttime="20221019 13:39:25.144" endtime="20221019 13:39:27.717"/>
+<msg timestamp="20221020 12:55:56.917" level="INFO">Clicking button 'xpath://button[text()='Home']'.</msg>
+<status status="PASS" starttime="20221020 12:55:56.917" endtime="20221020 12:55:59.523"/>
 </kw>
-<status status="PASS" starttime="20221019 13:39:18.618" endtime="20221019 13:39:27.717"/>
+<status status="PASS" starttime="20221020 12:55:50.406" endtime="20221020 12:55:59.523"/>
 </kw>
-<status status="PASS" starttime="20221019 13:38:50.833" endtime="20221019 13:39:27.717"/>
+<kw name="Customer operations">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${CURRENCY}</arg>
+<arg>${DEPOSIT}</arg>
+<arg>${WITHDRAWL}</arg>
+<kw name="login as customer" library="Resources">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${CURRENCY}</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_Login_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:55:59.524" level="INFO">Clicking button 'xpath://button[text()='Customer Login']'.</msg>
+<status status="PASS" starttime="20221020 12:55:59.524" endtime="20221020 12:56:02.131"/>
 </kw>
-<tag>Bank_manager_workflow</tag>
-<status status="PASS" starttime="20221019 13:38:50.820" endtime="20221019 13:39:27.717"/>
+<kw name="Catenate" library="BuiltIn">
+<var>${CXname}</var>
+<arg>${fName}</arg>
+<arg>${lName}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20221020 12:56:02.131" level="INFO">${CXname} = Jack Reacher</msg>
+<status status="PASS" starttime="20221020 12:56:02.131" endtime="20221020 12:56:02.131"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CX_dropDown_name}</arg>
+<arg>${CXname}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20221020 12:56:02.132" level="INFO">Selecting options from selection list 'userSelect' by label Jack Reacher.</msg>
+<status status="PASS" starttime="20221020 12:56:02.131" endtime="20221020 12:56:05.253"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_dropDown_login_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:56:05.253" level="INFO">Clicking button 'xpath://button[text()='Login']'.</msg>
+<status status="PASS" starttime="20221020 12:56:05.253" endtime="20221020 12:56:07.864"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Welcome</arg>
+<arg>${CXname}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:56:08.899" level="INFO">Current page contains text 'Welcome'.</msg>
+<status status="PASS" starttime="20221020 12:56:07.865" endtime="20221020 12:56:08.899"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Balance : 0</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:56:09.938" level="INFO">Current page contains text 'Balance : 0'.</msg>
+<status status="PASS" starttime="20221020 12:56:08.899" endtime="20221020 12:56:09.938"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Currency : ${currency}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:56:10.971" level="INFO">Current page contains text 'Currency : Pound'.</msg>
+<status status="PASS" starttime="20221020 12:56:09.938" endtime="20221020 12:56:10.971"/>
+</kw>
+<status status="PASS" starttime="20221020 12:55:59.524" endtime="20221020 12:56:10.971"/>
+</kw>
+<kw name="deposit money as a customer" library="Resources">
+<var>${newBalanceAfterDeposit}</var>
+<arg>${DEPOSIT}</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_depositTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:56:10.972" level="INFO">Clicking button 'xpath://button[contains(text(),'Deposit')]'.</msg>
+<status status="PASS" starttime="20221020 12:56:10.972" endtime="20221020 12:56:13.565"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CX_depositTab_inputAmount}</arg>
+<arg>${depositAmount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221020 12:56:13.566" level="INFO">Typing text '89500' into text field 'xpath://input[@placeholder='amount']'.</msg>
+<status status="PASS" starttime="20221020 12:56:13.565" endtime="20221020 12:56:15.152"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_depositTab_deposit_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:56:15.152" level="INFO">Clicking button 'xpath://button[text()='Deposit']'.</msg>
+<status status="PASS" starttime="20221020 12:56:15.152" endtime="20221020 12:56:17.774"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${depositAmount}</var>
+<arg>${depositAmount}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221020 12:56:17.774" level="INFO">${depositAmount} = 89500</msg>
+<status status="PASS" starttime="20221020 12:56:17.774" endtime="20221020 12:56:17.774"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${depositAmount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:56:17.774" endtime="20221020 12:56:17.775"/>
+</kw>
+<if>
+<branch type="IF" condition="${depositAmount} &gt; 0">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Deposit Successful</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:56:18.813" level="INFO">Current page contains text 'Deposit Successful'.</msg>
+<status status="PASS" starttime="20221020 12:56:17.775" endtime="20221020 12:56:18.813"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${newBalance}</var>
+<arg>${depositAmount}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221020 12:56:18.814" level="INFO">${newBalance} = 89500</msg>
+<status status="PASS" starttime="20221020 12:56:18.813" endtime="20221020 12:56:18.814"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Balance : ${newBalance}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:56:19.848" level="INFO">Current page contains text 'Balance : 89500'.</msg>
+<status status="PASS" starttime="20221020 12:56:18.814" endtime="20221020 12:56:19.848"/>
+</kw>
+<status status="PASS" starttime="20221020 12:56:17.775" endtime="20221020 12:56:19.848"/>
+</branch>
+<status status="PASS" starttime="20221020 12:56:17.775" endtime="20221020 12:56:19.848"/>
+</if>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${newBalance}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:56:19.848" endtime="20221020 12:56:19.849"/>
+</kw>
+<msg timestamp="20221020 12:56:19.849" level="INFO">${newBalanceAfterDeposit} = 89500</msg>
+<status status="PASS" starttime="20221020 12:56:10.971" endtime="20221020 12:56:19.849"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>New balance after deposit: ${newBalanceAfterDeposit}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:56:19.849" endtime="20221020 12:56:19.849"/>
+</kw>
+<kw name="check customer transactions table" library="Resources">
+<arg>${newBalanceAfterDeposit}</arg>
+<arg>Credit</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_transactionsTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:56:19.850" level="INFO">Clicking button 'xpath://button[contains(text(),'Transactions')]'.</msg>
+<status status="PASS" starttime="20221020 12:56:19.850" endtime="20221020 12:56:22.458"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${transactionsCount}</var>
+<arg>${CX_transactionsTab_tableRows}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221020 12:56:22.977" level="INFO">${transactionsCount} = 1</msg>
+<status status="PASS" starttime="20221020 12:56:22.458" endtime="20221020 12:56:22.977"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Number of transactions: ${transactionsCount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:56:22.977" endtime="20221020 12:56:22.978"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${lastTransactionAmt}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221020 12:56:22.978" endtime="20221020 12:56:26.083"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${transactionType}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221020 12:56:26.083" endtime="20221020 12:56:29.178"/>
+</kw>
+<status status="PASS" starttime="20221020 12:56:19.850" endtime="20221020 12:56:29.179"/>
+</kw>
+<kw name="withdraw money as a customer" library="Resources">
+<var>${newBalanceAfterWithdrawl}</var>
+<arg>${newBalanceAfterDeposit}</arg>
+<arg>${WITHDRAWL}</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_back_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:56:29.180" level="INFO">Clicking button 'xpath://button[text()='Back']'.</msg>
+<status status="PASS" starttime="20221020 12:56:29.180" endtime="20221020 12:56:31.793"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_withdrawlTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:56:31.793" level="INFO">Clicking button 'xpath://button[contains(text(),'Withdrawl')]'.</msg>
+<status status="PASS" starttime="20221020 12:56:31.793" endtime="20221020 12:56:34.394"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CX_withdrawlTab_ipWithdrawl}</arg>
+<arg>${withdrawlAmount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221020 12:56:34.395" level="INFO">Typing text '84000' into text field 'xpath://input[@placeholder='amount']'.</msg>
+<status status="PASS" starttime="20221020 12:56:34.394" endtime="20221020 12:56:35.993"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${withdrawlAmount}</var>
+<arg>${withdrawlAmount}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221020 12:56:35.994" level="INFO">${withdrawlAmount} = 84000</msg>
+<status status="PASS" starttime="20221020 12:56:35.993" endtime="20221020 12:56:35.994"/>
+</kw>
+<if>
+<branch type="IF" condition="${withdrawlAmount} &gt; 0 and ${withdrawlAmount} &lt; ${newBalanceAfterDeposit}">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_withdrawlTab_withdraw_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:56:35.994" level="INFO">Clicking button 'xpath://button[text()='Withdraw']'.</msg>
+<status status="PASS" starttime="20221020 12:56:35.994" endtime="20221020 12:56:38.598"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${newBalAfterWithdrawl}</var>
+<arg>${newBalanceAfterDeposit} - ${withdrawlAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221020 12:56:38.599" level="INFO">${newBalAfterWithdrawl} = 5500</msg>
+<status status="PASS" starttime="20221020 12:56:38.598" endtime="20221020 12:56:38.599"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Transaction successful</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:56:39.631" level="INFO">Current page contains text 'Transaction successful'.</msg>
+<status status="PASS" starttime="20221020 12:56:38.599" endtime="20221020 12:56:39.631"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Balance : ${newBalAfterWithdrawl}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:56:40.663" level="INFO">Current page contains text 'Balance : 5500'.</msg>
+<status status="PASS" starttime="20221020 12:56:39.632" endtime="20221020 12:56:40.663"/>
+</kw>
+<status status="PASS" starttime="20221020 12:56:35.994" endtime="20221020 12:56:40.663"/>
+</branch>
+<status status="PASS" starttime="20221020 12:56:35.994" endtime="20221020 12:56:40.663"/>
+</if>
+<msg timestamp="20221020 12:56:40.664" level="INFO">${newBalanceAfterWithdrawl} = 5500</msg>
+<status status="PASS" starttime="20221020 12:56:29.179" endtime="20221020 12:56:40.664"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>New balance after withdrawl: ${newBalanceAfterWithdrawl}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:56:40.664" endtime="20221020 12:56:40.664"/>
+</kw>
+<kw name="check customer transactions table" library="Resources">
+<arg>${WITHDRAWL}</arg>
+<arg>Debit</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_transactionsTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:56:40.665" level="INFO">Clicking button 'xpath://button[contains(text(),'Transactions')]'.</msg>
+<status status="PASS" starttime="20221020 12:56:40.665" endtime="20221020 12:56:43.267"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${transactionsCount}</var>
+<arg>${CX_transactionsTab_tableRows}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221020 12:56:43.786" level="INFO">${transactionsCount} = 2</msg>
+<status status="PASS" starttime="20221020 12:56:43.267" endtime="20221020 12:56:43.786"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Number of transactions: ${transactionsCount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:56:43.786" endtime="20221020 12:56:43.787"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${lastTransactionAmt}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221020 12:56:43.787" endtime="20221020 12:56:45.864"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${transactionType}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221020 12:56:45.864" endtime="20221020 12:56:47.942"/>
+</kw>
+<status status="PASS" starttime="20221020 12:56:40.664" endtime="20221020 12:56:47.942"/>
+</kw>
+<kw name="click back button" library="Resources">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_back_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:56:47.943" level="INFO">Clicking button 'xpath://button[text()='Back']'.</msg>
+<status status="PASS" starttime="20221020 12:56:47.943" endtime="20221020 12:56:50.556"/>
+</kw>
+<status status="PASS" starttime="20221020 12:56:47.942" endtime="20221020 12:56:50.556"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_logout_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:56:50.556" level="INFO">Clicking button 'xpath://button[text()='Logout']'.</msg>
+<status status="PASS" starttime="20221020 12:56:50.556" endtime="20221020 12:56:53.138"/>
+</kw>
+<kw name="go to home" library="Resources">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${Home_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:56:53.139" level="INFO">Clicking button 'xpath://button[text()='Home']'.</msg>
+<status status="PASS" starttime="20221020 12:56:53.138" endtime="20221020 12:56:55.743"/>
+</kw>
+<status status="PASS" starttime="20221020 12:56:53.138" endtime="20221020 12:56:55.743"/>
+</kw>
+<status status="PASS" starttime="20221020 12:55:59.523" endtime="20221020 12:56:55.743"/>
+</kw>
+<status status="PASS" starttime="20221020 12:55:22.265" endtime="20221020 12:56:55.743"/>
+</kw>
+<tag>Bank_manager_postive_workflow</tag>
+<status status="PASS" starttime="20221020 12:55:22.263" endtime="20221020 12:56:55.744"/>
 </test>
-<test id="s1-t4" name="TC1_BankManager_workflow" line="16">
+<test id="s1-t4" name="TC1_BankManager_workflow_positive" line="16">
 <kw name="Bank manager operations">
 <arg>Jason</arg>
 <arg>Bourne</arg>
 <arg>92334</arg>
 <arg>Rupee</arg>
+<arg>1100</arg>
+<arg>5</arg>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221020 12:56:55.748" endtime="20221020 12:56:56.256"/>
+</kw>
 <kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
 <arg>2 seconds</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20221019 13:39:27.723" endtime="20221019 13:39:28.240"/>
+<status status="PASS" starttime="20221020 12:56:56.256" endtime="20221020 12:56:56.763"/>
 </kw>
 <kw name="Set Selenium Speed" library="SeleniumLibrary">
 <arg>0.5 seconds</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" starttime="20221019 13:39:28.240" endtime="20221019 13:39:28.240"/>
+<status status="PASS" starttime="20221020 12:56:56.763" endtime="20221020 12:56:56.763"/>
 </kw>
 <kw name="login as bank manager" library="Resources">
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_login_btn}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:39:28.240" level="INFO">Clicking button 'xpath://button[@ng-click='manager()']'.</msg>
-<status status="PASS" starttime="20221019 13:39:28.240" endtime="20221019 13:39:30.846"/>
+<msg timestamp="20221020 12:56:56.764" level="INFO">Clicking button 'xpath://button[@ng-click='manager()']'.</msg>
+<status status="PASS" starttime="20221020 12:56:56.764" endtime="20221020 12:56:59.355"/>
 </kw>
-<status status="PASS" starttime="20221019 13:39:28.240" endtime="20221019 13:39:30.846"/>
+<status status="PASS" starttime="20221020 12:56:56.763" endtime="20221020 12:56:59.355"/>
 </kw>
 <kw name="add Cx as bank manager" library="Resources">
 <arg>${FNAME}</arg>
@@ -546,43 +1467,43 @@
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_addCx_tab}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:39:30.846" level="INFO">Clicking button 'xpath://button[contains(text(), 'Add Customer')]'.</msg>
-<status status="PASS" starttime="20221019 13:39:30.846" endtime="20221019 13:39:33.438"/>
+<msg timestamp="20221020 12:56:59.374" level="INFO">Clicking button 'xpath://button[contains(text(), 'Add Customer')]'.</msg>
+<status status="PASS" starttime="20221020 12:56:59.356" endtime="20221020 12:57:01.951"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${BM_addCx_tab_fName}</arg>
 <arg>${fName}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221019 13:39:33.438" level="INFO">Typing text 'Jason' into text field 'xpath://input[@placeholder='First Name']'.</msg>
-<status status="PASS" starttime="20221019 13:39:33.438" endtime="20221019 13:39:35.117"/>
+<msg timestamp="20221020 12:57:01.951" level="INFO">Typing text 'Jason' into text field 'xpath://input[@placeholder='First Name']'.</msg>
+<status status="PASS" starttime="20221020 12:57:01.951" endtime="20221020 12:57:03.543"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${BM_addCx_tab_lName}</arg>
 <arg>${lName}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221019 13:39:35.117" level="INFO">Typing text 'Bourne' into text field 'xpath://input[@placeholder='Last Name']'.</msg>
-<status status="PASS" starttime="20221019 13:39:35.117" endtime="20221019 13:39:36.794"/>
+<msg timestamp="20221020 12:57:03.543" level="INFO">Typing text 'Bourne' into text field 'xpath://input[@placeholder='Last Name']'.</msg>
+<status status="PASS" starttime="20221020 12:57:03.543" endtime="20221020 12:57:05.143"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${BM_addCx_tab_postCode}</arg>
 <arg>${pincode}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221019 13:39:36.794" level="INFO">Typing text '92334' into text field 'xpath://input[@placeholder='Post Code']'.</msg>
-<status status="PASS" starttime="20221019 13:39:36.794" endtime="20221019 13:39:38.488"/>
+<msg timestamp="20221020 12:57:05.143" level="INFO">Typing text '92334' into text field 'xpath://input[@placeholder='Post Code']'.</msg>
+<status status="PASS" starttime="20221020 12:57:05.143" endtime="20221020 12:57:06.744"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_addCx_tab_btn}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:39:38.488" level="INFO">Clicking button 'xpath://button[text()='Add Customer']'.</msg>
-<status status="PASS" starttime="20221019 13:39:38.488" endtime="20221019 13:39:41.059"/>
+<msg timestamp="20221020 12:57:06.744" level="INFO">Clicking button 'xpath://button[text()='Add Customer']'.</msg>
+<status status="PASS" starttime="20221020 12:57:06.744" endtime="20221020 12:57:09.354"/>
 </kw>
 <kw name="Handle Alert" library="SeleniumLibrary">
 <arg>ACCEPT</arg>
 <doc>Handles the current alert and returns its message.</doc>
-<msg timestamp="20221019 13:39:41.059" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<status status="PASS" starttime="20221019 13:39:41.059" endtime="20221019 13:39:42.587"/>
+<msg timestamp="20221020 12:57:09.354" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20221020 12:57:09.354" endtime="20221020 12:57:10.875"/>
 </kw>
-<status status="PASS" starttime="20221019 13:39:30.846" endtime="20221019 13:39:42.587"/>
+<status status="PASS" starttime="20221020 12:56:59.355" endtime="20221020 12:57:10.875"/>
 </kw>
 <kw name="open account for new Cx as bank manager" library="Resources">
 <arg>${FNAME}</arg>
@@ -591,49 +1512,49 @@
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_openAcc_tab}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:39:42.587" level="INFO">Clicking button 'xpath://button[contains(text(), 'Open Account')]'.</msg>
-<status status="PASS" starttime="20221019 13:39:42.587" endtime="20221019 13:39:45.179"/>
+<msg timestamp="20221020 12:57:10.876" level="INFO">Clicking button 'xpath://button[contains(text(), 'Open Account')]'.</msg>
+<status status="PASS" starttime="20221020 12:57:10.876" endtime="20221020 12:57:13.473"/>
 </kw>
 <kw name="Catenate" library="BuiltIn">
 <var>${fullName}</var>
 <arg>${fName}</arg>
 <arg>${lName}</arg>
 <doc>Catenates the given items together and returns the resulted string.</doc>
-<msg timestamp="20221019 13:39:45.179" level="INFO">${fullName} = Jason Bourne</msg>
-<status status="PASS" starttime="20221019 13:39:45.179" endtime="20221019 13:39:45.179"/>
+<msg timestamp="20221020 12:57:13.473" level="INFO">${fullName} = Jason Bourne</msg>
+<status status="PASS" starttime="20221020 12:57:13.473" endtime="20221020 12:57:13.473"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${fullName}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20221019 13:39:45.179" endtime="20221019 13:39:45.179"/>
+<status status="PASS" starttime="20221020 12:57:13.473" endtime="20221020 12:57:13.474"/>
 </kw>
 <kw name="Select From List By Label" library="SeleniumLibrary">
 <arg>${BM_openAcc_tab_CxDropDownName}</arg>
 <arg>${fullName}</arg>
 <doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<msg timestamp="20221019 13:39:45.183" level="INFO">Selecting options from selection list 'userSelect' by label Jason Bourne.</msg>
-<status status="PASS" starttime="20221019 13:39:45.179" endtime="20221019 13:39:48.320"/>
+<msg timestamp="20221020 12:57:13.474" level="INFO">Selecting options from selection list 'userSelect' by label Jason Bourne.</msg>
+<status status="PASS" starttime="20221020 12:57:13.474" endtime="20221020 12:57:16.574"/>
 </kw>
 <kw name="Select From List By Value" library="SeleniumLibrary">
 <arg>${BM_openAcc_tab_currencyListName}</arg>
 <arg>${currency}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<msg timestamp="20221019 13:39:48.320" level="INFO">Selecting options from selection list 'currency' by value Rupee.</msg>
-<status status="PASS" starttime="20221019 13:39:48.320" endtime="20221019 13:39:51.414"/>
+<msg timestamp="20221020 12:57:16.574" level="INFO">Selecting options from selection list 'currency' by value Rupee.</msg>
+<status status="PASS" starttime="20221020 12:57:16.574" endtime="20221020 12:57:19.684"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_openAcc_tab_process_Btn}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:39:51.414" level="INFO">Clicking button 'xpath://button[text()='Process']'.</msg>
-<status status="PASS" starttime="20221019 13:39:51.414" endtime="20221019 13:39:54.000"/>
+<msg timestamp="20221020 12:57:19.685" level="INFO">Clicking button 'xpath://button[text()='Process']'.</msg>
+<status status="PASS" starttime="20221020 12:57:19.684" endtime="20221020 12:57:22.280"/>
 </kw>
 <kw name="Handle Alert" library="SeleniumLibrary">
 <arg>ACCEPT</arg>
 <doc>Handles the current alert and returns its message.</doc>
-<msg timestamp="20221019 13:39:54.000" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<status status="PASS" starttime="20221019 13:39:54.000" endtime="20221019 13:39:55.524"/>
+<msg timestamp="20221020 12:57:22.280" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20221020 12:57:22.280" endtime="20221020 12:57:23.799"/>
 </kw>
-<status status="PASS" starttime="20221019 13:39:42.587" endtime="20221019 13:39:55.524"/>
+<status status="PASS" starttime="20221020 12:57:10.875" endtime="20221020 12:57:23.799"/>
 </kw>
 <kw name="check customer details in DB" library="Resources">
 <arg>${FNAME}</arg>
@@ -641,69 +1562,368 @@
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BM_CxList_tab}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:39:55.524" level="INFO">Clicking button 'xpath://button[contains(text(), 'Customers')]'.</msg>
-<status status="PASS" starttime="20221019 13:39:55.524" endtime="20221019 13:39:58.137"/>
+<msg timestamp="20221020 12:57:23.800" level="INFO">Clicking button 'xpath://button[contains(text(), 'Customers')]'.</msg>
+<status status="PASS" starttime="20221020 12:57:23.800" endtime="20221020 12:57:26.394"/>
 </kw>
 <kw name="Get Element Count" library="SeleniumLibrary">
 <var>${CustomerCount}</var>
 <arg>${BM_CXList_CxCount}</arg>
 <doc>Returns the number of elements matching ``locator``.</doc>
-<msg timestamp="20221019 13:39:58.653" level="INFO">${CustomerCount} = 9</msg>
-<status status="PASS" starttime="20221019 13:39:58.137" endtime="20221019 13:39:58.653"/>
+<msg timestamp="20221020 12:57:26.915" level="INFO">${CustomerCount} = 9</msg>
+<status status="PASS" starttime="20221020 12:57:26.394" endtime="20221020 12:57:26.915"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${CustomerCount}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20221019 13:39:58.653" endtime="20221019 13:39:58.653"/>
+<status status="PASS" starttime="20221020 12:57:26.915" endtime="20221020 12:57:26.916"/>
 </kw>
 <kw name="Table Row Should Contain" library="SeleniumLibrary">
 <arg>${BM_CxList_tab_CxTable}</arg>
 <arg>${CustomerCount}</arg>
 <arg>${fName}</arg>
 <doc>Verifies that table row contains text ``expected``.</doc>
-<status status="PASS" starttime="20221019 13:39:58.653" endtime="20221019 13:40:00.728"/>
+<status status="PASS" starttime="20221020 12:57:26.916" endtime="20221020 12:57:28.987"/>
 </kw>
 <kw name="Scroll Element Into View" library="SeleniumLibrary">
 <arg>//table[@class='table table-bordered table-striped']/tbody/tr/td[text()="${fName}"]</arg>
 <doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" starttime="20221019 13:40:00.728" endtime="20221019 13:40:02.047"/>
+<status status="PASS" starttime="20221020 12:57:28.987" endtime="20221020 12:57:30.288"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${Home_btn}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221019 13:40:02.047" level="INFO">Clicking button 'xpath://button[text()='Home']'.</msg>
-<status status="PASS" starttime="20221019 13:40:02.047" endtime="20221019 13:40:04.627"/>
+<msg timestamp="20221020 12:57:30.288" level="INFO">Clicking button 'xpath://button[text()='Home']'.</msg>
+<status status="PASS" starttime="20221020 12:57:30.288" endtime="20221020 12:57:32.866"/>
 </kw>
-<status status="PASS" starttime="20221019 13:39:55.524" endtime="20221019 13:40:04.627"/>
+<status status="PASS" starttime="20221020 12:57:23.799" endtime="20221020 12:57:32.866"/>
 </kw>
-<status status="PASS" starttime="20221019 13:39:27.723" endtime="20221019 13:40:04.627"/>
+<kw name="Customer operations">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${CURRENCY}</arg>
+<arg>${DEPOSIT}</arg>
+<arg>${WITHDRAWL}</arg>
+<kw name="login as customer" library="Resources">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${CURRENCY}</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_Login_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:57:32.868" level="INFO">Clicking button 'xpath://button[text()='Customer Login']'.</msg>
+<status status="PASS" starttime="20221020 12:57:32.868" endtime="20221020 12:57:35.461"/>
 </kw>
-<tag>Bank_manager_workflow</tag>
-<status status="PASS" starttime="20221019 13:39:27.717" endtime="20221019 13:40:04.627"/>
+<kw name="Catenate" library="BuiltIn">
+<var>${CXname}</var>
+<arg>${fName}</arg>
+<arg>${lName}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20221020 12:57:35.461" level="INFO">${CXname} = Jason Bourne</msg>
+<status status="PASS" starttime="20221020 12:57:35.461" endtime="20221020 12:57:35.461"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CX_dropDown_name}</arg>
+<arg>${CXname}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20221020 12:57:35.462" level="INFO">Selecting options from selection list 'userSelect' by label Jason Bourne.</msg>
+<status status="PASS" starttime="20221020 12:57:35.461" endtime="20221020 12:57:38.554"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_dropDown_login_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:57:38.555" level="INFO">Clicking button 'xpath://button[text()='Login']'.</msg>
+<status status="PASS" starttime="20221020 12:57:38.554" endtime="20221020 12:57:41.160"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Welcome</arg>
+<arg>${CXname}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:57:42.187" level="INFO">Current page contains text 'Welcome'.</msg>
+<status status="PASS" starttime="20221020 12:57:41.160" endtime="20221020 12:57:42.187"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Balance : 0</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:57:43.220" level="INFO">Current page contains text 'Balance : 0'.</msg>
+<status status="PASS" starttime="20221020 12:57:42.187" endtime="20221020 12:57:43.220"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Currency : ${currency}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:57:44.260" level="INFO">Current page contains text 'Currency : Rupee'.</msg>
+<status status="PASS" starttime="20221020 12:57:43.220" endtime="20221020 12:57:44.260"/>
+</kw>
+<status status="PASS" starttime="20221020 12:57:32.867" endtime="20221020 12:57:44.260"/>
+</kw>
+<kw name="deposit money as a customer" library="Resources">
+<var>${newBalanceAfterDeposit}</var>
+<arg>${DEPOSIT}</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_depositTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:57:44.263" level="INFO">Clicking button 'xpath://button[contains(text(),'Deposit')]'.</msg>
+<status status="PASS" starttime="20221020 12:57:44.262" endtime="20221020 12:57:46.875"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CX_depositTab_inputAmount}</arg>
+<arg>${depositAmount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221020 12:57:46.875" level="INFO">Typing text '1100' into text field 'xpath://input[@placeholder='amount']'.</msg>
+<status status="PASS" starttime="20221020 12:57:46.875" endtime="20221020 12:57:48.478"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_depositTab_deposit_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:57:48.478" level="INFO">Clicking button 'xpath://button[text()='Deposit']'.</msg>
+<status status="PASS" starttime="20221020 12:57:48.478" endtime="20221020 12:57:51.093"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${depositAmount}</var>
+<arg>${depositAmount}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221020 12:57:51.094" level="INFO">${depositAmount} = 1100</msg>
+<status status="PASS" starttime="20221020 12:57:51.093" endtime="20221020 12:57:51.094"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${depositAmount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:57:51.094" endtime="20221020 12:57:51.095"/>
+</kw>
+<if>
+<branch type="IF" condition="${depositAmount} &gt; 0">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Deposit Successful</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:57:52.117" level="INFO">Current page contains text 'Deposit Successful'.</msg>
+<status status="PASS" starttime="20221020 12:57:51.095" endtime="20221020 12:57:52.117"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${newBalance}</var>
+<arg>${depositAmount}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221020 12:57:52.117" level="INFO">${newBalance} = 1100</msg>
+<status status="PASS" starttime="20221020 12:57:52.117" endtime="20221020 12:57:52.117"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Balance : ${newBalance}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:57:53.150" level="INFO">Current page contains text 'Balance : 1100'.</msg>
+<status status="PASS" starttime="20221020 12:57:52.118" endtime="20221020 12:57:53.150"/>
+</kw>
+<status status="PASS" starttime="20221020 12:57:51.095" endtime="20221020 12:57:53.150"/>
+</branch>
+<status status="PASS" starttime="20221020 12:57:51.095" endtime="20221020 12:57:53.150"/>
+</if>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${newBalance}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:57:53.150" endtime="20221020 12:57:53.151"/>
+</kw>
+<msg timestamp="20221020 12:57:53.151" level="INFO">${newBalanceAfterDeposit} = 1100</msg>
+<status status="PASS" starttime="20221020 12:57:44.261" endtime="20221020 12:57:53.151"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>New balance after deposit: ${newBalanceAfterDeposit}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:57:53.151" endtime="20221020 12:57:53.151"/>
+</kw>
+<kw name="check customer transactions table" library="Resources">
+<arg>${newBalanceAfterDeposit}</arg>
+<arg>Credit</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_transactionsTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:57:53.152" level="INFO">Clicking button 'xpath://button[contains(text(),'Transactions')]'.</msg>
+<status status="PASS" starttime="20221020 12:57:53.152" endtime="20221020 12:57:55.724"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${transactionsCount}</var>
+<arg>${CX_transactionsTab_tableRows}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221020 12:57:56.235" level="INFO">${transactionsCount} = 1</msg>
+<status status="PASS" starttime="20221020 12:57:55.724" endtime="20221020 12:57:56.235"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Number of transactions: ${transactionsCount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:57:56.235" endtime="20221020 12:57:56.236"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${lastTransactionAmt}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221020 12:57:56.236" endtime="20221020 12:57:59.330"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${transactionType}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221020 12:57:59.330" endtime="20221020 12:58:02.392"/>
+</kw>
+<status status="PASS" starttime="20221020 12:57:53.152" endtime="20221020 12:58:02.392"/>
+</kw>
+<kw name="withdraw money as a customer" library="Resources">
+<var>${newBalanceAfterWithdrawl}</var>
+<arg>${newBalanceAfterDeposit}</arg>
+<arg>${WITHDRAWL}</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_back_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:58:02.393" level="INFO">Clicking button 'xpath://button[text()='Back']'.</msg>
+<status status="PASS" starttime="20221020 12:58:02.393" endtime="20221020 12:58:04.971"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_withdrawlTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:58:04.971" level="INFO">Clicking button 'xpath://button[contains(text(),'Withdrawl')]'.</msg>
+<status status="PASS" starttime="20221020 12:58:04.971" endtime="20221020 12:58:07.558"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CX_withdrawlTab_ipWithdrawl}</arg>
+<arg>${withdrawlAmount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221020 12:58:07.558" level="INFO">Typing text '5' into text field 'xpath://input[@placeholder='amount']'.</msg>
+<status status="PASS" starttime="20221020 12:58:07.558" endtime="20221020 12:58:09.141"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${withdrawlAmount}</var>
+<arg>${withdrawlAmount}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221020 12:58:09.141" level="INFO">${withdrawlAmount} = 5</msg>
+<status status="PASS" starttime="20221020 12:58:09.141" endtime="20221020 12:58:09.141"/>
+</kw>
+<if>
+<branch type="IF" condition="${withdrawlAmount} &gt; 0 and ${withdrawlAmount} &lt; ${newBalanceAfterDeposit}">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_withdrawlTab_withdraw_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:58:09.142" level="INFO">Clicking button 'xpath://button[text()='Withdraw']'.</msg>
+<status status="PASS" starttime="20221020 12:58:09.142" endtime="20221020 12:58:11.732"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${newBalAfterWithdrawl}</var>
+<arg>${newBalanceAfterDeposit} - ${withdrawlAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221020 12:58:11.732" level="INFO">${newBalAfterWithdrawl} = 1095</msg>
+<status status="PASS" starttime="20221020 12:58:11.732" endtime="20221020 12:58:11.733"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Transaction successful</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:58:12.746" level="INFO">Current page contains text 'Transaction successful'.</msg>
+<status status="PASS" starttime="20221020 12:58:11.733" endtime="20221020 12:58:12.746"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Balance : ${newBalAfterWithdrawl}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221020 12:58:13.773" level="INFO">Current page contains text 'Balance : 1095'.</msg>
+<status status="PASS" starttime="20221020 12:58:12.746" endtime="20221020 12:58:13.773"/>
+</kw>
+<status status="PASS" starttime="20221020 12:58:09.142" endtime="20221020 12:58:13.773"/>
+</branch>
+<status status="PASS" starttime="20221020 12:58:09.141" endtime="20221020 12:58:13.773"/>
+</if>
+<msg timestamp="20221020 12:58:13.773" level="INFO">${newBalanceAfterWithdrawl} = 1095</msg>
+<status status="PASS" starttime="20221020 12:58:02.392" endtime="20221020 12:58:13.774"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>New balance after withdrawl: ${newBalanceAfterWithdrawl}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:58:13.774" endtime="20221020 12:58:13.774"/>
+</kw>
+<kw name="check customer transactions table" library="Resources">
+<arg>${WITHDRAWL}</arg>
+<arg>Debit</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_transactionsTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:58:13.776" level="INFO">Clicking button 'xpath://button[contains(text(),'Transactions')]'.</msg>
+<status status="PASS" starttime="20221020 12:58:13.775" endtime="20221020 12:58:16.350"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${transactionsCount}</var>
+<arg>${CX_transactionsTab_tableRows}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221020 12:58:16.871" level="INFO">${transactionsCount} = 2</msg>
+<status status="PASS" starttime="20221020 12:58:16.350" endtime="20221020 12:58:16.871"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Number of transactions: ${transactionsCount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 12:58:16.871" endtime="20221020 12:58:16.872"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${lastTransactionAmt}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221020 12:58:16.873" endtime="20221020 12:58:18.949"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${transactionType}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221020 12:58:18.949" endtime="20221020 12:58:20.989"/>
+</kw>
+<status status="PASS" starttime="20221020 12:58:13.775" endtime="20221020 12:58:20.989"/>
+</kw>
+<kw name="click back button" library="Resources">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_back_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:58:20.990" level="INFO">Clicking button 'xpath://button[text()='Back']'.</msg>
+<status status="PASS" starttime="20221020 12:58:20.989" endtime="20221020 12:58:23.561"/>
+</kw>
+<status status="PASS" starttime="20221020 12:58:20.989" endtime="20221020 12:58:23.561"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_logout_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:58:23.562" level="INFO">Clicking button 'xpath://button[text()='Logout']'.</msg>
+<status status="PASS" starttime="20221020 12:58:23.561" endtime="20221020 12:58:26.135"/>
+</kw>
+<kw name="go to home" library="Resources">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${Home_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221020 12:58:26.136" level="INFO">Clicking button 'xpath://button[text()='Home']'.</msg>
+<status status="PASS" starttime="20221020 12:58:26.135" endtime="20221020 12:58:28.711"/>
+</kw>
+<status status="PASS" starttime="20221020 12:58:26.135" endtime="20221020 12:58:28.711"/>
+</kw>
+<status status="PASS" starttime="20221020 12:57:32.866" endtime="20221020 12:58:28.711"/>
+</kw>
+<status status="PASS" starttime="20221020 12:56:55.748" endtime="20221020 12:58:28.712"/>
+</kw>
+<tag>Bank_manager_postive_workflow</tag>
+<status status="PASS" starttime="20221020 12:56:55.746" endtime="20221020 12:58:28.712"/>
 </test>
 <kw name="close browser session" library="Resources" type="TEARDOWN">
 <kw name="Close All Browsers" library="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20221019 13:40:04.627" endtime="20221019 13:40:07.333"/>
+<status status="PASS" starttime="20221020 12:58:28.714" endtime="20221020 12:58:31.360"/>
 </kw>
-<status status="PASS" starttime="20221019 13:40:04.627" endtime="20221019 13:40:07.333"/>
+<status status="PASS" starttime="20221020 12:58:28.714" endtime="20221020 12:58:31.360"/>
 </kw>
-<status status="PASS" starttime="20221019 13:37:27.584" endtime="20221019 13:40:07.333"/>
+<status status="PASS" starttime="20221020 12:52:11.593" endtime="20221020 12:58:31.361"/>
 </suite>
 <statistics>
 <total>
 <stat pass="4" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="4" fail="0" skip="0">Bank_manager_workflow</stat>
+<stat pass="4" fail="0" skip="0">Bank_manager_postive_workflow</stat>
 </tag>
 <suite>
-<stat pass="4" fail="0" skip="0" id="s1" name="BankOperations">BankOperations</stat>
+<stat pass="4" fail="0" skip="0" id="s1" name="BankOperations positiveScenarios">BankOperations positiveScenarios</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20221019 13:38:13.804" level="WARN">Multiple tests with name 'TC1_BankManager_workflow' executed in suite 'BankOperations'.</msg>
-<msg timestamp="20221019 13:38:50.820" level="WARN">Multiple tests with name 'TC1_BankManager_workflow' executed in suite 'BankOperations'.</msg>
-<msg timestamp="20221019 13:39:27.717" level="WARN">Multiple tests with name 'TC1_BankManager_workflow' executed in suite 'BankOperations'.</msg>
+<msg timestamp="20221020 12:53:49.136" level="WARN">Multiple tests with name 'TC1_BankManager_workflow_positive' executed in suite 'BankOperations positiveScenarios'.</msg>
+<msg timestamp="20221020 12:55:22.263" level="WARN">Multiple tests with name 'TC1_BankManager_workflow_positive' executed in suite 'BankOperations positiveScenarios'.</msg>
+<msg timestamp="20221020 12:56:55.745" level="WARN">Multiple tests with name 'TC1_BankManager_workflow_positive' executed in suite 'BankOperations positiveScenarios'.</msg>
 </errors>
 </robot>

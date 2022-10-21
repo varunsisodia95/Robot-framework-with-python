@@ -81,6 +81,67 @@ check if table does not contain incorrect entries
 
     table row should contain    ${BM_CxList_tab_CxTable}    1   ${EMPTY}
 
+login as customer
+    [Arguments]    ${fName}     ${lName}    ${currency}
+    click button    ${CX_Login_btn}
+    ${CXname}   catenate    ${fName}    ${lName}
+    select from list by label    ${CX_dropDown_name}    ${CXname}
+    click button    ${CX_dropDown_login_btn}
+
+    page should contain    Welcome  ${CXname}
+    page should contain    Balance : 0
+    page should contain    Currency : ${currency}
+
+deposit money as a customer
+    [Arguments]    ${depositAmount}
+    click button    ${CX_depositTab}
+    input text    ${CX_depositTab_inputAmount}  ${depositAmount}
+    click button    ${CX_depositTab_deposit_btn}
+
+    ${depositAmount}=   convert to integer    ${depositAmount}
+    log to console    ${depositAmount}
+
+    IF  ${depositAmount} > 0
+        page should contain    Deposit Successful
+        ${newBalance}   set variable    ${depositAmount}
+
+        page should contain    Balance : ${newBalance}
+    END
+
+    log to console    ${newBalance}
+    [Return]    ${newBalance}
+
+
+check customer transactions table
+    [Arguments]    ${lastTransactionAmt}    ${transactionType}
+    click button    ${CX_transactionsTab}
+
+    ${transactionsCount}=   get element count    ${CX_transactionsTab_tableRows}
+    log to console    Number of transactions: ${transactionsCount}
+
+    table row should contain    ${CX_transactionsTab_tableName}   ${transactionsCount}    ${lastTransactionAmt}
+    table row should contain    ${CX_transactionsTab_tableName}   ${transactionsCount}    ${transactionType}
+
+withdraw money as a customer
+    [Arguments]    ${newBalanceAfterDeposit}  ${withdrawlAmount}
+    click button    ${CX_back_btn}
+    click button    ${CX_withdrawlTab}
+
+    input text    ${CX_withdrawlTab_ipWithdrawl}    ${withdrawlAmount}
+    ${withdrawlAmount}=     convert to integer    ${withdrawlAmount}
+
+    IF    ${withdrawlAmount} > 0 and ${withdrawlAmount} < ${newBalanceAfterDeposit}
+        click button    ${CX_withdrawlTab_withdraw_btn}
+        ${newBalAfterWithdrawl}=  evaluate    ${newBalanceAfterDeposit} - ${withdrawlAmount}
+
+        page should contain    Transaction successful
+        page should contain    Balance : ${newBalAfterWithdrawl}
+    END
+
+    [Return]    ${newBalAfterWithdrawl}
+
+click back button
+    click button    ${CX_back_btn}
 
 close browser session
     close all browsers

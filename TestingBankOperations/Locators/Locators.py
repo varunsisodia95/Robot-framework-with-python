@@ -26,6 +26,27 @@ BM_CxList_tab_searchBox = "xpath://input[@placeholder='Search Customer']"
 BM_CxList_tab_CxTable = "xpath://table[@class='table table-bordered table-striped']"
 BM_CXList_CxCount = "xpath://table[@class='table table-bordered table-striped']/tbody/tr"
 
+"""
+Locators for customer login
+"""
+CX_Login_btn = "xpath://button[text()='Customer Login']"
+CX_dropDown_name = "userSelect"
+CX_dropDown_login_btn = "xpath://button[text()='Login']"
+CX_transactionsTab = "xpath://button[contains(text(),'Transactions')]"
+CX_transactionsTab_back_btn = "xpath://button[contains(text(),'Back')]"
+CX_transactionsTab_tableName = "xpath://table[@class='table table-bordered table-striped']"
+CX_transactionsTab_tableRows = "xpath://table[@class='table table-bordered table-striped']/tbody/tr"
+CX_back_btn = "xpath://button[text()='Back']"
+
+CX_depositTab = "xpath://button[contains(text(),'Deposit')]"
+CX_depositTab_inputAmount = "xpath://input[@placeholder='amount']"
+CX_depositTab_deposit_btn = "xpath://button[text()='Deposit']"
+
+
+CX_withdrawlTab = "xpath://button[contains(text(),'Withdrawl')]"
+CX_withdrawlTab_ipWithdrawl = "xpath://input[@placeholder='amount']"
+CX_withdrawlTab_withdraw_btn = "xpath://button[text()='Withdraw']"
+CX_logout_btn = "xpath://button[text()='Logout']"
 
 
 

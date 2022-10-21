@@ -13,12 +13,12 @@ ${SiteUrl}  https://www.globalsqa.com/angularJs-protractor/BankingProject/#/logi
 ${browser}  Chrome
 
 *** Test Cases ***
-TC1_BankManager_workflow_positive    ${FNAME}    ${LNAME}    ${PINCODE}     ${CURRENCY}
+TC1_BankManager_workflow_positive    ${FNAME}    ${LNAME}    ${PINCODE}     ${CURRENCY}     ${DEPOSIT}  ${WITHDRAWL}
     [Tags]    Bank_manager_postive_workflow
 
 *** Keywords ***
 Bank manager operations
-    [Arguments]    ${FNAME}    ${LNAME}    ${PINCODE}     ${CURRENCY}
+    [Arguments]    ${FNAME}    ${LNAME}    ${PINCODE}    ${CURRENCY}   ${DEPOSIT}   ${WITHDRAWL}
     maximize browser window
     set selenium implicit wait    2 seconds
     set selenium speed    0.5 seconds
@@ -26,7 +26,23 @@ Bank manager operations
     add Cx as bank manager    ${FNAME}   ${LNAME}    ${PINCODE}
     open account for new Cx as bank manager  ${FNAME}   ${LNAME}  ${CURRENCY}
     check customer details in DB    ${FNAME}   ${LNAME}
+    Customer operations     ${FNAME}    ${LNAME}    ${CURRENCY}  ${DEPOSIT}  ${WITHDRAWL}
 
+Customer operations
+    [Arguments]    ${FNAME}    ${LNAME}    ${CURRENCY}  ${DEPOSIT}  ${WITHDRAWL}
+    login as customer   ${FNAME}    ${LNAME}    ${CURRENCY}
+    ${newBalanceAfterDeposit}=  deposit money as a customer   ${DEPOSIT}
+    log to console    New balance after deposit: ${newBalanceAfterDeposit}
+    check customer transactions table  ${newBalanceAfterDeposit}     Credit
+
+    ${newBalanceAfterWithdrawl}=  withdraw money as a customer    ${newBalanceAfterDeposit}   ${WITHDRAWL}
+    log to console      New balance after withdrawl: ${newBalanceAfterWithdrawl}
+
+    check customer transactions table  ${WITHDRAWL}     Debit
+    click back button
+
+    click button    ${CX_logout_btn}
+    go to home
 
 
 
