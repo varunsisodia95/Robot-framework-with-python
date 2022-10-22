@@ -1,0 +1,9 @@
+Package                        Version
+------------------------------ ----------
+robotframework                 5.0.1
+robotframework-datadriver      1.6.1
+robotframework-pabot           2.7.0
+robotframework-pythonlibcore   3.0.0
+robotframework-seleniumlibrary 6.0.0
+robotframework-stacktrace      0.4.1
+selenium                       4.4.3
