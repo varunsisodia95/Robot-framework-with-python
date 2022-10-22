@@ -22,27 +22,27 @@ I have used the following [demo website](https://www.globalsqa.com/angularJs-pro
 
 ## Test cases and Utilities
 
-### [BankOperations_positiveScenarios.robot](https://www.google.com)
+### [BankOperations_positiveScenarios.robot](https://github.com/varunsisodia95/Robot-framework-with-python/blob/main/TestingBankOperations/TestCases/BankOperations_positiveScenarios.robot)
 
 This file contains two test cases, one where we check the registration workflow of a new customer 
 and second where we test the login to logout workflow for the same user.
 Note that, the test data for this is provided via an excel sheet uploaded under **Resources folder**.
 
 
-### [Locators.py](https://www.google.com)
+### [Locators.py](https://github.com/varunsisodia95/Robot-framework-with-python/blob/main/TestingBankOperations/Locators/Locators.py)
 
 This file contains all the necessary locators needed for testing the various elements on the demo website.
 
 
-### [Resources.robot](https://www.google.com)
+### [Resources.robot](https://github.com/varunsisodia95/Robot-framework-with-python/blob/main/TestingBankOperations/Resources/Resources.robot)
 
 This file contains helper functions to perform various activities like button click, navigate to specific webpage etc.
 
 ## Generated results
 
-- [log.html]()
-- [output.xml]()
-- [report.html]()
+- [log.html](https://github.com/varunsisodia95/Robot-framework-with-python/tree/main/TestingBankOperations/Results)
+- [output.xml](https://github.com/varunsisodia95/Robot-framework-with-python/tree/main/TestingBankOperations/Results)
+- [report.html](https://github.com/varunsisodia95/Robot-framework-with-python/tree/main/TestingBankOperations/Results)
 
 
 
