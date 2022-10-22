@@ -8,7 +8,7 @@ new customer on a demo banking website.
 
 I have used the following [demo website](https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login) for a dummy bank for the purpose of testing.
 
-![App Screenshot](TestingBankOperations\DemoWebsite.png)
+![App Screenshot](https://github.com/varunsisodia95/Robot-framework-with-python/blob/main/DemoWebsite.png)
 
 
 ## Tech Stack
