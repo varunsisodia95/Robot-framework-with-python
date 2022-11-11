@@ -1,0 +1,2867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.7.4 on win32)" generated="20221110 15:10:16.496" rpa="false" schemaversion="3">
+<suite id="s1" name="Assignment-4" source="C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\TestCases\Assignment-4.robot">
+<test id="s1-t1" name="Check gift cards on BookMyShow site" line="16">
+<kw name="open browser to specific page" library="Assignment4_resources" type="SETUP">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221110 15:10:16.912" level="INFO">Opening browser 'headlesschrome' to base url 'https://in.bookmyshow.com/'.</msg>
+<status status="PASS" starttime="20221110 15:10:16.912" endtime="20221110 15:10:22.226"/>
+</kw>
+<status status="PASS" starttime="20221110 15:10:16.912" endtime="20221110 15:10:22.227"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221110 15:10:22.228" endtime="20221110 15:10:22.338"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>0.3 seconds</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20221110 15:10:22.339" endtime="20221110 15:10:22.339"/>
+</kw>
+<kw name="select city" library="Assignment4_resources">
+<doc>Hover mouse over cities dropdown and select Noida from it.</doc>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${CityPopup}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:10:22.340" level="INFO">Simulating Mouse Over on element 'xpath://img[@alt='NCR']'.</msg>
+<status status="PASS" starttime="20221110 15:10:22.340" endtime="20221110 15:10:23.263"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${subCities_dropdown}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:10:23.263" endtime="20221110 15:10:23.897"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${subCityListCount}</var>
+<arg>${subCities_dropdown}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221110 15:10:24.207" level="INFO">${subCityListCount} = 8</msg>
+<status status="PASS" starttime="20221110 15:10:23.897" endtime="20221110 15:10:24.207"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Number of sub-cities: ${subCities_dropdown}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:24.207" level="INFO">Number of sub-cities: //div[@class='sc-keFjpB fQrIdt']/span</msg>
+<status status="PASS" starttime="20221110 15:10:24.207" endtime="20221110 15:10:24.207"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>List of sub-cities in Delhi:</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:10:24.207" endtime="20221110 15:10:24.208"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1</value>
+<value>${subCityListCount}+1</value>
+<iter>
+<var name="${index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${subCityName}</var>
+<arg>(${subCities_dropdown})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:24.837" level="INFO">${subCityName} = Delhi</msg>
+<status status="PASS" starttime="20221110 15:10:24.209" endtime="20221110 15:10:24.837"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${subCityName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:24.837" level="INFO">Delhi</msg>
+<status status="PASS" starttime="20221110 15:10:24.837" endtime="20221110 15:10:24.837"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${subCityName}${\n}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:10:24.837" endtime="20221110 15:10:24.838"/>
+</kw>
+<status status="PASS" starttime="20221110 15:10:24.209" endtime="20221110 15:10:24.838"/>
+</iter>
+<iter>
+<var name="${index}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${subCityName}</var>
+<arg>(${subCities_dropdown})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:25.467" level="INFO">${subCityName} = Gurugram (Gurgaon)</msg>
+<status status="PASS" starttime="20221110 15:10:24.838" endtime="20221110 15:10:25.467"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${subCityName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:25.468" level="INFO">Gurugram (Gurgaon)</msg>
+<status status="PASS" starttime="20221110 15:10:25.467" endtime="20221110 15:10:25.468"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${subCityName}${\n}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:10:25.468" endtime="20221110 15:10:25.469"/>
+</kw>
+<status status="PASS" starttime="20221110 15:10:24.838" endtime="20221110 15:10:25.469"/>
+</iter>
+<iter>
+<var name="${index}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${subCityName}</var>
+<arg>(${subCities_dropdown})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:26.100" level="INFO">${subCityName} = Noida</msg>
+<status status="PASS" starttime="20221110 15:10:25.469" endtime="20221110 15:10:26.100"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${subCityName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:26.100" level="INFO">Noida</msg>
+<status status="PASS" starttime="20221110 15:10:26.100" endtime="20221110 15:10:26.100"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${subCityName}${\n}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:10:26.101" endtime="20221110 15:10:26.101"/>
+</kw>
+<status status="PASS" starttime="20221110 15:10:25.469" endtime="20221110 15:10:26.101"/>
+</iter>
+<iter>
+<var name="${index}">4</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${subCityName}</var>
+<arg>(${subCities_dropdown})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:26.729" level="INFO">${subCityName} = Ghaziabad</msg>
+<status status="PASS" starttime="20221110 15:10:26.101" endtime="20221110 15:10:26.729"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${subCityName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:26.729" level="INFO">Ghaziabad</msg>
+<status status="PASS" starttime="20221110 15:10:26.729" endtime="20221110 15:10:26.729"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${subCityName}${\n}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:10:26.729" endtime="20221110 15:10:26.730"/>
+</kw>
+<status status="PASS" starttime="20221110 15:10:26.101" endtime="20221110 15:10:26.730"/>
+</iter>
+<iter>
+<var name="${index}">5</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${subCityName}</var>
+<arg>(${subCities_dropdown})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:27.364" level="INFO">${subCityName} = Kundli</msg>
+<status status="PASS" starttime="20221110 15:10:26.730" endtime="20221110 15:10:27.364"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${subCityName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:27.364" level="INFO">Kundli</msg>
+<status status="PASS" starttime="20221110 15:10:27.364" endtime="20221110 15:10:27.364"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${subCityName}${\n}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:10:27.365" endtime="20221110 15:10:27.365"/>
+</kw>
+<status status="PASS" starttime="20221110 15:10:26.730" endtime="20221110 15:10:27.365"/>
+</iter>
+<iter>
+<var name="${index}">6</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${subCityName}</var>
+<arg>(${subCities_dropdown})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:27.997" level="INFO">${subCityName} = Greater Noida</msg>
+<status status="PASS" starttime="20221110 15:10:27.366" endtime="20221110 15:10:27.997"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${subCityName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:27.997" level="INFO">Greater Noida</msg>
+<status status="PASS" starttime="20221110 15:10:27.997" endtime="20221110 15:10:27.997"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${subCityName}${\n}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:10:27.997" endtime="20221110 15:10:27.998"/>
+</kw>
+<status status="PASS" starttime="20221110 15:10:27.366" endtime="20221110 15:10:27.998"/>
+</iter>
+<iter>
+<var name="${index}">7</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${subCityName}</var>
+<arg>(${subCities_dropdown})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:28.633" level="INFO">${subCityName} = Faridabad</msg>
+<status status="PASS" starttime="20221110 15:10:27.998" endtime="20221110 15:10:28.633"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${subCityName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:28.633" level="INFO">Faridabad</msg>
+<status status="PASS" starttime="20221110 15:10:28.633" endtime="20221110 15:10:28.633"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${subCityName}${\n}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:10:28.634" endtime="20221110 15:10:28.634"/>
+</kw>
+<status status="PASS" starttime="20221110 15:10:27.998" endtime="20221110 15:10:28.634"/>
+</iter>
+<iter>
+<var name="${index}">8</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${subCityName}</var>
+<arg>(${subCities_dropdown})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:29.266" level="INFO">${subCityName} = Pilkhuwa</msg>
+<status status="PASS" starttime="20221110 15:10:28.634" endtime="20221110 15:10:29.266"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${subCityName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:29.266" level="INFO">Pilkhuwa</msg>
+<status status="PASS" starttime="20221110 15:10:29.266" endtime="20221110 15:10:29.266"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${subCityName}${\n}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:10:29.266" endtime="20221110 15:10:29.267"/>
+</kw>
+<status status="PASS" starttime="20221110 15:10:28.634" endtime="20221110 15:10:29.267"/>
+</iter>
+<status status="PASS" starttime="20221110 15:10:24.208" endtime="20221110 15:10:29.267"/>
+</for>
+<kw name="Comment" library="BuiltIn">
+<arg>Select 'Greater Noida' from list of cities</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:29.267" endtime="20221110 15:10:29.267"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${subCitySelected}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:10:29.268" level="INFO">Simulating Mouse Over on element 'xpath://div[@class='sc-keFjpB fQrIdt']/span[text()='Greater Noida']'.</msg>
+<status status="PASS" starttime="20221110 15:10:29.267" endtime="20221110 15:10:30.153"/>
+</kw>
+<kw name="Mouse Down" library="SeleniumLibrary">
+<arg>${subCitySelected}</arg>
+<doc>Simulates pressing the left mouse button on the element ``locator``.</doc>
+<msg timestamp="20221110 15:10:30.153" level="INFO">Simulating Mouse Down on element 'xpath://div[@class='sc-keFjpB fQrIdt']/span[text()='Greater Noida']'.</msg>
+<status status="PASS" starttime="20221110 15:10:30.153" endtime="20221110 15:10:31.039"/>
+</kw>
+<kw name="Mouse Up" library="SeleniumLibrary">
+<arg>${subCitySelected}</arg>
+<doc>Simulates releasing the left mouse button on the element ``locator``.</doc>
+<msg timestamp="20221110 15:10:31.039" level="INFO">Simulating Mouse Up on element 'xpath://div[@class='sc-keFjpB fQrIdt']/span[text()='Greater Noida']'.</msg>
+<status status="PASS" starttime="20221110 15:10:31.039" endtime="20221110 15:10:32.031"/>
+</kw>
+<status status="PASS" starttime="20221110 15:10:22.339" endtime="20221110 15:10:32.031"/>
+</kw>
+<kw name="select gift card option" library="Assignment4_resources">
+<doc>Clicking on gift card link on the webapge and select combos option.</doc>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${giftCardLink}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:32.033" level="INFO">Clicking link 'xpath://div[@class='sc-drMfKT jRmBja']/child::a[text()='Gift Cards']'.</msg>
+<status status="PASS" starttime="20221110 15:10:32.033" endtime="20221110 15:10:34.361"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${comboLink}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:10:34.361" endtime="20221110 15:10:34.996"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${comboLink}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:34.996" level="INFO">Clicking element 'xpath://ul[@class='sc-1m2izr0-1 jUCEkj']/child::li[text()='Combos']'.</msg>
+<status status="PASS" starttime="20221110 15:10:34.996" endtime="20221110 15:10:35.691"/>
+</kw>
+<status status="PASS" starttime="20221110 15:10:32.032" endtime="20221110 15:10:35.691"/>
+</kw>
+<kw name="count available combos and find cards within range" library="Assignment4_resources">
+<arg>${expectedPrice_startRange}</arg>
+<arg>${expectedPrice_endRange}</arg>
+<doc>Counting number of available combos and find gift card with lowest price</doc>
+<kw name="Comment" library="BuiltIn">
+<arg>Calculate total number of available gift cards under shopping category.</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:35.692" endtime="20221110 15:10:35.692"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${ShoppingCardsCount}</var>
+<arg>${availableCombos}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221110 15:10:36.018" level="INFO">${ShoppingCardsCount} = 32</msg>
+<status status="PASS" starttime="20221110 15:10:35.693" endtime="20221110 15:10:36.018"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Total number of shopping gift cards: ${availableCombos}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:36.018" level="INFO">Total number of shopping gift cards: //ul[@class='sc-1m2izr0-3 bWagRM']/li</msg>
+<status status="PASS" starttime="20221110 15:10:36.018" endtime="20221110 15:10:36.018"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1</value>
+<value>${ShoppingCardsCount}+1</value>
+<iter>
+<var name="${index}">1</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:36.019" endtime="20221110 15:10:36.019"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:10:36.019" endtime="20221110 15:10:36.657"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:10:36.657" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[1]'.</msg>
+<status status="PASS" starttime="20221110 15:10:36.657" endtime="20221110 15:10:37.554"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:37.554" endtime="20221110 15:10:37.554"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:10:37.554" endtime="20221110 15:10:38.449"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:39.087" level="INFO">${giftCardPrice} = ₹ 1000</msg>
+<status status="PASS" starttime="20221110 15:10:38.449" endtime="20221110 15:10:39.087"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:10:39.088" level="INFO">${giftCardPrice} = 1000</msg>
+<status status="PASS" starttime="20221110 15:10:39.087" endtime="20221110 15:10:39.088"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:39.088" level="INFO">Gift card price: 1000</msg>
+<status status="PASS" starttime="20221110 15:10:39.088" endtime="20221110 15:10:39.088"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:39.089" endtime="20221110 15:10:39.089"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:39.717" level="INFO">${giftCardName} = BMS and The Beer Cafe Combo</msg>
+<status status="PASS" starttime="20221110 15:10:39.089" endtime="20221110 15:10:39.717"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:39.717" level="INFO">Gift Card name within range: BMS and The Beer Cafe Combo</msg>
+<status status="PASS" starttime="20221110 15:10:39.717" endtime="20221110 15:10:39.717"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:10:39.717" endtime="20221110 15:10:39.718"/>
+</kw>
+<status status="PASS" starttime="20221110 15:10:39.089" endtime="20221110 15:10:39.718"/>
+</branch>
+<status status="PASS" starttime="20221110 15:10:39.089" endtime="20221110 15:10:39.718"/>
+</if>
+<status status="PASS" starttime="20221110 15:10:36.019" endtime="20221110 15:10:39.718"/>
+</iter>
+<iter>
+<var name="${index}">2</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:39.718" endtime="20221110 15:10:39.718"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:10:39.718" endtime="20221110 15:10:40.346"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:10:40.346" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[2]'.</msg>
+<status status="PASS" starttime="20221110 15:10:40.346" endtime="20221110 15:10:41.261"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:41.261" endtime="20221110 15:10:41.261"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:10:41.261" endtime="20221110 15:10:42.159"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:42.788" level="INFO">${giftCardPrice} = ₹ 1000</msg>
+<status status="PASS" starttime="20221110 15:10:42.159" endtime="20221110 15:10:42.788"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:10:42.790" level="INFO">${giftCardPrice} = 1000</msg>
+<status status="PASS" starttime="20221110 15:10:42.788" endtime="20221110 15:10:42.790"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:42.790" level="INFO">Gift card price: 1000</msg>
+<status status="PASS" starttime="20221110 15:10:42.790" endtime="20221110 15:10:42.790"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:42.791" endtime="20221110 15:10:42.791"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:43.424" level="INFO">${giftCardName} = BMS and TGI Fridays Combo</msg>
+<status status="PASS" starttime="20221110 15:10:42.791" endtime="20221110 15:10:43.424"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:43.424" level="INFO">Gift Card name within range: BMS and TGI Fridays Combo</msg>
+<status status="PASS" starttime="20221110 15:10:43.424" endtime="20221110 15:10:43.424"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:10:43.424" endtime="20221110 15:10:43.425"/>
+</kw>
+<status status="PASS" starttime="20221110 15:10:42.791" endtime="20221110 15:10:43.425"/>
+</branch>
+<status status="PASS" starttime="20221110 15:10:42.790" endtime="20221110 15:10:43.425"/>
+</if>
+<status status="PASS" starttime="20221110 15:10:39.718" endtime="20221110 15:10:43.425"/>
+</iter>
+<iter>
+<var name="${index}">3</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:43.425" endtime="20221110 15:10:43.425"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:10:43.425" endtime="20221110 15:10:44.051"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:10:44.052" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[3]'.</msg>
+<status status="PASS" starttime="20221110 15:10:44.051" endtime="20221110 15:10:44.951"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:44.951" endtime="20221110 15:10:44.951"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:10:44.951" endtime="20221110 15:10:45.850"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:46.496" level="INFO">${giftCardPrice} = ₹ 2000</msg>
+<status status="PASS" starttime="20221110 15:10:45.850" endtime="20221110 15:10:46.496"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:10:46.498" level="INFO">${giftCardPrice} = 2000</msg>
+<status status="PASS" starttime="20221110 15:10:46.496" endtime="20221110 15:10:46.498"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:46.498" level="INFO">Gift card price: 2000</msg>
+<status status="PASS" starttime="20221110 15:10:46.498" endtime="20221110 15:10:46.498"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="NOT RUN" starttime="20221110 15:10:46.499" endtime="20221110 15:10:46.499"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221110 15:10:46.499" endtime="20221110 15:10:46.499"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221110 15:10:46.499" endtime="20221110 15:10:46.499"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221110 15:10:46.499" endtime="20221110 15:10:46.499"/>
+</kw>
+<status status="NOT RUN" starttime="20221110 15:10:46.499" endtime="20221110 15:10:46.499"/>
+</branch>
+<status status="PASS" starttime="20221110 15:10:46.498" endtime="20221110 15:10:46.499"/>
+</if>
+<status status="PASS" starttime="20221110 15:10:43.425" endtime="20221110 15:10:46.499"/>
+</iter>
+<iter>
+<var name="${index}">4</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:46.500" endtime="20221110 15:10:46.500"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:10:46.500" endtime="20221110 15:10:47.137"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:10:47.137" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[4]'.</msg>
+<status status="PASS" starttime="20221110 15:10:47.137" endtime="20221110 15:10:48.034"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:48.034" endtime="20221110 15:10:48.034"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:10:48.034" endtime="20221110 15:10:48.928"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:49.566" level="INFO">${giftCardPrice} = ₹ 2000</msg>
+<status status="PASS" starttime="20221110 15:10:48.928" endtime="20221110 15:10:49.566"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:10:49.567" level="INFO">${giftCardPrice} = 2000</msg>
+<status status="PASS" starttime="20221110 15:10:49.566" endtime="20221110 15:10:49.567"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:49.568" level="INFO">Gift card price: 2000</msg>
+<status status="PASS" starttime="20221110 15:10:49.567" endtime="20221110 15:10:49.568"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="NOT RUN" starttime="20221110 15:10:49.568" endtime="20221110 15:10:49.568"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221110 15:10:49.568" endtime="20221110 15:10:49.568"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221110 15:10:49.568" endtime="20221110 15:10:49.568"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221110 15:10:49.568" endtime="20221110 15:10:49.569"/>
+</kw>
+<status status="NOT RUN" starttime="20221110 15:10:49.568" endtime="20221110 15:10:49.569"/>
+</branch>
+<status status="PASS" starttime="20221110 15:10:49.568" endtime="20221110 15:10:49.569"/>
+</if>
+<status status="PASS" starttime="20221110 15:10:46.499" endtime="20221110 15:10:49.569"/>
+</iter>
+<iter>
+<var name="${index}">5</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:49.569" endtime="20221110 15:10:49.569"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:10:49.569" endtime="20221110 15:10:50.196"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:10:50.197" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[5]'.</msg>
+<status status="PASS" starttime="20221110 15:10:50.196" endtime="20221110 15:10:51.106"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:51.106" endtime="20221110 15:10:51.106"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:10:51.107" endtime="20221110 15:10:52.014"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:52.658" level="INFO">${giftCardPrice} = ₹ 2000</msg>
+<status status="PASS" starttime="20221110 15:10:52.014" endtime="20221110 15:10:52.658"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:10:52.660" level="INFO">${giftCardPrice} = 2000</msg>
+<status status="PASS" starttime="20221110 15:10:52.658" endtime="20221110 15:10:52.660"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:52.660" level="INFO">Gift card price: 2000</msg>
+<status status="PASS" starttime="20221110 15:10:52.660" endtime="20221110 15:10:52.660"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="NOT RUN" starttime="20221110 15:10:52.661" endtime="20221110 15:10:52.661"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221110 15:10:52.661" endtime="20221110 15:10:52.661"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221110 15:10:52.661" endtime="20221110 15:10:52.661"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221110 15:10:52.661" endtime="20221110 15:10:52.661"/>
+</kw>
+<status status="NOT RUN" starttime="20221110 15:10:52.660" endtime="20221110 15:10:52.661"/>
+</branch>
+<status status="PASS" starttime="20221110 15:10:52.660" endtime="20221110 15:10:52.661"/>
+</if>
+<status status="PASS" starttime="20221110 15:10:49.569" endtime="20221110 15:10:52.661"/>
+</iter>
+<iter>
+<var name="${index}">6</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:52.662" endtime="20221110 15:10:52.662"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:10:52.662" endtime="20221110 15:10:53.286"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:10:53.286" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[6]'.</msg>
+<status status="PASS" starttime="20221110 15:10:53.286" endtime="20221110 15:10:54.168"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:54.168" endtime="20221110 15:10:54.168"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:10:54.168" endtime="20221110 15:10:55.069"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:55.699" level="INFO">${giftCardPrice} = ₹ 1000</msg>
+<status status="PASS" starttime="20221110 15:10:55.069" endtime="20221110 15:10:55.699"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:10:55.700" level="INFO">${giftCardPrice} = 1000</msg>
+<status status="PASS" starttime="20221110 15:10:55.699" endtime="20221110 15:10:55.700"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:55.701" level="INFO">Gift card price: 1000</msg>
+<status status="PASS" starttime="20221110 15:10:55.700" endtime="20221110 15:10:55.701"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:55.701" endtime="20221110 15:10:55.701"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:56.328" level="INFO">${giftCardName} = Bata and BMS Combo</msg>
+<status status="PASS" starttime="20221110 15:10:55.701" endtime="20221110 15:10:56.328"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:56.328" level="INFO">Gift Card name within range: Bata and BMS Combo</msg>
+<status status="PASS" starttime="20221110 15:10:56.328" endtime="20221110 15:10:56.328"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:10:56.328" endtime="20221110 15:10:56.329"/>
+</kw>
+<status status="PASS" starttime="20221110 15:10:55.701" endtime="20221110 15:10:56.329"/>
+</branch>
+<status status="PASS" starttime="20221110 15:10:55.701" endtime="20221110 15:10:56.329"/>
+</if>
+<status status="PASS" starttime="20221110 15:10:52.661" endtime="20221110 15:10:56.329"/>
+</iter>
+<iter>
+<var name="${index}">7</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:56.329" endtime="20221110 15:10:56.329"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:10:56.329" endtime="20221110 15:10:56.954"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:10:56.954" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[7]'.</msg>
+<status status="PASS" starttime="20221110 15:10:56.954" endtime="20221110 15:10:57.854"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:57.854" endtime="20221110 15:10:57.854"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:10:57.854" endtime="20221110 15:10:58.751"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:10:59.379" level="INFO">${giftCardPrice} = ₹ 1000</msg>
+<status status="PASS" starttime="20221110 15:10:58.751" endtime="20221110 15:10:59.379"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:10:59.380" level="INFO">${giftCardPrice} = 1000</msg>
+<status status="PASS" starttime="20221110 15:10:59.379" endtime="20221110 15:10:59.380"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:10:59.381" level="INFO">Gift card price: 1000</msg>
+<status status="PASS" starttime="20221110 15:10:59.380" endtime="20221110 15:10:59.381"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:10:59.381" endtime="20221110 15:10:59.381"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:00.008" level="INFO">${giftCardName} = United Colors Of Benetton and BMS Combo</msg>
+<status status="PASS" starttime="20221110 15:10:59.381" endtime="20221110 15:11:00.008"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:00.009" level="INFO">Gift Card name within range: United Colors Of Benetton and BMS Combo</msg>
+<status status="PASS" starttime="20221110 15:11:00.008" endtime="20221110 15:11:00.009"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:11:00.009" endtime="20221110 15:11:00.010"/>
+</kw>
+<status status="PASS" starttime="20221110 15:10:59.381" endtime="20221110 15:11:00.010"/>
+</branch>
+<status status="PASS" starttime="20221110 15:10:59.381" endtime="20221110 15:11:00.010"/>
+</if>
+<status status="PASS" starttime="20221110 15:10:56.329" endtime="20221110 15:11:00.010"/>
+</iter>
+<iter>
+<var name="${index}">8</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:00.011" endtime="20221110 15:11:00.011"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:11:00.011" endtime="20221110 15:11:00.650"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:11:00.650" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[8]'.</msg>
+<status status="PASS" starttime="20221110 15:11:00.650" endtime="20221110 15:11:01.559"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:01.559" endtime="20221110 15:11:01.559"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:11:01.559" endtime="20221110 15:11:02.474"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:03.105" level="INFO">${giftCardPrice} = ₹ 2000</msg>
+<status status="PASS" starttime="20221110 15:11:02.474" endtime="20221110 15:11:03.105"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:11:03.106" level="INFO">${giftCardPrice} = 2000</msg>
+<status status="PASS" starttime="20221110 15:11:03.105" endtime="20221110 15:11:03.106"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:03.107" level="INFO">Gift card price: 2000</msg>
+<status status="PASS" starttime="20221110 15:11:03.106" endtime="20221110 15:11:03.107"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:03.107" endtime="20221110 15:11:03.107"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:03.107" endtime="20221110 15:11:03.107"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:03.107" endtime="20221110 15:11:03.108"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:03.108" endtime="20221110 15:11:03.108"/>
+</kw>
+<status status="NOT RUN" starttime="20221110 15:11:03.107" endtime="20221110 15:11:03.108"/>
+</branch>
+<status status="PASS" starttime="20221110 15:11:03.107" endtime="20221110 15:11:03.108"/>
+</if>
+<status status="PASS" starttime="20221110 15:11:00.011" endtime="20221110 15:11:03.108"/>
+</iter>
+<iter>
+<var name="${index}">9</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:03.108" endtime="20221110 15:11:03.108"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:11:03.108" endtime="20221110 15:11:03.737"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:11:03.737" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[9]'.</msg>
+<status status="PASS" starttime="20221110 15:11:03.737" endtime="20221110 15:11:04.639"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:04.639" endtime="20221110 15:11:04.639"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:11:04.639" endtime="20221110 15:11:05.531"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:06.161" level="INFO">${giftCardPrice} = ₹ 2000</msg>
+<status status="PASS" starttime="20221110 15:11:05.531" endtime="20221110 15:11:06.161"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:11:06.162" level="INFO">${giftCardPrice} = 2000</msg>
+<status status="PASS" starttime="20221110 15:11:06.161" endtime="20221110 15:11:06.162"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:06.162" level="INFO">Gift card price: 2000</msg>
+<status status="PASS" starttime="20221110 15:11:06.162" endtime="20221110 15:11:06.163"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:06.163" endtime="20221110 15:11:06.163"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:06.163" endtime="20221110 15:11:06.163"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:06.163" endtime="20221110 15:11:06.163"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:06.163" endtime="20221110 15:11:06.163"/>
+</kw>
+<status status="NOT RUN" starttime="20221110 15:11:06.163" endtime="20221110 15:11:06.163"/>
+</branch>
+<status status="PASS" starttime="20221110 15:11:06.163" endtime="20221110 15:11:06.163"/>
+</if>
+<status status="PASS" starttime="20221110 15:11:03.108" endtime="20221110 15:11:06.164"/>
+</iter>
+<iter>
+<var name="${index}">10</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:06.164" endtime="20221110 15:11:06.164"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:11:06.164" endtime="20221110 15:11:06.792"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:11:06.792" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[10]'.</msg>
+<status status="PASS" starttime="20221110 15:11:06.792" endtime="20221110 15:11:07.708"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:07.708" endtime="20221110 15:11:07.708"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:11:07.708" endtime="20221110 15:11:08.602"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:09.270" level="INFO">${giftCardPrice} = ₹ 1000</msg>
+<status status="PASS" starttime="20221110 15:11:08.602" endtime="20221110 15:11:09.270"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:11:09.271" level="INFO">${giftCardPrice} = 1000</msg>
+<status status="PASS" starttime="20221110 15:11:09.270" endtime="20221110 15:11:09.271"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:09.272" level="INFO">Gift card price: 1000</msg>
+<status status="PASS" starttime="20221110 15:11:09.272" endtime="20221110 15:11:09.272"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:09.272" endtime="20221110 15:11:09.273"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:09.919" level="INFO">${giftCardName} = Fastrack &amp; BMS Combo</msg>
+<status status="PASS" starttime="20221110 15:11:09.273" endtime="20221110 15:11:09.919"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:09.919" level="INFO">Gift Card name within range: Fastrack &amp; BMS Combo</msg>
+<status status="PASS" starttime="20221110 15:11:09.919" endtime="20221110 15:11:09.919"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:11:09.920" endtime="20221110 15:11:09.920"/>
+</kw>
+<status status="PASS" starttime="20221110 15:11:09.272" endtime="20221110 15:11:09.920"/>
+</branch>
+<status status="PASS" starttime="20221110 15:11:09.272" endtime="20221110 15:11:09.920"/>
+</if>
+<status status="PASS" starttime="20221110 15:11:06.164" endtime="20221110 15:11:09.920"/>
+</iter>
+<iter>
+<var name="${index}">11</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:09.920" endtime="20221110 15:11:09.920"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:11:09.921" endtime="20221110 15:11:10.551"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:11:10.552" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[11]'.</msg>
+<status status="PASS" starttime="20221110 15:11:10.551" endtime="20221110 15:11:11.454"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:11.454" endtime="20221110 15:11:11.454"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:11:11.454" endtime="20221110 15:11:12.358"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:12.990" level="INFO">${giftCardPrice} = ₹ 2000</msg>
+<status status="PASS" starttime="20221110 15:11:12.358" endtime="20221110 15:11:12.990"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:11:12.991" level="INFO">${giftCardPrice} = 2000</msg>
+<status status="PASS" starttime="20221110 15:11:12.990" endtime="20221110 15:11:12.991"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:12.992" level="INFO">Gift card price: 2000</msg>
+<status status="PASS" starttime="20221110 15:11:12.992" endtime="20221110 15:11:12.992"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:12.992" endtime="20221110 15:11:12.992"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:12.992" endtime="20221110 15:11:12.992"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:12.993" endtime="20221110 15:11:12.993"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:12.993" endtime="20221110 15:11:12.993"/>
+</kw>
+<status status="NOT RUN" starttime="20221110 15:11:12.992" endtime="20221110 15:11:12.993"/>
+</branch>
+<status status="PASS" starttime="20221110 15:11:12.992" endtime="20221110 15:11:12.993"/>
+</if>
+<status status="PASS" starttime="20221110 15:11:09.920" endtime="20221110 15:11:12.993"/>
+</iter>
+<iter>
+<var name="${index}">12</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:12.993" endtime="20221110 15:11:12.993"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:11:12.993" endtime="20221110 15:11:13.628"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:11:13.628" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[12]'.</msg>
+<status status="PASS" starttime="20221110 15:11:13.628" endtime="20221110 15:11:14.521"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:14.521" endtime="20221110 15:11:14.521"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:11:14.521" endtime="20221110 15:11:15.426"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:16.059" level="INFO">${giftCardPrice} = ₹ 2000</msg>
+<status status="PASS" starttime="20221110 15:11:15.426" endtime="20221110 15:11:16.059"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:11:16.060" level="INFO">${giftCardPrice} = 2000</msg>
+<status status="PASS" starttime="20221110 15:11:16.059" endtime="20221110 15:11:16.060"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:16.060" level="INFO">Gift card price: 2000</msg>
+<status status="PASS" starttime="20221110 15:11:16.060" endtime="20221110 15:11:16.061"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:16.061" endtime="20221110 15:11:16.061"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:16.061" endtime="20221110 15:11:16.061"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:16.061" endtime="20221110 15:11:16.062"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:16.062" endtime="20221110 15:11:16.062"/>
+</kw>
+<status status="NOT RUN" starttime="20221110 15:11:16.061" endtime="20221110 15:11:16.062"/>
+</branch>
+<status status="PASS" starttime="20221110 15:11:16.061" endtime="20221110 15:11:16.062"/>
+</if>
+<status status="PASS" starttime="20221110 15:11:12.993" endtime="20221110 15:11:16.062"/>
+</iter>
+<iter>
+<var name="${index}">13</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:16.062" endtime="20221110 15:11:16.062"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:11:16.062" endtime="20221110 15:11:16.694"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:11:16.694" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[13]'.</msg>
+<status status="PASS" starttime="20221110 15:11:16.694" endtime="20221110 15:11:17.595"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:17.595" endtime="20221110 15:11:17.595"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:11:17.595" endtime="20221110 15:11:18.498"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:19.132" level="INFO">${giftCardPrice} = ₹ 2000</msg>
+<status status="PASS" starttime="20221110 15:11:18.498" endtime="20221110 15:11:19.132"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:11:19.133" level="INFO">${giftCardPrice} = 2000</msg>
+<status status="PASS" starttime="20221110 15:11:19.132" endtime="20221110 15:11:19.133"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:19.134" level="INFO">Gift card price: 2000</msg>
+<status status="PASS" starttime="20221110 15:11:19.133" endtime="20221110 15:11:19.134"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:19.134" endtime="20221110 15:11:19.134"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:19.134" endtime="20221110 15:11:19.134"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:19.134" endtime="20221110 15:11:19.134"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:19.134" endtime="20221110 15:11:19.134"/>
+</kw>
+<status status="NOT RUN" starttime="20221110 15:11:19.134" endtime="20221110 15:11:19.134"/>
+</branch>
+<status status="PASS" starttime="20221110 15:11:19.134" endtime="20221110 15:11:19.134"/>
+</if>
+<status status="PASS" starttime="20221110 15:11:16.062" endtime="20221110 15:11:19.135"/>
+</iter>
+<iter>
+<var name="${index}">14</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:19.135" endtime="20221110 15:11:19.135"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:11:19.135" endtime="20221110 15:11:19.767"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:11:19.767" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[14]'.</msg>
+<status status="PASS" starttime="20221110 15:11:19.767" endtime="20221110 15:11:20.659"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:20.659" endtime="20221110 15:11:20.659"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:11:20.659" endtime="20221110 15:11:21.562"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:22.195" level="INFO">${giftCardPrice} = ₹ 2000</msg>
+<status status="PASS" starttime="20221110 15:11:21.562" endtime="20221110 15:11:22.195"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:11:22.196" level="INFO">${giftCardPrice} = 2000</msg>
+<status status="PASS" starttime="20221110 15:11:22.195" endtime="20221110 15:11:22.196"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:22.197" level="INFO">Gift card price: 2000</msg>
+<status status="PASS" starttime="20221110 15:11:22.196" endtime="20221110 15:11:22.197"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:22.197" endtime="20221110 15:11:22.197"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:22.197" endtime="20221110 15:11:22.197"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:22.197" endtime="20221110 15:11:22.197"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:22.198" endtime="20221110 15:11:22.198"/>
+</kw>
+<status status="NOT RUN" starttime="20221110 15:11:22.197" endtime="20221110 15:11:22.198"/>
+</branch>
+<status status="PASS" starttime="20221110 15:11:22.197" endtime="20221110 15:11:22.198"/>
+</if>
+<status status="PASS" starttime="20221110 15:11:19.135" endtime="20221110 15:11:22.198"/>
+</iter>
+<iter>
+<var name="${index}">15</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:22.198" endtime="20221110 15:11:22.198"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:11:22.198" endtime="20221110 15:11:22.828"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:11:22.828" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[15]'.</msg>
+<status status="PASS" starttime="20221110 15:11:22.828" endtime="20221110 15:11:23.720"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:23.720" endtime="20221110 15:11:23.720"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:11:23.720" endtime="20221110 15:11:24.612"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:25.248" level="INFO">${giftCardPrice} = ₹ 1000</msg>
+<status status="PASS" starttime="20221110 15:11:24.612" endtime="20221110 15:11:25.248"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:11:25.249" level="INFO">${giftCardPrice} = 1000</msg>
+<status status="PASS" starttime="20221110 15:11:25.248" endtime="20221110 15:11:25.249"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:25.250" level="INFO">Gift card price: 1000</msg>
+<status status="PASS" starttime="20221110 15:11:25.250" endtime="20221110 15:11:25.250"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:25.250" endtime="20221110 15:11:25.250"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:25.880" level="INFO">${giftCardName} = BMS and Central Combo</msg>
+<status status="PASS" starttime="20221110 15:11:25.251" endtime="20221110 15:11:25.880"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:25.880" level="INFO">Gift Card name within range: BMS and Central Combo</msg>
+<status status="PASS" starttime="20221110 15:11:25.880" endtime="20221110 15:11:25.880"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:11:25.880" endtime="20221110 15:11:25.880"/>
+</kw>
+<status status="PASS" starttime="20221110 15:11:25.250" endtime="20221110 15:11:25.880"/>
+</branch>
+<status status="PASS" starttime="20221110 15:11:25.250" endtime="20221110 15:11:25.880"/>
+</if>
+<status status="PASS" starttime="20221110 15:11:22.198" endtime="20221110 15:11:25.880"/>
+</iter>
+<iter>
+<var name="${index}">16</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:25.880" endtime="20221110 15:11:25.880"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:11:25.880" endtime="20221110 15:11:26.514"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:11:26.514" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[16]'.</msg>
+<status status="PASS" starttime="20221110 15:11:26.514" endtime="20221110 15:11:27.403"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:27.403" endtime="20221110 15:11:27.403"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:11:27.403" endtime="20221110 15:11:28.292"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:28.929" level="INFO">${giftCardPrice} = ₹ 2000</msg>
+<status status="PASS" starttime="20221110 15:11:28.292" endtime="20221110 15:11:28.929"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:11:28.931" level="INFO">${giftCardPrice} = 2000</msg>
+<status status="PASS" starttime="20221110 15:11:28.929" endtime="20221110 15:11:28.931"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:28.932" level="INFO">Gift card price: 2000</msg>
+<status status="PASS" starttime="20221110 15:11:28.931" endtime="20221110 15:11:28.932"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:28.932" endtime="20221110 15:11:28.932"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:28.932" endtime="20221110 15:11:28.932"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:28.933" endtime="20221110 15:11:28.933"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:28.933" endtime="20221110 15:11:28.933"/>
+</kw>
+<status status="NOT RUN" starttime="20221110 15:11:28.932" endtime="20221110 15:11:28.933"/>
+</branch>
+<status status="PASS" starttime="20221110 15:11:28.932" endtime="20221110 15:11:28.933"/>
+</if>
+<status status="PASS" starttime="20221110 15:11:25.880" endtime="20221110 15:11:28.933"/>
+</iter>
+<iter>
+<var name="${index}">17</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:28.933" endtime="20221110 15:11:28.933"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:11:28.933" endtime="20221110 15:11:29.565"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:11:29.565" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[17]'.</msg>
+<status status="PASS" starttime="20221110 15:11:29.565" endtime="20221110 15:11:30.468"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:30.468" endtime="20221110 15:11:30.468"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:11:30.468" endtime="20221110 15:11:31.361"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:31.996" level="INFO">${giftCardPrice} = ₹ 1000</msg>
+<status status="PASS" starttime="20221110 15:11:31.361" endtime="20221110 15:11:31.996"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:11:31.998" level="INFO">${giftCardPrice} = 1000</msg>
+<status status="PASS" starttime="20221110 15:11:31.996" endtime="20221110 15:11:31.998"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:31.998" level="INFO">Gift card price: 1000</msg>
+<status status="PASS" starttime="20221110 15:11:31.998" endtime="20221110 15:11:31.998"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:31.998" endtime="20221110 15:11:31.999"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:32.634" level="INFO">${giftCardName} = BMS and Vero Moda Combo</msg>
+<status status="PASS" starttime="20221110 15:11:31.999" endtime="20221110 15:11:32.634"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:32.634" level="INFO">Gift Card name within range: BMS and Vero Moda Combo</msg>
+<status status="PASS" starttime="20221110 15:11:32.634" endtime="20221110 15:11:32.634"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:11:32.635" endtime="20221110 15:11:32.635"/>
+</kw>
+<status status="PASS" starttime="20221110 15:11:31.998" endtime="20221110 15:11:32.635"/>
+</branch>
+<status status="PASS" starttime="20221110 15:11:31.998" endtime="20221110 15:11:32.635"/>
+</if>
+<status status="PASS" starttime="20221110 15:11:28.933" endtime="20221110 15:11:32.635"/>
+</iter>
+<iter>
+<var name="${index}">18</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:32.635" endtime="20221110 15:11:32.635"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:11:32.635" endtime="20221110 15:11:33.263"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:11:33.263" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[18]'.</msg>
+<status status="PASS" starttime="20221110 15:11:33.263" endtime="20221110 15:11:34.167"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:34.167" endtime="20221110 15:11:34.167"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:11:34.167" endtime="20221110 15:11:35.057"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:35.691" level="INFO">${giftCardPrice} = ₹ 1000</msg>
+<status status="PASS" starttime="20221110 15:11:35.057" endtime="20221110 15:11:35.691"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:11:35.692" level="INFO">${giftCardPrice} = 1000</msg>
+<status status="PASS" starttime="20221110 15:11:35.691" endtime="20221110 15:11:35.692"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:35.693" level="INFO">Gift card price: 1000</msg>
+<status status="PASS" starttime="20221110 15:11:35.692" endtime="20221110 15:11:35.693"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:35.693" endtime="20221110 15:11:35.693"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:36.327" level="INFO">${giftCardName} = BMS and Levis Combo</msg>
+<status status="PASS" starttime="20221110 15:11:35.693" endtime="20221110 15:11:36.327"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:36.327" level="INFO">Gift Card name within range: BMS and Levis Combo</msg>
+<status status="PASS" starttime="20221110 15:11:36.327" endtime="20221110 15:11:36.327"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:11:36.327" endtime="20221110 15:11:36.328"/>
+</kw>
+<status status="PASS" starttime="20221110 15:11:35.693" endtime="20221110 15:11:36.328"/>
+</branch>
+<status status="PASS" starttime="20221110 15:11:35.693" endtime="20221110 15:11:36.328"/>
+</if>
+<status status="PASS" starttime="20221110 15:11:32.635" endtime="20221110 15:11:36.328"/>
+</iter>
+<iter>
+<var name="${index}">19</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:36.328" endtime="20221110 15:11:36.328"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:11:36.328" endtime="20221110 15:11:36.963"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:11:36.963" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[19]'.</msg>
+<status status="PASS" starttime="20221110 15:11:36.963" endtime="20221110 15:11:37.864"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:37.864" endtime="20221110 15:11:37.864"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:11:37.864" endtime="20221110 15:11:38.764"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:39.399" level="INFO">${giftCardPrice} = ₹ 2000</msg>
+<status status="PASS" starttime="20221110 15:11:38.764" endtime="20221110 15:11:39.399"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:11:39.400" level="INFO">${giftCardPrice} = 2000</msg>
+<status status="PASS" starttime="20221110 15:11:39.399" endtime="20221110 15:11:39.400"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:39.401" level="INFO">Gift card price: 2000</msg>
+<status status="PASS" starttime="20221110 15:11:39.400" endtime="20221110 15:11:39.401"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:39.401" endtime="20221110 15:11:39.401"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:39.401" endtime="20221110 15:11:39.401"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:39.401" endtime="20221110 15:11:39.401"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:39.401" endtime="20221110 15:11:39.401"/>
+</kw>
+<status status="NOT RUN" starttime="20221110 15:11:39.401" endtime="20221110 15:11:39.401"/>
+</branch>
+<status status="PASS" starttime="20221110 15:11:39.401" endtime="20221110 15:11:39.402"/>
+</if>
+<status status="PASS" starttime="20221110 15:11:36.328" endtime="20221110 15:11:39.402"/>
+</iter>
+<iter>
+<var name="${index}">20</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:39.402" endtime="20221110 15:11:39.402"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:11:39.402" endtime="20221110 15:11:40.032"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:11:40.032" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[20]'.</msg>
+<status status="PASS" starttime="20221110 15:11:40.032" endtime="20221110 15:11:40.935"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:40.935" endtime="20221110 15:11:40.935"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:11:40.935" endtime="20221110 15:11:41.825"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:42.458" level="INFO">${giftCardPrice} = ₹ 1000</msg>
+<status status="PASS" starttime="20221110 15:11:41.825" endtime="20221110 15:11:42.458"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:11:42.459" level="INFO">${giftCardPrice} = 1000</msg>
+<status status="PASS" starttime="20221110 15:11:42.458" endtime="20221110 15:11:42.459"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:42.460" level="INFO">Gift card price: 1000</msg>
+<status status="PASS" starttime="20221110 15:11:42.459" endtime="20221110 15:11:42.460"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:42.460" endtime="20221110 15:11:42.460"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:43.089" level="INFO">${giftCardName} = Hidesign and BMS Combo</msg>
+<status status="PASS" starttime="20221110 15:11:42.460" endtime="20221110 15:11:43.089"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:43.089" level="INFO">Gift Card name within range: Hidesign and BMS Combo</msg>
+<status status="PASS" starttime="20221110 15:11:43.089" endtime="20221110 15:11:43.089"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:11:43.090" endtime="20221110 15:11:43.090"/>
+</kw>
+<status status="PASS" starttime="20221110 15:11:42.460" endtime="20221110 15:11:43.090"/>
+</branch>
+<status status="PASS" starttime="20221110 15:11:42.460" endtime="20221110 15:11:43.090"/>
+</if>
+<status status="PASS" starttime="20221110 15:11:39.402" endtime="20221110 15:11:43.090"/>
+</iter>
+<iter>
+<var name="${index}">21</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:43.091" endtime="20221110 15:11:43.091"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:11:43.091" endtime="20221110 15:11:43.724"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:11:43.724" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[21]'.</msg>
+<status status="PASS" starttime="20221110 15:11:43.724" endtime="20221110 15:11:44.642"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:44.642" endtime="20221110 15:11:44.642"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:11:44.642" endtime="20221110 15:11:45.533"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:46.167" level="INFO">${giftCardPrice} = ₹ 2000</msg>
+<status status="PASS" starttime="20221110 15:11:45.533" endtime="20221110 15:11:46.167"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:11:46.168" level="INFO">${giftCardPrice} = 2000</msg>
+<status status="PASS" starttime="20221110 15:11:46.167" endtime="20221110 15:11:46.168"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:46.169" level="INFO">Gift card price: 2000</msg>
+<status status="PASS" starttime="20221110 15:11:46.168" endtime="20221110 15:11:46.169"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:46.169" endtime="20221110 15:11:46.169"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:46.169" endtime="20221110 15:11:46.169"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:46.169" endtime="20221110 15:11:46.169"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:46.169" endtime="20221110 15:11:46.169"/>
+</kw>
+<status status="NOT RUN" starttime="20221110 15:11:46.169" endtime="20221110 15:11:46.169"/>
+</branch>
+<status status="PASS" starttime="20221110 15:11:46.169" endtime="20221110 15:11:46.169"/>
+</if>
+<status status="PASS" starttime="20221110 15:11:43.090" endtime="20221110 15:11:46.170"/>
+</iter>
+<iter>
+<var name="${index}">22</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:46.170" endtime="20221110 15:11:46.170"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:11:46.170" endtime="20221110 15:11:46.801"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:11:46.801" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[22]'.</msg>
+<status status="PASS" starttime="20221110 15:11:46.801" endtime="20221110 15:11:47.724"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:47.724" endtime="20221110 15:11:47.724"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:11:47.724" endtime="20221110 15:11:48.614"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:49.251" level="INFO">${giftCardPrice} = ₹ 2000</msg>
+<status status="PASS" starttime="20221110 15:11:48.614" endtime="20221110 15:11:49.251"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:11:49.252" level="INFO">${giftCardPrice} = 2000</msg>
+<status status="PASS" starttime="20221110 15:11:49.251" endtime="20221110 15:11:49.252"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:49.253" level="INFO">Gift card price: 2000</msg>
+<status status="PASS" starttime="20221110 15:11:49.252" endtime="20221110 15:11:49.253"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:49.253" endtime="20221110 15:11:49.253"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:49.253" endtime="20221110 15:11:49.253"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:49.253" endtime="20221110 15:11:49.254"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:49.254" endtime="20221110 15:11:49.254"/>
+</kw>
+<status status="NOT RUN" starttime="20221110 15:11:49.253" endtime="20221110 15:11:49.254"/>
+</branch>
+<status status="PASS" starttime="20221110 15:11:49.253" endtime="20221110 15:11:49.254"/>
+</if>
+<status status="PASS" starttime="20221110 15:11:46.170" endtime="20221110 15:11:49.254"/>
+</iter>
+<iter>
+<var name="${index}">23</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:49.254" endtime="20221110 15:11:49.254"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:11:49.254" endtime="20221110 15:11:49.890"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:11:49.890" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[23]'.</msg>
+<status status="PASS" starttime="20221110 15:11:49.890" endtime="20221110 15:11:50.781"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:50.781" endtime="20221110 15:11:50.781"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:11:50.781" endtime="20221110 15:11:51.675"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:52.311" level="INFO">${giftCardPrice} = ₹ 1000</msg>
+<status status="PASS" starttime="20221110 15:11:51.675" endtime="20221110 15:11:52.311"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:11:52.312" level="INFO">${giftCardPrice} = 1000</msg>
+<status status="PASS" starttime="20221110 15:11:52.311" endtime="20221110 15:11:52.312"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:52.313" level="INFO">Gift card price: 1000</msg>
+<status status="PASS" starttime="20221110 15:11:52.312" endtime="20221110 15:11:52.313"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:52.313" endtime="20221110 15:11:52.313"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:52.962" level="INFO">${giftCardName} = BMS and KFC Combo</msg>
+<status status="PASS" starttime="20221110 15:11:52.313" endtime="20221110 15:11:52.962"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:52.962" level="INFO">Gift Card name within range: BMS and KFC Combo</msg>
+<status status="PASS" starttime="20221110 15:11:52.962" endtime="20221110 15:11:52.962"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:11:52.962" endtime="20221110 15:11:52.963"/>
+</kw>
+<status status="PASS" starttime="20221110 15:11:52.313" endtime="20221110 15:11:52.963"/>
+</branch>
+<status status="PASS" starttime="20221110 15:11:52.313" endtime="20221110 15:11:52.963"/>
+</if>
+<status status="PASS" starttime="20221110 15:11:49.254" endtime="20221110 15:11:52.963"/>
+</iter>
+<iter>
+<var name="${index}">24</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:52.963" endtime="20221110 15:11:52.963"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:11:52.963" endtime="20221110 15:11:53.594"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:11:53.594" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[24]'.</msg>
+<status status="PASS" starttime="20221110 15:11:53.594" endtime="20221110 15:11:54.497"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:54.497" endtime="20221110 15:11:54.497"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:11:54.497" endtime="20221110 15:11:55.422"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:56.050" level="INFO">${giftCardPrice} = ₹ 2000</msg>
+<status status="PASS" starttime="20221110 15:11:55.422" endtime="20221110 15:11:56.050"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:11:56.052" level="INFO">${giftCardPrice} = 2000</msg>
+<status status="PASS" starttime="20221110 15:11:56.050" endtime="20221110 15:11:56.052"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:56.053" level="INFO">Gift card price: 2000</msg>
+<status status="PASS" starttime="20221110 15:11:56.052" endtime="20221110 15:11:56.053"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:56.053" endtime="20221110 15:11:56.053"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:56.053" endtime="20221110 15:11:56.053"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:56.053" endtime="20221110 15:11:56.053"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221110 15:11:56.053" endtime="20221110 15:11:56.054"/>
+</kw>
+<status status="NOT RUN" starttime="20221110 15:11:56.053" endtime="20221110 15:11:56.054"/>
+</branch>
+<status status="PASS" starttime="20221110 15:11:56.053" endtime="20221110 15:11:56.054"/>
+</if>
+<status status="PASS" starttime="20221110 15:11:52.963" endtime="20221110 15:11:56.054"/>
+</iter>
+<iter>
+<var name="${index}">25</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:56.054" endtime="20221110 15:11:56.054"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:11:56.054" endtime="20221110 15:11:56.682"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:11:56.682" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[25]'.</msg>
+<status status="PASS" starttime="20221110 15:11:56.682" endtime="20221110 15:11:57.574"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:57.574" endtime="20221110 15:11:57.574"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:11:57.575" endtime="20221110 15:11:58.481"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:59.105" level="INFO">${giftCardPrice} = ₹ 1000</msg>
+<status status="PASS" starttime="20221110 15:11:58.481" endtime="20221110 15:11:59.105"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:11:59.106" level="INFO">${giftCardPrice} = 1000</msg>
+<status status="PASS" starttime="20221110 15:11:59.105" endtime="20221110 15:11:59.106"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:59.106" level="INFO">Gift card price: 1000</msg>
+<status status="PASS" starttime="20221110 15:11:59.106" endtime="20221110 15:11:59.106"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:59.107" endtime="20221110 15:11:59.107"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:11:59.735" level="INFO">${giftCardName} = BMS and Costa Coffee Combo</msg>
+<status status="PASS" starttime="20221110 15:11:59.107" endtime="20221110 15:11:59.735"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:11:59.735" level="INFO">Gift Card name within range: BMS and Costa Coffee Combo</msg>
+<status status="PASS" starttime="20221110 15:11:59.735" endtime="20221110 15:11:59.735"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:11:59.735" endtime="20221110 15:11:59.736"/>
+</kw>
+<status status="PASS" starttime="20221110 15:11:59.107" endtime="20221110 15:11:59.736"/>
+</branch>
+<status status="PASS" starttime="20221110 15:11:59.106" endtime="20221110 15:11:59.736"/>
+</if>
+<status status="PASS" starttime="20221110 15:11:56.054" endtime="20221110 15:11:59.736"/>
+</iter>
+<iter>
+<var name="${index}">26</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:11:59.736" endtime="20221110 15:11:59.736"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:11:59.736" endtime="20221110 15:12:00.365"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:12:00.365" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[26]'.</msg>
+<status status="PASS" starttime="20221110 15:12:00.365" endtime="20221110 15:12:01.249"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:12:01.249" endtime="20221110 15:12:01.249"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:12:01.249" endtime="20221110 15:12:02.142"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:12:02.779" level="INFO">${giftCardPrice} = ₹ 2000</msg>
+<status status="PASS" starttime="20221110 15:12:02.142" endtime="20221110 15:12:02.779"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:12:02.780" level="INFO">${giftCardPrice} = 2000</msg>
+<status status="PASS" starttime="20221110 15:12:02.779" endtime="20221110 15:12:02.780"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:12:02.781" level="INFO">Gift card price: 2000</msg>
+<status status="PASS" starttime="20221110 15:12:02.780" endtime="20221110 15:12:02.781"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="NOT RUN" starttime="20221110 15:12:02.781" endtime="20221110 15:12:02.781"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221110 15:12:02.781" endtime="20221110 15:12:02.781"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221110 15:12:02.781" endtime="20221110 15:12:02.781"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221110 15:12:02.781" endtime="20221110 15:12:02.781"/>
+</kw>
+<status status="NOT RUN" starttime="20221110 15:12:02.781" endtime="20221110 15:12:02.781"/>
+</branch>
+<status status="PASS" starttime="20221110 15:12:02.781" endtime="20221110 15:12:02.781"/>
+</if>
+<status status="PASS" starttime="20221110 15:11:59.736" endtime="20221110 15:12:02.782"/>
+</iter>
+<iter>
+<var name="${index}">27</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:12:02.782" endtime="20221110 15:12:02.782"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:12:02.782" endtime="20221110 15:12:03.404"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:12:03.404" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[27]'.</msg>
+<status status="PASS" starttime="20221110 15:12:03.404" endtime="20221110 15:12:04.295"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:12:04.295" endtime="20221110 15:12:04.295"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:12:04.295" endtime="20221110 15:12:05.197"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:12:05.838" level="INFO">${giftCardPrice} = ₹ 1000</msg>
+<status status="PASS" starttime="20221110 15:12:05.197" endtime="20221110 15:12:05.838"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:12:05.839" level="INFO">${giftCardPrice} = 1000</msg>
+<status status="PASS" starttime="20221110 15:12:05.838" endtime="20221110 15:12:05.839"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:12:05.840" level="INFO">Gift card price: 1000</msg>
+<status status="PASS" starttime="20221110 15:12:05.840" endtime="20221110 15:12:05.840"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:12:05.840" endtime="20221110 15:12:05.840"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:12:06.479" level="INFO">${giftCardName} = BMS and Westside Combo</msg>
+<status status="PASS" starttime="20221110 15:12:05.841" endtime="20221110 15:12:06.479"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:12:06.479" level="INFO">Gift Card name within range: BMS and Westside Combo</msg>
+<status status="PASS" starttime="20221110 15:12:06.479" endtime="20221110 15:12:06.479"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:12:06.479" endtime="20221110 15:12:06.480"/>
+</kw>
+<status status="PASS" starttime="20221110 15:12:05.840" endtime="20221110 15:12:06.480"/>
+</branch>
+<status status="PASS" starttime="20221110 15:12:05.840" endtime="20221110 15:12:06.480"/>
+</if>
+<status status="PASS" starttime="20221110 15:12:02.782" endtime="20221110 15:12:06.480"/>
+</iter>
+<iter>
+<var name="${index}">28</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:12:06.480" endtime="20221110 15:12:06.480"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:12:06.481" endtime="20221110 15:12:07.103"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:12:07.103" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[28]'.</msg>
+<status status="PASS" starttime="20221110 15:12:07.103" endtime="20221110 15:12:07.992"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:12:07.992" endtime="20221110 15:12:07.992"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:12:07.992" endtime="20221110 15:12:08.896"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:12:09.518" level="INFO">${giftCardPrice} = ₹ 2000</msg>
+<status status="PASS" starttime="20221110 15:12:08.896" endtime="20221110 15:12:09.518"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:12:09.519" level="INFO">${giftCardPrice} = 2000</msg>
+<status status="PASS" starttime="20221110 15:12:09.518" endtime="20221110 15:12:09.519"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:12:09.520" level="INFO">Gift card price: 2000</msg>
+<status status="PASS" starttime="20221110 15:12:09.520" endtime="20221110 15:12:09.520"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="NOT RUN" starttime="20221110 15:12:09.520" endtime="20221110 15:12:09.520"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221110 15:12:09.520" endtime="20221110 15:12:09.520"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221110 15:12:09.520" endtime="20221110 15:12:09.521"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221110 15:12:09.521" endtime="20221110 15:12:09.521"/>
+</kw>
+<status status="NOT RUN" starttime="20221110 15:12:09.520" endtime="20221110 15:12:09.521"/>
+</branch>
+<status status="PASS" starttime="20221110 15:12:09.520" endtime="20221110 15:12:09.521"/>
+</if>
+<status status="PASS" starttime="20221110 15:12:06.480" endtime="20221110 15:12:09.521"/>
+</iter>
+<iter>
+<var name="${index}">29</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:12:09.521" endtime="20221110 15:12:09.521"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:12:09.521" endtime="20221110 15:12:10.143"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:12:10.143" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[29]'.</msg>
+<status status="PASS" starttime="20221110 15:12:10.143" endtime="20221110 15:12:11.054"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:12:11.054" endtime="20221110 15:12:11.054"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:12:11.054" endtime="20221110 15:12:11.959"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:12:12.586" level="INFO">${giftCardPrice} = ₹ 2000</msg>
+<status status="PASS" starttime="20221110 15:12:11.959" endtime="20221110 15:12:12.586"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:12:12.588" level="INFO">${giftCardPrice} = 2000</msg>
+<status status="PASS" starttime="20221110 15:12:12.586" endtime="20221110 15:12:12.588"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:12:12.588" level="INFO">Gift card price: 2000</msg>
+<status status="PASS" starttime="20221110 15:12:12.588" endtime="20221110 15:12:12.588"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="NOT RUN" starttime="20221110 15:12:12.588" endtime="20221110 15:12:12.588"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221110 15:12:12.589" endtime="20221110 15:12:12.589"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221110 15:12:12.589" endtime="20221110 15:12:12.589"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221110 15:12:12.589" endtime="20221110 15:12:12.589"/>
+</kw>
+<status status="NOT RUN" starttime="20221110 15:12:12.588" endtime="20221110 15:12:12.589"/>
+</branch>
+<status status="PASS" starttime="20221110 15:12:12.588" endtime="20221110 15:12:12.589"/>
+</if>
+<status status="PASS" starttime="20221110 15:12:09.521" endtime="20221110 15:12:12.589"/>
+</iter>
+<iter>
+<var name="${index}">30</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:12:12.589" endtime="20221110 15:12:12.589"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:12:12.589" endtime="20221110 15:12:13.210"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:12:13.210" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[30]'.</msg>
+<status status="PASS" starttime="20221110 15:12:13.210" endtime="20221110 15:12:14.113"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:12:14.113" endtime="20221110 15:12:14.113"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:12:14.113" endtime="20221110 15:12:15.033"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:12:15.657" level="INFO">${giftCardPrice} = ₹ 1000</msg>
+<status status="PASS" starttime="20221110 15:12:15.033" endtime="20221110 15:12:15.657"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:12:15.659" level="INFO">${giftCardPrice} = 1000</msg>
+<status status="PASS" starttime="20221110 15:12:15.657" endtime="20221110 15:12:15.659"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:12:15.659" level="INFO">Gift card price: 1000</msg>
+<status status="PASS" starttime="20221110 15:12:15.659" endtime="20221110 15:12:15.659"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:12:15.660" endtime="20221110 15:12:15.660"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:12:16.297" level="INFO">${giftCardName} = BMS and Pizza Hut Combo</msg>
+<status status="PASS" starttime="20221110 15:12:15.660" endtime="20221110 15:12:16.297"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:12:16.297" level="INFO">Gift Card name within range: BMS and Pizza Hut Combo</msg>
+<status status="PASS" starttime="20221110 15:12:16.297" endtime="20221110 15:12:16.297"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:12:16.298" endtime="20221110 15:12:16.298"/>
+</kw>
+<status status="PASS" starttime="20221110 15:12:15.660" endtime="20221110 15:12:16.298"/>
+</branch>
+<status status="PASS" starttime="20221110 15:12:15.659" endtime="20221110 15:12:16.298"/>
+</if>
+<status status="PASS" starttime="20221110 15:12:12.589" endtime="20221110 15:12:16.298"/>
+</iter>
+<iter>
+<var name="${index}">31</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:12:16.298" endtime="20221110 15:12:16.298"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:12:16.298" endtime="20221110 15:12:16.920"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:12:16.920" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[31]'.</msg>
+<status status="PASS" starttime="20221110 15:12:16.920" endtime="20221110 15:12:17.807"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:12:17.807" endtime="20221110 15:12:17.807"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:12:17.807" endtime="20221110 15:12:18.714"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:12:19.338" level="INFO">${giftCardPrice} = ₹ 2000</msg>
+<status status="PASS" starttime="20221110 15:12:18.714" endtime="20221110 15:12:19.338"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:12:19.339" level="INFO">${giftCardPrice} = 2000</msg>
+<status status="PASS" starttime="20221110 15:12:19.338" endtime="20221110 15:12:19.339"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:12:19.340" level="INFO">Gift card price: 2000</msg>
+<status status="PASS" starttime="20221110 15:12:19.339" endtime="20221110 15:12:19.340"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="NOT RUN" starttime="20221110 15:12:19.340" endtime="20221110 15:12:19.340"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221110 15:12:19.340" endtime="20221110 15:12:19.340"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221110 15:12:19.340" endtime="20221110 15:12:19.340"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221110 15:12:19.340" endtime="20221110 15:12:19.340"/>
+</kw>
+<status status="NOT RUN" starttime="20221110 15:12:19.340" endtime="20221110 15:12:19.340"/>
+</branch>
+<status status="PASS" starttime="20221110 15:12:19.340" endtime="20221110 15:12:19.341"/>
+</if>
+<status status="PASS" starttime="20221110 15:12:16.298" endtime="20221110 15:12:19.341"/>
+</iter>
+<iter>
+<var name="${index}">32</var>
+<kw name="Comment" library="BuiltIn">
+<arg>Hover mouse over a gift card</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:12:19.341" endtime="20221110 15:12:19.341"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${availableCombos}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221110 15:12:19.341" endtime="20221110 15:12:19.967"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>(${availableCombos})[${index}]</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20221110 15:12:19.967" level="INFO">Simulating Mouse Over on element '(//ul[@class='sc-1m2izr0-3 bWagRM']/li)[32]'.</msg>
+<status status="PASS" starttime="20221110 15:12:19.967" endtime="20221110 15:12:20.862"/>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<arg>Retrieve gift card price</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:12:20.862" endtime="20221110 15:12:20.862"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221110 15:12:20.862" endtime="20221110 15:12:21.759"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardPrice}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:12:22.389" level="INFO">${giftCardPrice} = ₹ 1000</msg>
+<status status="PASS" starttime="20221110 15:12:21.759" endtime="20221110 15:12:22.389"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${giftCardPrice}</var>
+<arg>${giftCardPrice[1:]}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221110 15:12:22.391" level="INFO">${giftCardPrice} = 1000</msg>
+<status status="PASS" starttime="20221110 15:12:22.389" endtime="20221110 15:12:22.391"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift card price: ${giftCardPrice}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:12:22.391" level="INFO">Gift card price: 1000</msg>
+<status status="PASS" starttime="20221110 15:12:22.391" endtime="20221110 15:12:22.391"/>
+</kw>
+<if>
+<branch type="IF" condition="${giftCardPrice} &gt;= ${expectedPrice_startRange} and ${giftCardPrice} &lt;= ${expectedPrice_endRange}">
+<kw name="Comment" library="BuiltIn">
+<arg>Get gift card name</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" starttime="20221110 15:12:22.392" endtime="20221110 15:12:22.392"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${giftCardName}</var>
+<arg>//ul[@class='sc-1m2izr0-3 bWagRM']/li[${index}]/div/div[2]/descendant::span[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221110 15:12:23.019" level="INFO">${giftCardName} = BMS and Speciality Restaurants Combo</msg>
+<status status="PASS" starttime="20221110 15:12:22.392" endtime="20221110 15:12:23.019"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Gift Card name within range: ${giftCardName}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221110 15:12:23.019" level="INFO">Gift Card name within range: BMS and Speciality Restaurants Combo</msg>
+<status status="PASS" starttime="20221110 15:12:23.019" endtime="20221110 15:12:23.019"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${giftCardName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221110 15:12:23.020" endtime="20221110 15:12:23.020"/>
+</kw>
+<status status="PASS" starttime="20221110 15:12:22.392" endtime="20221110 15:12:23.020"/>
+</branch>
+<status status="PASS" starttime="20221110 15:12:22.391" endtime="20221110 15:12:23.020"/>
+</if>
+<status status="PASS" starttime="20221110 15:12:19.341" endtime="20221110 15:12:23.020"/>
+</iter>
+<status status="PASS" starttime="20221110 15:10:36.018" endtime="20221110 15:12:23.020"/>
+</for>
+<status status="PASS" starttime="20221110 15:10:35.692" endtime="20221110 15:12:23.020"/>
+</kw>
+<kw name="close all open browsers" library="Assignment4_resources" type="TEARDOWN">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20221110 15:12:23.021" endtime="20221110 15:12:25.372"/>
+</kw>
+<status status="PASS" starttime="20221110 15:12:23.021" endtime="20221110 15:12:25.372"/>
+</kw>
+<doc>We select a sub-city from list of cities, navigate to gift card sections
+find list of gift cards under 'movies and shopping' and return the lowest price
+gift card</doc>
+<status status="PASS" starttime="20221110 15:10:16.912" endtime="20221110 15:12:25.372"/>
+</test>
+<status status="PASS" starttime="20221110 15:10:16.496" endtime="20221110 15:12:25.372"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Assignment-4">Assignment-4</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

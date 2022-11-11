@@ -1,0 +1,2378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.7.4 on win32)" generated="20221109 14:24:00.536" rpa="false" schemaversion="3">
+<suite id="s1" name="Assignment-3" source="C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\TestCases\Assignment-3.robot">
+<test id="s1-t1" name="Search something and store contents in a file" line="18">
+<kw name="Create File" library="OperatingSystem" type="SETUP">
+<arg>${EXECDIR}/searchResults.txt</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20221109 14:24:01.307" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:01.307" endtime="20221109 14:24:01.307"/>
+</kw>
+<kw name="open webpage" library="Assignment3_resources">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221109 14:24:01.307" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.google.com/'.</msg>
+<status status="PASS" starttime="20221109 14:24:01.307" endtime="20221109 14:24:13.500"/>
+</kw>
+<status status="PASS" starttime="20221109 14:24:01.307" endtime="20221109 14:24:13.508"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>0.5 seconds</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20221109 14:24:13.508" endtime="20221109 14:24:13.508"/>
+</kw>
+<for flavor="IN">
+<var>${item}</var>
+<value>@{searchItems}</value>
+<iter>
+<var name="${item}">create list</var>
+<kw name="search keyword" library="Assignment3_resources">
+<arg>${item}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SearchBox}</arg>
+<arg>${searchKeyword}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221109 14:24:13.508" level="INFO">Typing text 'create list' into text field 'xpath://input[@name='q']'.</msg>
+<status status="PASS" starttime="20221109 14:24:13.508" endtime="20221109 14:24:15.203"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${SearchBox}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20221109 14:24:15.203" level="INFO">Sending key(s) ('RETURN',) to xpath://input[@name='q'] element.</msg>
+<msg timestamp="20221109 14:24:16.527" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20221109 14:24:16.527" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20221109 14:24:15.203" endtime="20221109 14:24:48.796"/>
+</kw>
+<status status="PASS" starttime="20221109 14:24:13.508" endtime="20221109 14:24:48.796"/>
+</kw>
+<kw name="retrieve and store search results" library="Assignment3_resources">
+<arg>${noOfResultsToStore}</arg>
+<arg>${EXECDIR}/searchResults.txt</arg>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${totalResultsCount}</var>
+<arg>${SearchResultList}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221109 14:24:49.402" level="INFO">${totalResultsCount} = 27</msg>
+<status status="PASS" starttime="20221109 14:24:48.796" endtime="20221109 14:24:49.402"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>---------------------------------${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:49.402" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:49.402" endtime="20221109 14:24:49.402"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1</value>
+<value>${resultsCount}+1</value>
+<iter>
+<var name="${index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:24:50.448" level="INFO">${linkText} = Python List (With Examples) - Programiz
+https://www.programiz.com › python-programming › list</msg>
+<status status="PASS" starttime="20221109 14:24:49.402" endtime="20221109 14:24:50.448"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:24:50.448" level="INFO">${index} = 1</msg>
+<status status="PASS" starttime="20221109 14:24:50.448" endtime="20221109 14:24:50.448"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:50.448" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:50.448" endtime="20221109 14:24:50.448"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:50.448" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:50.448" endtime="20221109 14:24:50.448"/>
+</kw>
+<status status="PASS" starttime="20221109 14:24:49.402" endtime="20221109 14:24:50.448"/>
+</iter>
+<iter>
+<var name="${index}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:24:51.496" level="INFO">${linkText} = List index()</msg>
+<status status="PASS" starttime="20221109 14:24:50.448" endtime="20221109 14:24:51.496"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:24:51.496" level="INFO">${index} = 2</msg>
+<status status="PASS" starttime="20221109 14:24:51.496" endtime="20221109 14:24:51.496"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:51.496" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:51.496" endtime="20221109 14:24:51.496"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:51.496" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:51.496" endtime="20221109 14:24:51.504"/>
+</kw>
+<status status="PASS" starttime="20221109 14:24:50.448" endtime="20221109 14:24:51.504"/>
+</iter>
+<iter>
+<var name="${index}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:24:52.558" level="INFO">${linkText} = Python List count()</msg>
+<status status="PASS" starttime="20221109 14:24:51.504" endtime="20221109 14:24:52.558"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:24:52.558" level="INFO">${index} = 3</msg>
+<status status="PASS" starttime="20221109 14:24:52.558" endtime="20221109 14:24:52.558"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:52.558" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:52.558" endtime="20221109 14:24:52.558"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:52.558" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:52.558" endtime="20221109 14:24:52.558"/>
+</kw>
+<status status="PASS" starttime="20221109 14:24:51.504" endtime="20221109 14:24:52.558"/>
+</iter>
+<iter>
+<var name="${index}">4</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:24:53.610" level="INFO">${linkText} = Python List copy()</msg>
+<status status="PASS" starttime="20221109 14:24:52.558" endtime="20221109 14:24:53.610"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:24:53.610" level="INFO">${index} = 4</msg>
+<status status="PASS" starttime="20221109 14:24:53.610" endtime="20221109 14:24:53.610"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:53.610" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:53.610" endtime="20221109 14:24:53.610"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:53.610" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:53.610" endtime="20221109 14:24:53.610"/>
+</kw>
+<status status="PASS" starttime="20221109 14:24:52.558" endtime="20221109 14:24:53.610"/>
+</iter>
+<iter>
+<var name="${index}">5</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:24:54.643" level="INFO">${linkText} = Python List pop()</msg>
+<status status="PASS" starttime="20221109 14:24:53.610" endtime="20221109 14:24:54.643"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:24:54.643" level="INFO">${index} = 5</msg>
+<status status="PASS" starttime="20221109 14:24:54.643" endtime="20221109 14:24:54.643"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:54.643" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:54.643" endtime="20221109 14:24:54.643"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:54.643" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:54.643" endtime="20221109 14:24:54.643"/>
+</kw>
+<status status="PASS" starttime="20221109 14:24:53.610" endtime="20221109 14:24:54.643"/>
+</iter>
+<iter>
+<var name="${index}">6</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:24:55.700" level="INFO">${linkText} = </msg>
+<status status="PASS" starttime="20221109 14:24:54.643" endtime="20221109 14:24:55.700"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:24:55.700" level="INFO">${index} = 6</msg>
+<status status="PASS" starttime="20221109 14:24:55.700" endtime="20221109 14:24:55.700"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:55.700" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:55.700" endtime="20221109 14:24:55.700"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:55.700" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:55.700" endtime="20221109 14:24:55.700"/>
+</kw>
+<status status="PASS" starttime="20221109 14:24:54.643" endtime="20221109 14:24:55.700"/>
+</iter>
+<iter>
+<var name="${index}">7</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:24:56.736" level="INFO">${linkText} = </msg>
+<status status="PASS" starttime="20221109 14:24:55.700" endtime="20221109 14:24:56.736"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:24:56.736" level="INFO">${index} = 7</msg>
+<status status="PASS" starttime="20221109 14:24:56.736" endtime="20221109 14:24:56.736"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:56.736" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:56.736" endtime="20221109 14:24:56.736"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:56.736" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:56.736" endtime="20221109 14:24:56.736"/>
+</kw>
+<status status="PASS" starttime="20221109 14:24:55.700" endtime="20221109 14:24:56.736"/>
+</iter>
+<iter>
+<var name="${index}">8</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:24:57.791" level="INFO">${linkText} = </msg>
+<status status="PASS" starttime="20221109 14:24:56.736" endtime="20221109 14:24:57.791"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:24:57.791" level="INFO">${index} = 8</msg>
+<status status="PASS" starttime="20221109 14:24:57.791" endtime="20221109 14:24:57.791"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:57.791" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:57.791" endtime="20221109 14:24:57.791"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:57.799" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:57.791" endtime="20221109 14:24:57.799"/>
+</kw>
+<status status="PASS" starttime="20221109 14:24:56.736" endtime="20221109 14:24:57.799"/>
+</iter>
+<iter>
+<var name="${index}">9</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:24:58.858" level="INFO">${linkText} = </msg>
+<status status="PASS" starttime="20221109 14:24:57.799" endtime="20221109 14:24:58.858"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:24:58.858" level="INFO">${index} = 9</msg>
+<status status="PASS" starttime="20221109 14:24:58.858" endtime="20221109 14:24:58.858"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:58.858" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:58.858" endtime="20221109 14:24:58.858"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:58.858" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:58.858" endtime="20221109 14:24:58.858"/>
+</kw>
+<status status="PASS" starttime="20221109 14:24:57.799" endtime="20221109 14:24:58.858"/>
+</iter>
+<iter>
+<var name="${index}">10</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:24:59.920" level="INFO">${linkText} = </msg>
+<status status="PASS" starttime="20221109 14:24:58.858" endtime="20221109 14:24:59.920"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:24:59.920" level="INFO">${index} = 10</msg>
+<status status="PASS" starttime="20221109 14:24:59.920" endtime="20221109 14:24:59.920"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:59.920" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:59.920" endtime="20221109 14:24:59.920"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:59.927" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:59.920" endtime="20221109 14:24:59.927"/>
+</kw>
+<status status="PASS" starttime="20221109 14:24:58.858" endtime="20221109 14:24:59.927"/>
+</iter>
+<status status="PASS" starttime="20221109 14:24:49.402" endtime="20221109 14:24:59.927"/>
+</for>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>---------------------------------</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:24:59.927" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:24:59.927" endtime="20221109 14:24:59.927"/>
+</kw>
+<status status="PASS" starttime="20221109 14:24:48.796" endtime="20221109 14:24:59.927"/>
+</kw>
+<status status="PASS" starttime="20221109 14:24:13.508" endtime="20221109 14:24:59.927"/>
+</iter>
+<iter>
+<var name="${item}">Putin</var>
+<kw name="search keyword" library="Assignment3_resources">
+<arg>${item}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SearchBox}</arg>
+<arg>${searchKeyword}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221109 14:24:59.927" level="INFO">Typing text 'Putin' into text field 'xpath://input[@name='q']'.</msg>
+<status status="PASS" starttime="20221109 14:24:59.927" endtime="20221109 14:25:01.640"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${SearchBox}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20221109 14:25:01.640" level="INFO">Sending key(s) ('RETURN',) to xpath://input[@name='q'] element.</msg>
+<msg timestamp="20221109 14:25:02.966" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20221109 14:25:02.966" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20221109 14:25:01.640" endtime="20221109 14:25:10.314"/>
+</kw>
+<status status="PASS" starttime="20221109 14:24:59.927" endtime="20221109 14:25:10.314"/>
+</kw>
+<kw name="retrieve and store search results" library="Assignment3_resources">
+<arg>${noOfResultsToStore}</arg>
+<arg>${EXECDIR}/searchResults.txt</arg>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${totalResultsCount}</var>
+<arg>${SearchResultList}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221109 14:25:10.845" level="INFO">${totalResultsCount} = 39</msg>
+<status status="PASS" starttime="20221109 14:25:10.314" endtime="20221109 14:25:10.845"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>---------------------------------${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:10.845" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:10.845" endtime="20221109 14:25:10.845"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1</value>
+<value>${resultsCount}+1</value>
+<iter>
+<var name="${index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:11.892" level="INFO">${linkText} = Vladimir Putin - Wikipedia
+https://en.wikipedia.org › wiki › Vladimir_Putin</msg>
+<status status="PASS" starttime="20221109 14:25:10.845" endtime="20221109 14:25:11.892"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:11.892" level="INFO">${index} = 1</msg>
+<status status="PASS" starttime="20221109 14:25:11.892" endtime="20221109 14:25:11.892"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:11.892" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:11.892" endtime="20221109 14:25:11.892"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:11.892" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:11.892" endtime="20221109 14:25:11.892"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:10.845" endtime="20221109 14:25:11.892"/>
+</iter>
+<iter>
+<var name="${index}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:12.937" level="INFO">${linkText} = Early life</msg>
+<status status="PASS" starttime="20221109 14:25:11.892" endtime="20221109 14:25:12.937"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:12.937" level="INFO">${index} = 2</msg>
+<status status="PASS" starttime="20221109 14:25:12.937" endtime="20221109 14:25:12.937"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:12.937" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:12.937" endtime="20221109 14:25:12.937"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:12.937" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:12.937" endtime="20221109 14:25:12.937"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:11.892" endtime="20221109 14:25:12.937"/>
+</iter>
+<iter>
+<var name="${index}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:13.981" level="INFO">${linkText} = Education</msg>
+<status status="PASS" starttime="20221109 14:25:12.937" endtime="20221109 14:25:13.981"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:13.981" level="INFO">${index} = 3</msg>
+<status status="PASS" starttime="20221109 14:25:13.981" endtime="20221109 14:25:13.981"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:13.981" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:13.981" endtime="20221109 14:25:13.981"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:13.981" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:13.981" endtime="20221109 14:25:13.981"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:12.937" endtime="20221109 14:25:13.981"/>
+</iter>
+<iter>
+<var name="${index}">4</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:15.054" level="INFO">${linkText} = KGB career</msg>
+<status status="PASS" starttime="20221109 14:25:13.981" endtime="20221109 14:25:15.054"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:15.054" level="INFO">${index} = 4</msg>
+<status status="PASS" starttime="20221109 14:25:15.054" endtime="20221109 14:25:15.054"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:15.054" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:15.054" endtime="20221109 14:25:15.054"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:15.054" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:15.054" endtime="20221109 14:25:15.054"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:13.981" endtime="20221109 14:25:15.054"/>
+</iter>
+<iter>
+<var name="${index}">5</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:16.091" level="INFO">${linkText} = Political career</msg>
+<status status="PASS" starttime="20221109 14:25:15.054" endtime="20221109 14:25:16.091"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:16.091" level="INFO">${index} = 5</msg>
+<status status="PASS" starttime="20221109 14:25:16.091" endtime="20221109 14:25:16.091"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:16.091" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:16.091" endtime="20221109 14:25:16.091"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:16.091" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:16.091" endtime="20221109 14:25:16.091"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:15.054" endtime="20221109 14:25:16.091"/>
+</iter>
+<iter>
+<var name="${index}">6</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:17.149" level="INFO">${linkText} = Vladimir Putin’s enemies meet to plan his ‘elimination’ amid growing dissent of Ukraine war in Russia
+16 hours ago</msg>
+<status status="PASS" starttime="20221109 14:25:16.091" endtime="20221109 14:25:17.149"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:17.149" level="INFO">${index} = 6</msg>
+<status status="PASS" starttime="20221109 14:25:17.149" endtime="20221109 14:25:17.149"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:17.149" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:17.149" endtime="20221109 14:25:17.149"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:17.149" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:17.149" endtime="20221109 14:25:17.149"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:16.091" endtime="20221109 14:25:17.149"/>
+</iter>
+<iter>
+<var name="${index}">7</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:18.200" level="INFO">${linkText} = Ukraine to surrender before Russia? Zelensky changes stance on talks with Putin
+6 hours ago</msg>
+<status status="PASS" starttime="20221109 14:25:17.149" endtime="20221109 14:25:18.200"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:18.200" level="INFO">${index} = 7</msg>
+<status status="PASS" starttime="20221109 14:25:18.200" endtime="20221109 14:25:18.200"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:18.200" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:18.200" endtime="20221109 14:25:18.200"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:18.200" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:18.200" endtime="20221109 14:25:18.200"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:17.149" endtime="20221109 14:25:18.200"/>
+</iter>
+<iter>
+<var name="${index}">8</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:19.262" level="INFO">${linkText} = Putin allies who criticise Russia's war machine
+1 day ago</msg>
+<status status="PASS" starttime="20221109 14:25:18.200" endtime="20221109 14:25:19.262"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:19.262" level="INFO">${index} = 8</msg>
+<status status="PASS" starttime="20221109 14:25:19.262" endtime="20221109 14:25:19.262"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:19.262" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:19.262" endtime="20221109 14:25:19.262"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:19.262" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:19.262" endtime="20221109 14:25:19.262"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:18.200" endtime="20221109 14:25:19.262"/>
+</iter>
+<iter>
+<var name="${index}">9</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:20.298" level="INFO">${linkText} = Putin's Chef admits rigging U.S elections; 'Will interfere again' warning amid midterms
+1 day ago</msg>
+<status status="PASS" starttime="20221109 14:25:19.262" endtime="20221109 14:25:20.298"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:20.298" level="INFO">${index} = 9</msg>
+<status status="PASS" starttime="20221109 14:25:20.298" endtime="20221109 14:25:20.298"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:20.298" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:20.298" endtime="20221109 14:25:20.298"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:20.298" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:20.298" endtime="20221109 14:25:20.298"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:19.262" endtime="20221109 14:25:20.298"/>
+</iter>
+<iter>
+<var name="${index}">10</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:21.345" level="INFO">${linkText} = India Today
+We interfered and we will interfere: Putin ally Prigozhin admits meddling in US elections
+1 day ago</msg>
+<status status="PASS" starttime="20221109 14:25:20.298" endtime="20221109 14:25:21.345"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:21.345" level="INFO">${index} = 10</msg>
+<status status="PASS" starttime="20221109 14:25:21.345" endtime="20221109 14:25:21.345"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:21.345" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:21.345" endtime="20221109 14:25:21.345"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:21.345" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:21.345" endtime="20221109 14:25:21.345"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:20.298" endtime="20221109 14:25:21.345"/>
+</iter>
+<status status="PASS" starttime="20221109 14:25:10.845" endtime="20221109 14:25:21.345"/>
+</for>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>---------------------------------</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:21.345" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:21.345" endtime="20221109 14:25:21.345"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:10.314" endtime="20221109 14:25:21.345"/>
+</kw>
+<status status="PASS" starttime="20221109 14:24:59.927" endtime="20221109 14:25:21.345"/>
+</iter>
+<iter>
+<var name="${item}">Modi</var>
+<kw name="search keyword" library="Assignment3_resources">
+<arg>${item}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SearchBox}</arg>
+<arg>${searchKeyword}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:21.345" level="INFO">Typing text 'Modi' into text field 'xpath://input[@name='q']'.</msg>
+<status status="PASS" starttime="20221109 14:25:21.345" endtime="20221109 14:25:23.011"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${SearchBox}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20221109 14:25:23.011" level="INFO">Sending key(s) ('RETURN',) to xpath://input[@name='q'] element.</msg>
+<msg timestamp="20221109 14:25:24.327" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20221109 14:25:24.327" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20221109 14:25:23.011" endtime="20221109 14:25:30.851"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:21.345" endtime="20221109 14:25:30.851"/>
+</kw>
+<kw name="retrieve and store search results" library="Assignment3_resources">
+<arg>${noOfResultsToStore}</arg>
+<arg>${EXECDIR}/searchResults.txt</arg>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${totalResultsCount}</var>
+<arg>${SearchResultList}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221109 14:25:31.368" level="INFO">${totalResultsCount} = 57</msg>
+<status status="PASS" starttime="20221109 14:25:30.851" endtime="20221109 14:25:31.368"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>---------------------------------${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:31.368" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:31.368" endtime="20221109 14:25:31.368"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1</value>
+<value>${resultsCount}+1</value>
+<iter>
+<var name="${index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:32.416" level="INFO">${linkText} = Narendra Modi | NarendraModi.in Official Website of Prime ...
+https://www.narendramodi.in</msg>
+<status status="PASS" starttime="20221109 14:25:31.368" endtime="20221109 14:25:32.416"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:32.416" level="INFO">${index} = 1</msg>
+<status status="PASS" starttime="20221109 14:25:32.416" endtime="20221109 14:25:32.416"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:32.416" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:32.416" endtime="20221109 14:25:32.416"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:32.416" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:32.416" endtime="20221109 14:25:32.416"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:31.368" endtime="20221109 14:25:32.416"/>
+</iter>
+<iter>
+<var name="${index}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:33.463" level="INFO">${linkText} = Narendra Modi - Wikipedia
+https://en.wikipedia.org › wiki › Narendra_Modi</msg>
+<status status="PASS" starttime="20221109 14:25:32.416" endtime="20221109 14:25:33.463"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:33.463" level="INFO">${index} = 2</msg>
+<status status="PASS" starttime="20221109 14:25:33.463" endtime="20221109 14:25:33.463"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:33.463" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:33.463" endtime="20221109 14:25:33.463"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:33.463" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:33.463" endtime="20221109 14:25:33.463"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:32.416" endtime="20221109 14:25:33.463"/>
+</iter>
+<iter>
+<var name="${index}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:34.517" level="INFO">${linkText} = Bharatiya Janata Party</msg>
+<status status="PASS" starttime="20221109 14:25:33.463" endtime="20221109 14:25:34.517"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:34.517" level="INFO">${index} = 3</msg>
+<status status="PASS" starttime="20221109 14:25:34.517" endtime="20221109 14:25:34.517"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:34.517" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:34.517" endtime="20221109 14:25:34.517"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:34.517" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:34.517" endtime="20221109 14:25:34.517"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:33.463" endtime="20221109 14:25:34.517"/>
+</iter>
+<iter>
+<var name="${index}">4</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:35.557" level="INFO">${linkText} = Pranab Mukherjee</msg>
+<status status="PASS" starttime="20221109 14:25:34.517" endtime="20221109 14:25:35.557"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:35.557" level="INFO">${index} = 4</msg>
+<status status="PASS" starttime="20221109 14:25:35.557" endtime="20221109 14:25:35.557"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:35.557" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:35.557" endtime="20221109 14:25:35.557"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:35.557" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:35.557" endtime="20221109 14:25:35.557"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:34.517" endtime="20221109 14:25:35.557"/>
+</iter>
+<iter>
+<var name="${index}">5</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:36.599" level="INFO">${linkText} = Ram Nath Kovi...</msg>
+<status status="PASS" starttime="20221109 14:25:35.557" endtime="20221109 14:25:36.599"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:36.599" level="INFO">${index} = 5</msg>
+<status status="PASS" starttime="20221109 14:25:36.599" endtime="20221109 14:25:36.599"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:36.599" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:36.599" endtime="20221109 14:25:36.599"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:36.599" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:36.599" endtime="20221109 14:25:36.599"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:35.557" endtime="20221109 14:25:36.599"/>
+</iter>
+<iter>
+<var name="${index}">6</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:37.652" level="INFO">${linkText} = Mohammad Hamid Ansari</msg>
+<status status="PASS" starttime="20221109 14:25:36.599" endtime="20221109 14:25:37.652"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:37.652" level="INFO">${index} = 6</msg>
+<status status="PASS" starttime="20221109 14:25:37.652" endtime="20221109 14:25:37.652"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:37.652" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:37.652" endtime="20221109 14:25:37.652"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:37.652" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:37.652" endtime="20221109 14:25:37.652"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:36.599" endtime="20221109 14:25:37.652"/>
+</iter>
+<iter>
+<var name="${index}">7</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:38.703" level="INFO">${linkText} = Ve...</msg>
+<status status="PASS" starttime="20221109 14:25:37.652" endtime="20221109 14:25:38.703"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:38.703" level="INFO">${index} = 7</msg>
+<status status="PASS" starttime="20221109 14:25:38.703" endtime="20221109 14:25:38.703"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:38.703" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:38.703" endtime="20221109 14:25:38.703"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:38.703" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:38.703" endtime="20221109 14:25:38.703"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:37.652" endtime="20221109 14:25:38.703"/>
+</iter>
+<iter>
+<var name="${index}">8</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:39.790" level="INFO">${linkText} = 7, Lok Kalyan Marg</msg>
+<status status="PASS" starttime="20221109 14:25:38.703" endtime="20221109 14:25:39.790"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:39.790" level="INFO">${index} = 8</msg>
+<status status="PASS" starttime="20221109 14:25:39.790" endtime="20221109 14:25:39.790"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:39.790" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:39.790" endtime="20221109 14:25:39.798"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:39.798" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:39.798" endtime="20221109 14:25:39.798"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:38.703" endtime="20221109 14:25:39.798"/>
+</iter>
+<iter>
+<var name="${index}">9</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:40.884" level="INFO">${linkText} = New Delhi</msg>
+<status status="PASS" starttime="20221109 14:25:39.798" endtime="20221109 14:25:40.884"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:40.884" level="INFO">${index} = 9</msg>
+<status status="PASS" starttime="20221109 14:25:40.884" endtime="20221109 14:25:40.884"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:40.884" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:40.884" endtime="20221109 14:25:40.884"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:40.884" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:40.884" endtime="20221109 14:25:40.884"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:39.798" endtime="20221109 14:25:40.884"/>
+</iter>
+<iter>
+<var name="${index}">10</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:41.944" level="INFO">${linkText} = Early life and education</msg>
+<status status="PASS" starttime="20221109 14:25:40.884" endtime="20221109 14:25:41.944"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:41.944" level="INFO">${index} = 10</msg>
+<status status="PASS" starttime="20221109 14:25:41.944" endtime="20221109 14:25:41.944"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:41.944" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:41.944" endtime="20221109 14:25:41.944"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:41.944" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:41.944" endtime="20221109 14:25:41.944"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:40.884" endtime="20221109 14:25:41.944"/>
+</iter>
+<status status="PASS" starttime="20221109 14:25:31.368" endtime="20221109 14:25:41.944"/>
+</for>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>---------------------------------</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:41.952" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:41.944" endtime="20221109 14:25:41.952"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:30.851" endtime="20221109 14:25:41.952"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:21.345" endtime="20221109 14:25:41.952"/>
+</iter>
+<iter>
+<var name="${item}">Trump</var>
+<kw name="search keyword" library="Assignment3_resources">
+<arg>${item}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SearchBox}</arg>
+<arg>${searchKeyword}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:41.952" level="INFO">Typing text 'Trump' into text field 'xpath://input[@name='q']'.</msg>
+<status status="PASS" starttime="20221109 14:25:41.952" endtime="20221109 14:25:43.652"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${SearchBox}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20221109 14:25:43.652" level="INFO">Sending key(s) ('RETURN',) to xpath://input[@name='q'] element.</msg>
+<msg timestamp="20221109 14:25:45.001" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20221109 14:25:45.001" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20221109 14:25:43.652" endtime="20221109 14:25:52.636"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:41.952" endtime="20221109 14:25:52.636"/>
+</kw>
+<kw name="retrieve and store search results" library="Assignment3_resources">
+<arg>${noOfResultsToStore}</arg>
+<arg>${EXECDIR}/searchResults.txt</arg>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${totalResultsCount}</var>
+<arg>${SearchResultList}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221109 14:25:53.155" level="INFO">${totalResultsCount} = 47</msg>
+<status status="PASS" starttime="20221109 14:25:52.636" endtime="20221109 14:25:53.155"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>---------------------------------${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:53.157" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:53.155" endtime="20221109 14:25:53.157"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1</value>
+<value>${resultsCount}+1</value>
+<iter>
+<var name="${index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:54.205" level="INFO">${linkText} = Donald Trump - Wikipedia
+https://en.wikipedia.org › wiki › Donald_Trump</msg>
+<status status="PASS" starttime="20221109 14:25:53.157" endtime="20221109 14:25:54.205"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:54.205" level="INFO">${index} = 1</msg>
+<status status="PASS" starttime="20221109 14:25:54.205" endtime="20221109 14:25:54.205"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:54.207" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:54.205" endtime="20221109 14:25:54.207"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:54.210" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:54.207" endtime="20221109 14:25:54.210"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:53.157" endtime="20221109 14:25:54.210"/>
+</iter>
+<iter>
+<var name="${index}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:55.251" level="INFO">${linkText} = Mike Pence</msg>
+<status status="PASS" starttime="20221109 14:25:54.210" endtime="20221109 14:25:55.251"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:55.251" level="INFO">${index} = 2</msg>
+<status status="PASS" starttime="20221109 14:25:55.251" endtime="20221109 14:25:55.251"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:55.256" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:55.253" endtime="20221109 14:25:55.256"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:55.258" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:55.256" endtime="20221109 14:25:55.258"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:54.210" endtime="20221109 14:25:55.258"/>
+</iter>
+<iter>
+<var name="${index}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:56.314" level="INFO">${linkText} = Politician</msg>
+<status status="PASS" starttime="20221109 14:25:55.258" endtime="20221109 14:25:56.314"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:56.314" level="INFO">${index} = 3</msg>
+<status status="PASS" starttime="20221109 14:25:56.314" endtime="20221109 14:25:56.314"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:56.314" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:56.314" endtime="20221109 14:25:56.314"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:56.314" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:56.314" endtime="20221109 14:25:56.314"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:55.258" endtime="20221109 14:25:56.314"/>
+</iter>
+<iter>
+<var name="${index}">4</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:57.378" level="INFO">${linkText} = businessman</msg>
+<status status="PASS" starttime="20221109 14:25:56.322" endtime="20221109 14:25:57.378"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:57.378" level="INFO">${index} = 4</msg>
+<status status="PASS" starttime="20221109 14:25:57.378" endtime="20221109 14:25:57.378"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:57.378" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:57.378" endtime="20221109 14:25:57.378"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:57.386" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:57.378" endtime="20221109 14:25:57.386"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:56.314" endtime="20221109 14:25:57.386"/>
+</iter>
+<iter>
+<var name="${index}">5</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:58.428" level="INFO">${linkText} = media p...</msg>
+<status status="PASS" starttime="20221109 14:25:57.386" endtime="20221109 14:25:58.428"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:58.428" level="INFO">${index} = 5</msg>
+<status status="PASS" starttime="20221109 14:25:58.428" endtime="20221109 14:25:58.428"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:58.428" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:58.428" endtime="20221109 14:25:58.428"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:58.428" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:58.428" endtime="20221109 14:25:58.428"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:57.386" endtime="20221109 14:25:58.428"/>
+</iter>
+<iter>
+<var name="${index}">6</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:25:59.478" level="INFO">${linkText} = Wharton School</msg>
+<status status="PASS" starttime="20221109 14:25:58.428" endtime="20221109 14:25:59.478"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:25:59.478" level="INFO">${index} = 6</msg>
+<status status="PASS" starttime="20221109 14:25:59.478" endtime="20221109 14:25:59.478"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:59.478" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:59.478" endtime="20221109 14:25:59.478"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:25:59.486" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:25:59.478" endtime="20221109 14:25:59.486"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:58.428" endtime="20221109 14:25:59.486"/>
+</iter>
+<iter>
+<var name="${index}">7</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:00.538" level="INFO">${linkText} = Fred Trump</msg>
+<status status="PASS" starttime="20221109 14:25:59.486" endtime="20221109 14:26:00.538"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:00.538" level="INFO">${index} = 7</msg>
+<status status="PASS" starttime="20221109 14:26:00.538" endtime="20221109 14:26:00.538"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:00.538" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:00.538" endtime="20221109 14:26:00.538"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:00.546" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:00.538" endtime="20221109 14:26:00.546"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:59.486" endtime="20221109 14:26:00.546"/>
+</iter>
+<iter>
+<var name="${index}">8</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:01.605" level="INFO">${linkText} = Mary Anne MacLeod</msg>
+<status status="PASS" starttime="20221109 14:26:00.546" endtime="20221109 14:26:01.605"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:01.605" level="INFO">${index} = 8</msg>
+<status status="PASS" starttime="20221109 14:26:01.605" endtime="20221109 14:26:01.605"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:01.605" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:01.605" endtime="20221109 14:26:01.605"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:01.605" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:01.605" endtime="20221109 14:26:01.605"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:00.546" endtime="20221109 14:26:01.605"/>
+</iter>
+<iter>
+<var name="${index}">9</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:02.659" level="INFO">${linkText} = Presidency</msg>
+<status status="PASS" starttime="20221109 14:26:01.605" endtime="20221109 14:26:02.659"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:02.659" level="INFO">${index} = 9</msg>
+<status status="PASS" starttime="20221109 14:26:02.659" endtime="20221109 14:26:02.659"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:02.659" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:02.659" endtime="20221109 14:26:02.659"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:02.667" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:02.659" endtime="20221109 14:26:02.667"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:01.605" endtime="20221109 14:26:02.667"/>
+</iter>
+<iter>
+<var name="${index}">10</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:03.718" level="INFO">${linkText} = Melania Trump</msg>
+<status status="PASS" starttime="20221109 14:26:02.667" endtime="20221109 14:26:03.718"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:03.718" level="INFO">${index} = 10</msg>
+<status status="PASS" starttime="20221109 14:26:03.718" endtime="20221109 14:26:03.718"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:03.718" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:03.718" endtime="20221109 14:26:03.718"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:03.718" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:03.718" endtime="20221109 14:26:03.718"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:02.667" endtime="20221109 14:26:03.718"/>
+</iter>
+<status status="PASS" starttime="20221109 14:25:53.157" endtime="20221109 14:26:03.718"/>
+</for>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>---------------------------------</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:03.718" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:03.718" endtime="20221109 14:26:03.718"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:52.636" endtime="20221109 14:26:03.718"/>
+</kw>
+<status status="PASS" starttime="20221109 14:25:41.952" endtime="20221109 14:26:03.718"/>
+</iter>
+<iter>
+<var name="${item}">Merkel</var>
+<kw name="search keyword" library="Assignment3_resources">
+<arg>${item}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SearchBox}</arg>
+<arg>${searchKeyword}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:03.726" level="INFO">Typing text 'Merkel' into text field 'xpath://input[@name='q']'.</msg>
+<status status="PASS" starttime="20221109 14:26:03.726" endtime="20221109 14:26:05.407"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${SearchBox}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20221109 14:26:05.407" level="INFO">Sending key(s) ('RETURN',) to xpath://input[@name='q'] element.</msg>
+<msg timestamp="20221109 14:26:06.722" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20221109 14:26:06.722" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20221109 14:26:05.407" endtime="20221109 14:26:19.007"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:03.726" endtime="20221109 14:26:19.007"/>
+</kw>
+<kw name="retrieve and store search results" library="Assignment3_resources">
+<arg>${noOfResultsToStore}</arg>
+<arg>${EXECDIR}/searchResults.txt</arg>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${totalResultsCount}</var>
+<arg>${SearchResultList}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221109 14:26:19.555" level="INFO">${totalResultsCount} = 50</msg>
+<status status="PASS" starttime="20221109 14:26:19.010" endtime="20221109 14:26:19.555"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>---------------------------------${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:19.558" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:19.555" endtime="20221109 14:26:19.560"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1</value>
+<value>${resultsCount}+1</value>
+<iter>
+<var name="${index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:20.621" level="INFO">${linkText} = Angela Merkel - Wikipedia
+https://en.wikipedia.org › wiki › Angela_Merkel</msg>
+<status status="PASS" starttime="20221109 14:26:19.560" endtime="20221109 14:26:20.621"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:20.621" level="INFO">${index} = 1</msg>
+<status status="PASS" starttime="20221109 14:26:20.621" endtime="20221109 14:26:20.621"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:20.626" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:20.621" endtime="20221109 14:26:20.626"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:20.629" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:20.626" endtime="20221109 14:26:20.629"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:19.560" endtime="20221109 14:26:20.631"/>
+</iter>
+<iter>
+<var name="${index}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:21.680" level="INFO">${linkText} = </msg>
+<status status="PASS" starttime="20221109 14:26:20.631" endtime="20221109 14:26:21.680"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:21.680" level="INFO">${index} = 2</msg>
+<status status="PASS" starttime="20221109 14:26:21.680" endtime="20221109 14:26:21.680"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:21.685" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:21.683" endtime="20221109 14:26:21.685"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:21.690" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:21.685" endtime="20221109 14:26:21.690"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:20.631" endtime="20221109 14:26:21.690"/>
+</iter>
+<iter>
+<var name="${index}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:22.740" level="INFO">${linkText} = Merkel-Raute</msg>
+<status status="PASS" starttime="20221109 14:26:21.693" endtime="20221109 14:26:22.740"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:22.742" level="INFO">${index} = 3</msg>
+<status status="PASS" starttime="20221109 14:26:22.740" endtime="20221109 14:26:22.742"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:22.747" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:22.742" endtime="20221109 14:26:22.747"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:22.750" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:22.747" endtime="20221109 14:26:22.750"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:21.690" endtime="20221109 14:26:22.750"/>
+</iter>
+<iter>
+<var name="${index}">4</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:23.805" level="INFO">${linkText} = Gerhard Schröder</msg>
+<status status="PASS" starttime="20221109 14:26:22.750" endtime="20221109 14:26:23.805"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:23.805" level="INFO">${index} = 4</msg>
+<status status="PASS" starttime="20221109 14:26:23.805" endtime="20221109 14:26:23.805"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:23.810" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:23.805" endtime="20221109 14:26:23.810"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:23.815" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:23.810" endtime="20221109 14:26:23.815"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:22.750" endtime="20221109 14:26:23.815"/>
+</iter>
+<iter>
+<var name="${index}">5</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:24.869" level="INFO">${linkText} = Joachim Sauer</msg>
+<status status="PASS" starttime="20221109 14:26:23.815" endtime="20221109 14:26:24.869"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:24.869" level="INFO">${index} = 5</msg>
+<status status="PASS" starttime="20221109 14:26:24.869" endtime="20221109 14:26:24.869"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:24.874" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:24.872" endtime="20221109 14:26:24.874"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:24.879" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:24.874" endtime="20221109 14:26:24.879"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:23.815" endtime="20221109 14:26:24.879"/>
+</iter>
+<iter>
+<var name="${index}">6</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:25.952" level="INFO">${linkText} = Free World</msg>
+<status status="PASS" starttime="20221109 14:26:24.879" endtime="20221109 14:26:25.952"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:25.952" level="INFO">${index} = 6</msg>
+<status status="PASS" starttime="20221109 14:26:25.952" endtime="20221109 14:26:25.952"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:25.957" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:25.955" endtime="20221109 14:26:25.957"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:25.962" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:25.960" endtime="20221109 14:26:25.965"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:24.879" endtime="20221109 14:26:25.965"/>
+</iter>
+<iter>
+<var name="${index}">7</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:27.026" level="INFO">${linkText} = Angela Merkel | Biography, Education, Political Career ...
+https://www.britannica.com › ... › Other Politicians</msg>
+<status status="PASS" starttime="20221109 14:26:25.965" endtime="20221109 14:26:27.026"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:27.026" level="INFO">${index} = 7</msg>
+<status status="PASS" starttime="20221109 14:26:27.026" endtime="20221109 14:26:27.026"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:27.028" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:27.026" endtime="20221109 14:26:27.028"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:27.031" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:27.031" endtime="20221109 14:26:27.033"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:25.965" endtime="20221109 14:26:27.033"/>
+</iter>
+<iter>
+<var name="${index}">8</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:28.087" level="INFO">${linkText} = </msg>
+<status status="PASS" starttime="20221109 14:26:27.033" endtime="20221109 14:26:28.087"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:28.087" level="INFO">${index} = 8</msg>
+<status status="PASS" starttime="20221109 14:26:28.087" endtime="20221109 14:26:28.087"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:28.089" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:28.087" endtime="20221109 14:26:28.089"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:28.094" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:28.089" endtime="20221109 14:26:28.094"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:27.033" endtime="20221109 14:26:28.094"/>
+</iter>
+<iter>
+<var name="${index}">9</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:29.139" level="INFO">${linkText} = Christian Democratic Union</msg>
+<status status="PASS" starttime="20221109 14:26:28.094" endtime="20221109 14:26:29.139"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:29.142" level="INFO">${index} = 9</msg>
+<status status="PASS" starttime="20221109 14:26:29.139" endtime="20221109 14:26:29.142"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:29.144" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:29.142" endtime="20221109 14:26:29.144"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:29.147" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:29.144" endtime="20221109 14:26:29.147"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:28.094" endtime="20221109 14:26:29.147"/>
+</iter>
+<iter>
+<var name="${index}">10</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:30.186" level="INFO">${linkText} = Hamburg</msg>
+<status status="PASS" starttime="20221109 14:26:29.147" endtime="20221109 14:26:30.186"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:30.186" level="INFO">${index} = 10</msg>
+<status status="PASS" starttime="20221109 14:26:30.186" endtime="20221109 14:26:30.186"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:30.191" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:30.186" endtime="20221109 14:26:30.191"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:30.196" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:30.191" endtime="20221109 14:26:30.196"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:29.147" endtime="20221109 14:26:30.196"/>
+</iter>
+<status status="PASS" starttime="20221109 14:26:19.560" endtime="20221109 14:26:30.196"/>
+</for>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>---------------------------------</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:30.201" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:30.196" endtime="20221109 14:26:30.201"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:19.007" endtime="20221109 14:26:30.201"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:03.718" endtime="20221109 14:26:30.201"/>
+</iter>
+<iter>
+<var name="${item}">Trudeau</var>
+<kw name="search keyword" library="Assignment3_resources">
+<arg>${item}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SearchBox}</arg>
+<arg>${searchKeyword}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:30.204" level="INFO">Typing text 'Trudeau' into text field 'xpath://input[@name='q']'.</msg>
+<status status="PASS" starttime="20221109 14:26:30.204" endtime="20221109 14:26:31.914"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${SearchBox}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20221109 14:26:31.914" level="INFO">Sending key(s) ('RETURN',) to xpath://input[@name='q'] element.</msg>
+<msg timestamp="20221109 14:26:33.245" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20221109 14:26:33.245" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20221109 14:26:31.914" endtime="20221109 14:26:36.782"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:30.201" endtime="20221109 14:26:36.782"/>
+</kw>
+<kw name="retrieve and store search results" library="Assignment3_resources">
+<arg>${noOfResultsToStore}</arg>
+<arg>${EXECDIR}/searchResults.txt</arg>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${totalResultsCount}</var>
+<arg>${SearchResultList}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221109 14:26:37.303" level="INFO">${totalResultsCount} = 59</msg>
+<status status="PASS" starttime="20221109 14:26:36.782" endtime="20221109 14:26:37.303"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>---------------------------------${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:37.306" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:37.303" endtime="20221109 14:26:37.306"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1</value>
+<value>${resultsCount}+1</value>
+<iter>
+<var name="${index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:38.393" level="INFO">${linkText} = Prime Minister of Canada - Justin Trudeau
+https://pm.gc.ca › ...</msg>
+<status status="PASS" starttime="20221109 14:26:37.308" endtime="20221109 14:26:38.393"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:38.393" level="INFO">${index} = 1</msg>
+<status status="PASS" starttime="20221109 14:26:38.393" endtime="20221109 14:26:38.393"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:38.395" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:38.393" endtime="20221109 14:26:38.395"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:38.400" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:38.398" endtime="20221109 14:26:38.400"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:37.308" endtime="20221109 14:26:38.400"/>
+</iter>
+<iter>
+<var name="${index}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:39.453" level="INFO">${linkText} = About
+https://pm.gc.ca › about</msg>
+<status status="PASS" starttime="20221109 14:26:38.400" endtime="20221109 14:26:39.453"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:39.456" level="INFO">${index} = 2</msg>
+<status status="PASS" starttime="20221109 14:26:39.453" endtime="20221109 14:26:39.456"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:39.461" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:39.456" endtime="20221109 14:26:39.461"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:39.463" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:39.461" endtime="20221109 14:26:39.463"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:38.400" endtime="20221109 14:26:39.463"/>
+</iter>
+<iter>
+<var name="${index}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:40.549" level="INFO">${linkText} = PM Justin Trudeau accuses China of interfering with Canada election
+17 hours ago</msg>
+<status status="PASS" starttime="20221109 14:26:39.466" endtime="20221109 14:26:40.549"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:40.549" level="INFO">${index} = 3</msg>
+<status status="PASS" starttime="20221109 14:26:40.549" endtime="20221109 14:26:40.549"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:40.552" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:40.549" endtime="20221109 14:26:40.552"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:40.554" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:40.552" endtime="20221109 14:26:40.554"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:39.466" endtime="20221109 14:26:40.554"/>
+</iter>
+<iter>
+<var name="${index}">4</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:41.677" level="INFO">${linkText} = Trudeau accuses China of 'aggressive' election interference
+23 hours ago</msg>
+<status status="PASS" starttime="20221109 14:26:40.554" endtime="20221109 14:26:41.677"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:41.677" level="INFO">${index} = 4</msg>
+<status status="PASS" starttime="20221109 14:26:41.677" endtime="20221109 14:26:41.677"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:41.680" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:41.677" endtime="20221109 14:26:41.680"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:41.680" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:41.680" endtime="20221109 14:26:41.680"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:40.554" endtime="20221109 14:26:41.680"/>
+</iter>
+<iter>
+<var name="${index}">5</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:42.734" level="INFO">${linkText} = China taking ‘aggressive’ steps against Canada’s democracy: Justin Trudeau
+1 day ago</msg>
+<status status="PASS" starttime="20221109 14:26:41.682" endtime="20221109 14:26:42.734"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:42.734" level="INFO">${index} = 5</msg>
+<status status="PASS" starttime="20221109 14:26:42.734" endtime="20221109 14:26:42.734"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:42.736" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:42.734" endtime="20221109 14:26:42.736"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:42.738" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:42.736" endtime="20221109 14:26:42.738"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:41.682" endtime="20221109 14:26:42.738"/>
+</iter>
+<iter>
+<var name="${index}">6</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:43.793" level="INFO">${linkText} = China playing 'aggressive games': Trudeau on poll interference claim
+1 day ago</msg>
+<status status="PASS" starttime="20221109 14:26:42.738" endtime="20221109 14:26:43.793"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:43.793" level="INFO">${index} = 6</msg>
+<status status="PASS" starttime="20221109 14:26:43.793" endtime="20221109 14:26:43.793"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:43.795" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:43.793" endtime="20221109 14:26:43.795"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:43.798" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:43.795" endtime="20221109 14:26:43.798"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:42.738" endtime="20221109 14:26:43.798"/>
+</iter>
+<iter>
+<var name="${index}">7</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:44.870" level="INFO">${linkText} = CNA
+China playing 'aggressive games' with Canada democracy: Trudeau
+1 day ago</msg>
+<status status="PASS" starttime="20221109 14:26:43.798" endtime="20221109 14:26:44.870"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:44.870" level="INFO">${index} = 7</msg>
+<status status="PASS" starttime="20221109 14:26:44.870" endtime="20221109 14:26:44.870"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:44.872" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:44.870" endtime="20221109 14:26:44.875"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:44.877" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:44.875" endtime="20221109 14:26:44.877"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:43.798" endtime="20221109 14:26:44.877"/>
+</iter>
+<iter>
+<var name="${index}">8</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:45.928" level="INFO">${linkText} = More news</msg>
+<status status="PASS" starttime="20221109 14:26:44.880" endtime="20221109 14:26:45.928"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:45.928" level="INFO">${index} = 8</msg>
+<status status="PASS" starttime="20221109 14:26:45.928" endtime="20221109 14:26:45.928"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:45.931" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:45.928" endtime="20221109 14:26:45.931"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:45.933" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:45.931" endtime="20221109 14:26:45.933"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:44.880" endtime="20221109 14:26:45.933"/>
+</iter>
+<iter>
+<var name="${index}">9</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:46.969" level="INFO">${linkText} = </msg>
+<status status="PASS" starttime="20221109 14:26:45.933" endtime="20221109 14:26:46.969"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:46.969" level="INFO">${index} = 9</msg>
+<status status="PASS" starttime="20221109 14:26:46.969" endtime="20221109 14:26:46.969"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:46.972" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:46.969" endtime="20221109 14:26:46.972"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:46.977" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:46.972" endtime="20221109 14:26:46.977"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:45.933" endtime="20221109 14:26:46.977"/>
+</iter>
+<iter>
+<var name="${index}">10</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${linkText}</var>
+<arg>(${SearchResultList})[${index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221109 14:26:48.020" level="INFO">${linkText} = </msg>
+<status status="PASS" starttime="20221109 14:26:46.977" endtime="20221109 14:26:48.020"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221109 14:26:48.020" level="INFO">${index} = 10</msg>
+<status status="PASS" starttime="20221109 14:26:48.020" endtime="20221109 14:26:48.020"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${index}.)</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:48.022" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:48.020" endtime="20221109 14:26:48.025"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>${linkText}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:48.030" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:48.025" endtime="20221109 14:26:48.030"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:46.977" endtime="20221109 14:26:48.030"/>
+</iter>
+<status status="PASS" starttime="20221109 14:26:37.306" endtime="20221109 14:26:48.030"/>
+</for>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${filename}</arg>
+<arg>---------------------------------</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20221109 14:26:48.032" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20221109 14:26:48.030" endtime="20221109 14:26:48.032"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:36.782" endtime="20221109 14:26:48.032"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:30.201" endtime="20221109 14:26:48.032"/>
+</iter>
+<status status="PASS" starttime="20221109 14:24:13.508" endtime="20221109 14:26:48.032"/>
+</for>
+<kw name="display contents of file" library="Assignment3_resources">
+<arg>${EXECDIR}/searchResults.txt</arg>
+<kw name="Get File" library="OperatingSystem">
+<var>${fileName}</var>
+<arg>${file}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20221109 14:26:48.037" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt"&gt;C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\searchResults.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20221109 14:26:48.052" level="INFO">${fileName} = ---------------------------------
+1.)Python List (With Examples) - Programiz
+https://www.programiz.com › python-programming › list
+2.)List index()
+3.)Python List count()
+4.)Python List copy()
+5.)...</msg>
+<status status="PASS" starttime="20221109 14:26:48.035" endtime="20221109 14:26:48.052"/>
+</kw>
+<kw name="Split To Lines" library="String">
+<var>@{list}</var>
+<arg>${fileName}</arg>
+<doc>Splits the given string to lines.</doc>
+<msg timestamp="20221109 14:26:48.052" level="INFO">88 lines returned</msg>
+<msg timestamp="20221109 14:26:48.052" level="INFO">@{list} = [ --------------------------------- | 1.)Python List (With Examples) - Programiz | https://www.programiz.com › python-programming › list | 2.)List index() | 3.)Python List count() | 4.)Python List cop...</msg>
+<status status="PASS" starttime="20221109 14:26:48.052" endtime="20221109 14:26:48.052"/>
+</kw>
+<for flavor="IN">
+<var>${line}</var>
+<value>@{list}:</value>
+<iter>
+<var name="${line}">['---------------------------------', '1.)Python List (With Examples) - Programiz', 'https://www.programiz.com › python-programming › list', '2.)List index()', '3.)Python List count()', '4.)Python Lis...</var>
+<kw name="Log" library="BuiltIn">
+<arg>${line}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221109 14:26:48.055" level="INFO">['---------------------------------', '1.)Python List (With Examples) - Programiz', 'https://www.programiz.com › python-programming › list', '2.)List index()', '3.)Python List count()', '4.)Python List copy()', '5.)Python List pop()', '6.)', '7.)', '8.)', '9.)', '10.)', '------------------------------------------------------------------', '1.)Vladimir Putin - Wikipedia', 'https://en.wikipedia.org › wiki › Vladimir_Putin', '2.)Early life', '3.)Education', '4.)KGB career', '5.)Political career', '6.)Vladimir Putin’s enemies meet to plan his ‘elimination’ amid growing dissent of Ukraine war in Russia', '16 hours ago', '7.)Ukraine to surrender before Russia? Zelensky changes stance on talks with Putin', '6 hours ago', "8.)Putin allies who criticise Russia's war machine", '1 day ago', "9.)Putin's Chef admits rigging U.S elections; 'Will interfere again' warning amid midterms", '1 day ago', '10.)India Today', 'We interfered and we will interfere: Putin ally Prigozhin admits meddling in US elections', '1 day ago', '------------------------------------------------------------------', '1.)Narendra Modi | NarendraModi.in Official Website of Prime ...', 'https://www.narendramodi.in', '2.)Narendra Modi - Wikipedia', 'https://en.wikipedia.org › wiki › Narendra_Modi', '3.)Bharatiya Janata Party', '4.)Pranab Mukherjee', '5.)Ram Nath Kovi...', '6.)Mohammad Hamid Ansari', '7.)Ve...', '8.)7, Lok Kalyan Marg', '9.)New Delhi', '10.)Early life and education', '------------------------------------------------------------------', '1.)Donald Trump - Wikipedia', 'https://en.wikipedia.org › wiki › Donald_Trump', '2.)Mike Pence', '3.)Politician', '4.)businessman', '5.)media p...', '6.)Wharton School', '7.)Fred Trump', '8.)Mary Anne MacLeod', '9.)Presidency', '10.)Melania Trump', '------------------------------------------------------------------', '1.)Angela Merkel - Wikipedia', 'https://en.wikipedia.org › wiki › Angela_Merkel', '2.)', '3.)Merkel-Raute', '4.)Gerhard Schröder', '5.)Joachim Sauer', '6.)Free World', '7.)Angela Merkel | Biography, Education, Political Career ...', 'https://www.britannica.com › ... › Other Politicians', '8.)', '9.)Christian Democratic Union', '10.)Hamburg', '------------------------------------------------------------------', '1.)Prime Minister of Canada - Justin Trudeau', 'https://pm.gc.ca › ...', '2.)About', 'https://pm.gc.ca › about', '3.)PM Justin Trudeau accuses China of interfering with Canada election', '17 hours ago', "4.)Trudeau accuses China of 'aggressive' election interference", '23 hours ago', '5.)China taking ‘aggressive’ steps against Canada’s democracy: Justin Trudeau', '1 day ago', "6.)China playing 'aggressive games': Trudeau on poll interference claim", '1 day ago', '7.)CNA', "China playing 'aggressive games' with Canada democracy: Trudeau", '1 day ago', '8.)More news', '9.)', '10.)', '---------------------------------']:</msg>
+<status status="PASS" starttime="20221109 14:26:48.052" endtime="20221109 14:26:48.055"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:48.052" endtime="20221109 14:26:48.055"/>
+</iter>
+<status status="PASS" starttime="20221109 14:26:48.052" endtime="20221109 14:26:48.055"/>
+</for>
+<status status="PASS" starttime="20221109 14:26:48.035" endtime="20221109 14:26:48.055"/>
+</kw>
+<kw name="close all open browsers" library="Assignment3_resources" type="TEARDOWN">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20221109 14:26:48.057" endtime="20221109 14:26:50.644"/>
+</kw>
+<status status="PASS" starttime="20221109 14:26:48.055" endtime="20221109 14:26:50.644"/>
+</kw>
+<doc>Search keywords in google, store top 10 results into file and display contents
+of file on the console.</doc>
+<tag>Assignment-3.1</tag>
+<status status="PASS" starttime="20221109 14:24:01.307" endtime="20221109 14:26:50.647"/>
+</test>
+<status status="PASS" starttime="20221109 14:24:00.536" endtime="20221109 14:26:50.649"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Assignment-3.1</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Assignment-3">Assignment-3</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

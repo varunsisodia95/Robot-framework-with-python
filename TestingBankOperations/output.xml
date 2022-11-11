@@ -1,32 +1,977 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.7.4 on win32)" generated="20221020 10:41:50.815" rpa="false" schemaversion="3">
-<suite id="s1" name="Test" source="C:\Users\Z0042JXJ\Desktop\Self-study\TestingBankOperations\test.robot">
-<test id="s1-t1" name="sample" line="2">
-<if>
-<branch type="IF" condition="100 &gt; 0">
-<kw name="Log To Console" library="BuiltIn">
-<arg>abc</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20221020 10:41:50.846" endtime="20221020 10:41:50.847"/>
+<robot generator="Robot 5.0.1 (Python 3.7.4 on win32)" generated="20221022 17:28:06.084" rpa="false" schemaversion="3">
+<suite id="s1" name="BankOperations positiveScenarios" source="C:\Users\Z0042JXJ\Desktop\Self-study\TestingBankOperations\TestCases\BankOperations_positiveScenarios.robot">
+<kw name="open bank site" library="Resources" type="SETUP">
+<arg>${SiteUrl}</arg>
+<arg>${browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${bankSite}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221022 17:28:18.850" level="INFO">Opening browser 'Chrome' to base url 'https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login'.</msg>
+<status status="PASS" starttime="20221022 17:28:18.850" endtime="20221022 17:28:26.770"/>
 </kw>
-<status status="PASS" starttime="20221020 10:41:50.846" endtime="20221020 10:41:50.847"/>
+<status status="PASS" starttime="20221022 17:28:18.850" endtime="20221022 17:28:26.770"/>
+</kw>
+<test id="s1-t1" name="TC1_BankManager_workflow_positive" line="16">
+<kw name="Bank manager operations">
+<arg>Roger</arg>
+<arg>Moore</arg>
+<arg>12345</arg>
+<arg>Rupee</arg>
+<arg>1000</arg>
+<arg>500</arg>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221022 17:28:26.786" endtime="20221022 17:28:26.930"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>2 seconds</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20221022 17:28:26.930" endtime="20221022 17:28:26.938"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>0.5 seconds</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20221022 17:28:26.938" endtime="20221022 17:28:26.938"/>
+</kw>
+<kw name="login as bank manager" library="Resources">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BM_login_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:28:26.946" level="INFO">Clicking button 'xpath://button[@ng-click='manager()']'.</msg>
+<status status="PASS" starttime="20221022 17:28:26.938" endtime="20221022 17:28:30.135"/>
+</kw>
+<status status="PASS" starttime="20221022 17:28:26.938" endtime="20221022 17:28:30.135"/>
+</kw>
+<kw name="add Cx as bank manager" library="Resources">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${PINCODE}</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BM_addCx_tab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:28:30.135" level="INFO">Clicking button 'xpath://button[contains(text(), 'Add Customer')]'.</msg>
+<status status="PASS" starttime="20221022 17:28:30.135" endtime="20221022 17:28:32.784"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${BM_addCx_tab_fName}</arg>
+<arg>${fName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221022 17:28:32.784" level="INFO">Typing text 'Roger' into text field 'xpath://input[@placeholder='First Name']'.</msg>
+<status status="PASS" starttime="20221022 17:28:32.784" endtime="20221022 17:28:34.555"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${BM_addCx_tab_lName}</arg>
+<arg>${lName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221022 17:28:34.557" level="INFO">Typing text 'Moore' into text field 'xpath://input[@placeholder='Last Name']'.</msg>
+<status status="PASS" starttime="20221022 17:28:34.555" endtime="20221022 17:28:36.419"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${BM_addCx_tab_postCode}</arg>
+<arg>${pincode}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221022 17:28:36.419" level="INFO">Typing text '12345' into text field 'xpath://input[@placeholder='Post Code']'.</msg>
+<status status="PASS" starttime="20221022 17:28:36.419" endtime="20221022 17:28:38.209"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BM_addCx_tab_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:28:38.209" level="INFO">Clicking button 'xpath://button[text()='Add Customer']'.</msg>
+<status status="PASS" starttime="20221022 17:28:38.209" endtime="20221022 17:28:41.036"/>
+</kw>
+<kw name="Handle Alert" library="SeleniumLibrary">
+<arg>ACCEPT</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<msg timestamp="20221022 17:28:41.036" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20221022 17:28:41.036" endtime="20221022 17:28:42.663"/>
+</kw>
+<status status="PASS" starttime="20221022 17:28:30.135" endtime="20221022 17:28:42.664"/>
+</kw>
+<kw name="open account for new Cx as bank manager" library="Resources">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${CURRENCY}</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BM_openAcc_tab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:28:42.666" level="INFO">Clicking button 'xpath://button[contains(text(), 'Open Account')]'.</msg>
+<status status="PASS" starttime="20221022 17:28:42.666" endtime="20221022 17:28:45.392"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${fullName}</var>
+<arg>${fName}</arg>
+<arg>${lName}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20221022 17:28:45.393" level="INFO">${fullName} = Roger Moore</msg>
+<status status="PASS" starttime="20221022 17:28:45.392" endtime="20221022 17:28:45.393"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${fullName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221022 17:28:45.393" endtime="20221022 17:28:45.393"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${BM_openAcc_tab_CxDropDownName}</arg>
+<arg>${fullName}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20221022 17:28:45.403" level="INFO">Selecting options from selection list 'userSelect' by label Roger Moore.</msg>
+<status status="PASS" starttime="20221022 17:28:45.402" endtime="20221022 17:28:48.785"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${BM_openAcc_tab_currencyListName}</arg>
+<arg>${currency}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20221022 17:28:48.787" level="INFO">Selecting options from selection list 'currency' by value Rupee.</msg>
+<status status="PASS" starttime="20221022 17:28:48.785" endtime="20221022 17:28:52.392"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BM_openAcc_tab_process_Btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:28:52.392" level="INFO">Clicking button 'xpath://button[text()='Process']'.</msg>
+<status status="PASS" starttime="20221022 17:28:52.392" endtime="20221022 17:28:55.227"/>
+</kw>
+<kw name="Handle Alert" library="SeleniumLibrary">
+<arg>ACCEPT</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<msg timestamp="20221022 17:28:55.227" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20221022 17:28:55.227" endtime="20221022 17:28:56.767"/>
+</kw>
+<status status="PASS" starttime="20221022 17:28:42.664" endtime="20221022 17:28:56.767"/>
+</kw>
+<kw name="check customer details in DB" library="Resources">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BM_CxList_tab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:28:56.769" level="INFO">Clicking button 'xpath://button[contains(text(), 'Customers')]'.</msg>
+<status status="PASS" starttime="20221022 17:28:56.769" endtime="20221022 17:28:59.527"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${CustomerCount}</var>
+<arg>${BM_CXList_CxCount}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221022 17:29:00.069" level="INFO">${CustomerCount} = 6</msg>
+<status status="PASS" starttime="20221022 17:28:59.527" endtime="20221022 17:29:00.069"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${CustomerCount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221022 17:29:00.069" endtime="20221022 17:29:00.163"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${BM_CxList_tab_CxTable}</arg>
+<arg>${CustomerCount}</arg>
+<arg>${fName}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221022 17:29:00.173" endtime="20221022 17:29:02.476"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//table[@class='table table-bordered table-striped']/tbody/tr/td[text()="${fName}"]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221022 17:29:02.476" endtime="20221022 17:29:03.820"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${Home_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:29:03.820" level="INFO">Clicking button 'xpath://button[text()='Home']'.</msg>
+<status status="PASS" starttime="20221022 17:29:03.820" endtime="20221022 17:29:06.621"/>
+</kw>
+<status status="PASS" starttime="20221022 17:28:56.767" endtime="20221022 17:29:06.621"/>
+</kw>
+<kw name="Customer operations">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${CURRENCY}</arg>
+<arg>${DEPOSIT}</arg>
+<arg>${WITHDRAWL}</arg>
+<kw name="login as customer" library="Resources">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${CURRENCY}</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_Login_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:29:06.623" level="INFO">Clicking button 'xpath://button[text()='Customer Login']'.</msg>
+<status status="PASS" starttime="20221022 17:29:06.623" endtime="20221022 17:29:09.380"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${CXname}</var>
+<arg>${fName}</arg>
+<arg>${lName}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20221022 17:29:09.380" level="INFO">${CXname} = Roger Moore</msg>
+<status status="PASS" starttime="20221022 17:29:09.380" endtime="20221022 17:29:09.380"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CX_dropDown_name}</arg>
+<arg>${CXname}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20221022 17:29:09.382" level="INFO">Selecting options from selection list 'userSelect' by label Roger Moore.</msg>
+<status status="PASS" starttime="20221022 17:29:09.382" endtime="20221022 17:29:12.609"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_dropDown_login_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:29:12.611" level="INFO">Clicking button 'xpath://button[text()='Login']'.</msg>
+<status status="PASS" starttime="20221022 17:29:12.609" endtime="20221022 17:29:15.322"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Welcome</arg>
+<arg>${CXname}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221022 17:29:16.367" level="INFO">Current page contains text 'Welcome'.</msg>
+<status status="PASS" starttime="20221022 17:29:15.322" endtime="20221022 17:29:16.367"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Balance : 0</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221022 17:29:17.421" level="INFO">Current page contains text 'Balance : 0'.</msg>
+<status status="PASS" starttime="20221022 17:29:16.367" endtime="20221022 17:29:17.421"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Currency : ${currency}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221022 17:29:18.475" level="INFO">Current page contains text 'Currency : Rupee'.</msg>
+<status status="PASS" starttime="20221022 17:29:17.421" endtime="20221022 17:29:18.475"/>
+</kw>
+<status status="PASS" starttime="20221022 17:29:06.623" endtime="20221022 17:29:18.475"/>
+</kw>
+<kw name="deposit money as a customer" library="Resources">
+<var>${newBalanceAfterDeposit}</var>
+<arg>${DEPOSIT}</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_depositTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:29:18.477" level="INFO">Clicking button 'xpath://button[contains(text(),'Deposit')]'.</msg>
+<status status="PASS" starttime="20221022 17:29:18.477" endtime="20221022 17:29:21.247"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CX_depositTab_inputAmount}</arg>
+<arg>${depositAmount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221022 17:29:21.249" level="INFO">Typing text '1000' into text field 'xpath://input[@placeholder='amount']'.</msg>
+<status status="PASS" starttime="20221022 17:29:21.247" endtime="20221022 17:29:23.180"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_depositTab_deposit_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:29:23.180" level="INFO">Clicking button 'xpath://button[text()='Deposit']'.</msg>
+<status status="PASS" starttime="20221022 17:29:23.180" endtime="20221022 17:29:26.094"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${depositAmount}</var>
+<arg>${depositAmount}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221022 17:29:26.094" level="INFO">${depositAmount} = 1000</msg>
+<status status="PASS" starttime="20221022 17:29:26.094" endtime="20221022 17:29:26.094"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${depositAmount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221022 17:29:26.094" endtime="20221022 17:29:26.094"/>
+</kw>
+<if>
+<branch type="IF" condition="${depositAmount} &gt; 0">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Deposit Successful</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221022 17:29:27.146" level="INFO">Current page contains text 'Deposit Successful'.</msg>
+<status status="PASS" starttime="20221022 17:29:26.094" endtime="20221022 17:29:27.146"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${newBalance}</var>
+<arg>${depositAmount}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221022 17:29:27.146" level="INFO">${newBalance} = 1000</msg>
+<status status="PASS" starttime="20221022 17:29:27.146" endtime="20221022 17:29:27.146"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Balance : ${newBalance}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221022 17:29:28.214" level="INFO">Current page contains text 'Balance : 1000'.</msg>
+<status status="PASS" starttime="20221022 17:29:27.149" endtime="20221022 17:29:28.214"/>
+</kw>
+<status status="PASS" starttime="20221022 17:29:26.094" endtime="20221022 17:29:28.214"/>
 </branch>
-<status status="PASS" starttime="20221020 10:41:50.846" endtime="20221020 10:41:50.847"/>
+<status status="PASS" starttime="20221022 17:29:26.094" endtime="20221022 17:29:28.214"/>
 </if>
-<status status="PASS" starttime="20221020 10:41:50.846" endtime="20221020 10:41:50.848"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${newBalance}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221022 17:29:28.214" endtime="20221022 17:29:28.217"/>
+</kw>
+<msg timestamp="20221022 17:29:28.217" level="INFO">${newBalanceAfterDeposit} = 1000</msg>
+<status status="PASS" starttime="20221022 17:29:18.475" endtime="20221022 17:29:28.217"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>New balance after deposit: ${newBalanceAfterDeposit}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221022 17:29:28.217" endtime="20221022 17:29:28.217"/>
+</kw>
+<kw name="check customer transactions table" library="Resources">
+<arg>${newBalanceAfterDeposit}</arg>
+<arg>Credit</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_transactionsTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:29:28.225" level="INFO">Clicking button 'xpath://button[contains(text(),'Transactions')]'.</msg>
+<status status="PASS" starttime="20221022 17:29:28.217" endtime="20221022 17:29:30.913"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${transactionsCount}</var>
+<arg>${CX_transactionsTab_tableRows}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221022 17:29:31.455" level="INFO">${transactionsCount} = 1</msg>
+<status status="PASS" starttime="20221022 17:29:30.913" endtime="20221022 17:29:31.455"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Number of transactions: ${transactionsCount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221022 17:29:31.455" endtime="20221022 17:29:31.457"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${lastTransactionAmt}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221022 17:29:31.457" endtime="20221022 17:29:34.587"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${transactionType}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221022 17:29:34.587" endtime="20221022 17:29:37.707"/>
+</kw>
+<status status="PASS" starttime="20221022 17:29:28.217" endtime="20221022 17:29:37.707"/>
+</kw>
+<kw name="withdraw money as a customer" library="Resources">
+<var>${newBalanceAfterWithdrawl}</var>
+<arg>${newBalanceAfterDeposit}</arg>
+<arg>${WITHDRAWL}</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_back_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:29:37.707" level="INFO">Clicking button 'xpath://button[text()='Back']'.</msg>
+<status status="PASS" starttime="20221022 17:29:37.707" endtime="20221022 17:29:40.375"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_withdrawlTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:29:40.375" level="INFO">Clicking button 'xpath://button[contains(text(),'Withdrawl')]'.</msg>
+<status status="PASS" starttime="20221022 17:29:40.375" endtime="20221022 17:29:43.011"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CX_withdrawlTab_ipWithdrawl}</arg>
+<arg>${withdrawlAmount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221022 17:29:43.013" level="INFO">Typing text '500' into text field 'xpath://input[@placeholder='amount']'.</msg>
+<status status="PASS" starttime="20221022 17:29:43.011" endtime="20221022 17:29:44.731"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${withdrawlAmount}</var>
+<arg>${withdrawlAmount}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221022 17:29:44.731" level="INFO">${withdrawlAmount} = 500</msg>
+<status status="PASS" starttime="20221022 17:29:44.731" endtime="20221022 17:29:44.733"/>
+</kw>
+<if>
+<branch type="IF" condition="${withdrawlAmount} &gt; 0 and ${withdrawlAmount} &lt; ${newBalanceAfterDeposit}">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_withdrawlTab_withdraw_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:29:44.733" level="INFO">Clicking button 'xpath://button[text()='Withdraw']'.</msg>
+<status status="PASS" starttime="20221022 17:29:44.733" endtime="20221022 17:29:47.486"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${newBalAfterWithdrawl}</var>
+<arg>${newBalanceAfterDeposit} - ${withdrawlAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221022 17:29:47.486" level="INFO">${newBalAfterWithdrawl} = 500</msg>
+<status status="PASS" starttime="20221022 17:29:47.486" endtime="20221022 17:29:47.486"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Transaction successful</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221022 17:29:48.518" level="INFO">Current page contains text 'Transaction successful'.</msg>
+<status status="PASS" starttime="20221022 17:29:47.486" endtime="20221022 17:29:48.518"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Balance : ${newBalAfterWithdrawl}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221022 17:29:49.552" level="INFO">Current page contains text 'Balance : 500'.</msg>
+<status status="PASS" starttime="20221022 17:29:48.518" endtime="20221022 17:29:49.552"/>
+</kw>
+<status status="PASS" starttime="20221022 17:29:44.733" endtime="20221022 17:29:49.552"/>
+</branch>
+<status status="PASS" starttime="20221022 17:29:44.733" endtime="20221022 17:29:49.552"/>
+</if>
+<msg timestamp="20221022 17:29:49.552" level="INFO">${newBalanceAfterWithdrawl} = 500</msg>
+<status status="PASS" starttime="20221022 17:29:37.707" endtime="20221022 17:29:49.552"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>New balance after withdrawl: ${newBalanceAfterWithdrawl}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221022 17:29:49.554" endtime="20221022 17:29:49.554"/>
+</kw>
+<kw name="check customer transactions table" library="Resources">
+<arg>${WITHDRAWL}</arg>
+<arg>Debit</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_transactionsTab}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:29:49.554" level="INFO">Clicking button 'xpath://button[contains(text(),'Transactions')]'.</msg>
+<status status="PASS" starttime="20221022 17:29:49.554" endtime="20221022 17:29:52.339"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${transactionsCount}</var>
+<arg>${CX_transactionsTab_tableRows}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221022 17:29:52.875" level="INFO">${transactionsCount} = 2</msg>
+<status status="PASS" starttime="20221022 17:29:52.339" endtime="20221022 17:29:52.875"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Number of transactions: ${transactionsCount}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221022 17:29:52.875" endtime="20221022 17:29:52.877"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${lastTransactionAmt}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221022 17:29:52.877" endtime="20221022 17:29:55.034"/>
+</kw>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>${CX_transactionsTab_tableName}</arg>
+<arg>${transactionsCount}</arg>
+<arg>${transactionType}</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20221022 17:29:55.034" endtime="20221022 17:29:57.255"/>
+</kw>
+<status status="PASS" starttime="20221022 17:29:49.554" endtime="20221022 17:29:57.255"/>
+</kw>
+<kw name="click back button" library="Resources">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_back_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:29:57.257" level="INFO">Clicking button 'xpath://button[text()='Back']'.</msg>
+<status status="PASS" starttime="20221022 17:29:57.257" endtime="20221022 17:30:00.041"/>
+</kw>
+<status status="PASS" starttime="20221022 17:29:57.255" endtime="20221022 17:30:00.041"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CX_logout_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:30:00.043" level="INFO">Clicking button 'xpath://button[text()='Logout']'.</msg>
+<status status="PASS" starttime="20221022 17:30:00.041" endtime="20221022 17:30:02.833"/>
+</kw>
+<kw name="go to home" library="Resources">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${Home_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:30:02.835" level="INFO">Clicking button 'xpath://button[text()='Home']'.</msg>
+<status status="PASS" starttime="20221022 17:30:02.833" endtime="20221022 17:30:05.834"/>
+</kw>
+<status status="PASS" starttime="20221022 17:30:02.833" endtime="20221022 17:30:05.834"/>
+</kw>
+<status status="PASS" starttime="20221022 17:29:06.621" endtime="20221022 17:30:05.834"/>
+</kw>
+<status status="PASS" starttime="20221022 17:28:26.786" endtime="20221022 17:30:05.834"/>
+</kw>
+<tag>Bank_manager_postive_workflow</tag>
+<status status="PASS" starttime="20221022 17:28:26.770" endtime="20221022 17:30:05.838"/>
 </test>
-<status status="PASS" starttime="20221020 10:41:50.817" endtime="20221020 10:41:50.849"/>
-</suite>
-<statistics>
-<total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
-</total>
-<tag>
-</tag>
-<suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Test">Test</stat>
-</suite>
-</statistics>
+<test id="s1-t2" name="TC1_BankManager_workflow_positive" line="16">
+<kw name="Bank manager operations">
+<arg>John</arg>
+<arg>Rambo</arg>
+<arg>67890</arg>
+<arg>Dollar</arg>
+<arg>1234</arg>
+<arg>123</arg>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221022 17:30:05.859" endtime="20221022 17:30:06.376"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>2 seconds</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20221022 17:30:06.376" endtime="20221022 17:30:06.899"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>0.5 seconds</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20221022 17:30:06.899" endtime="20221022 17:30:06.899"/>
+</kw>
+<kw name="login as bank manager" library="Resources">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BM_login_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221022 17:30:06.901" level="INFO">Clicking button 'xpath://button[@ng-click='manager()']'.</msg>
+<msg timestamp="20221022 17:30:07.645" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00FC1ED3+2236115]
+	Ordinal0 [0x00F592F1+1807089]
+	Ordinal0 [0x00E666FD+812797]
+	Ordinal0 [0x00E4DFFA+712698]
+	Ordinal0 [0x00EB506B+1134699]
+	Ordinal0 [0x00EC514A+1200458]
+	Ordinal0 [0x00EB18A6+1120422]
+	Ordinal0 [0x00E8A73D+960317]
+	Ordinal0 [0x00E8B71F+964383]
+	GetHandleVerifier [0x0126E7E2+2743074]
+	GetHandleVerifier [0x012608D4+2685972]
+	GetHandleVerifier [0x01052BAA+532202]
+	GetHandleVerifier [0x01051990+527568]
+	Ordinal0 [0x00F6080C+1837068]
+	Ordinal0 [0x00F64CD8+1854680]
+	Ordinal0 [0x00F64DC5+1854917]
+	Ordinal0 [0x00F6ED64+1895780]
+	BaseThreadInitThunk [0x776FFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77857B5E+286]
+	RtlGetAppContainerNamedObjectPath [0x77857B2E+238]
+</msg>
+<msg timestamp="20221022 17:30:07.733" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00FC1ED3+2236115]
+	Ordinal0 [0x00F592F1+1807089]
+	Ordinal0 [0x00E666FD+812797]
+	Ordinal0 [0x00E4DFFA+712698]
+	Ordinal0 [0x00EB506B+1134699]
+	Ordinal0 [0x00EC514A+1200458]
+	Ordinal0 [0x00EB18A6+1120422]
+	Ordinal0 [0x00E8A73D+960317]
+	Ordinal0 [0x00E8B71F+964383]
+	GetHandleVerifier [0x0126E7E2+2743074]
+	GetHandleVerifier [0x012608D4+2685972]
+	GetHandleVerifier [0x01052BAA+532202]
+	GetHandleVerifier [0x01051990+527568]
+	Ordinal0 [0x00F6080C+1837068]
+	Ordinal0 [0x00F64CD8+1854680]
+	Ordinal0 [0x00F64DC5+1854917]
+	Ordinal0 [0x00F6ED64+1895780]
+	BaseThreadInitThunk [0x776FFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77857B5E+286]
+	RtlGetAppContainerNamedObjectPath [0x77857B2E+238]
+</msg>
+<status status="FAIL" starttime="20221022 17:30:06.901" endtime="20221022 17:30:08.180"/>
+</kw>
+<status status="FAIL" starttime="20221022 17:30:06.899" endtime="20221022 17:30:08.180"/>
+</kw>
+<kw name="add Cx as bank manager" library="Resources">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${PINCODE}</arg>
+<status status="NOT RUN" starttime="20221022 17:30:08.180" endtime="20221022 17:30:08.180"/>
+</kw>
+<kw name="open account for new Cx as bank manager" library="Resources">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${CURRENCY}</arg>
+<status status="NOT RUN" starttime="20221022 17:30:08.180" endtime="20221022 17:30:08.180"/>
+</kw>
+<kw name="check customer details in DB" library="Resources">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<status status="NOT RUN" starttime="20221022 17:30:08.188" endtime="20221022 17:30:08.188"/>
+</kw>
+<kw name="Customer operations">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${CURRENCY}</arg>
+<arg>${DEPOSIT}</arg>
+<arg>${WITHDRAWL}</arg>
+<status status="NOT RUN" starttime="20221022 17:30:08.188" endtime="20221022 17:30:08.188"/>
+</kw>
+<status status="FAIL" starttime="20221022 17:30:05.859" endtime="20221022 17:30:08.188"/>
+</kw>
+<tag>Bank_manager_postive_workflow</tag>
+<status status="FAIL" starttime="20221022 17:30:05.846" endtime="20221022 17:30:08.188">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00FC1ED3+2236115]
+	Ordinal0 [0x00F592F1+1807089]
+	Ordinal0 [0x00E666FD+812797]
+	Ordinal0 [0x00E4DFFA+712698]
+	Ordinal0 [0x00EB506B+1134699]
+	Ordinal0 [0x00EC514A+1200458]
+	Ordinal0 [0x00EB18A6+1120422]
+	Ordinal0 [0x00E8A73D+960317]
+	Ordinal0 [0x00E8B71F+964383]
+	GetHandleVerifier [0x0126E7E2+2743074]
+	GetHandleVerifier [0x012608D4+2685972]
+	GetHandleVerifier [0x01052BAA+532202]
+	GetHandleVerifier [0x01051990+527568]
+	Ordinal0 [0x00F6080C+1837068]
+	Ordinal0 [0x00F64CD8+1854680]
+	Ordinal0 [0x00F64DC5+1854917]
+	Ordinal0 [0x00F6ED64+1895780]
+	BaseThreadInitThunk [0x776FFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77857B5E+286]
+	RtlGetAppContainerNamedObjectPath [0x77857B2E+238]
+</status>
+</test>
+<test id="s1-t3" name="TC1_BankManager_workflow_positive" line="16">
+<kw name="Bank manager operations">
+<arg>Jack</arg>
+<arg>Reacher</arg>
+<arg>11121</arg>
+<arg>Pound</arg>
+<arg>89500</arg>
+<arg>84000</arg>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<msg timestamp="20221022 17:30:08.228" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00FC1ED3+2236115]
+	Ordinal0 [0x00F592F1+1807089]
+	Ordinal0 [0x00E666FD+812797]
+	Ordinal0 [0x00E4DFFA+712698]
+	Ordinal0 [0x00EB506B+1134699]
+	Ordinal0 [0x00EC514A+1200458]
+	Ordinal0 [0x00EB18A6+1120422]
+	Ordinal0 [0x00E8A73D+960317]
+	Ordinal0 [0x00E8B71F+964383]
+	GetHandleVerifier [0x0126E7E2+2743074]
+	GetHandleVerifier [0x012608D4+2685972]
+	GetHandleVerifier [0x01052BAA+532202]
+	GetHandleVerifier [0x01051990+527568]
+	Ordinal0 [0x00F6080C+1837068]
+	Ordinal0 [0x00F64CD8+1854680]
+	Ordinal0 [0x00F64DC5+1854917]
+	Ordinal0 [0x00F6ED64+1895780]
+	BaseThreadInitThunk [0x776FFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77857B5E+286]
+	RtlGetAppContainerNamedObjectPath [0x77857B2E+238]
+</msg>
+<msg timestamp="20221022 17:30:08.244" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00FC1ED3+2236115]
+	Ordinal0 [0x00F592F1+1807089]
+	Ordinal0 [0x00E666FD+812797]
+	Ordinal0 [0x00E4DFFA+712698]
+	Ordinal0 [0x00EB506B+1134699]
+	Ordinal0 [0x00EC514A+1200458]
+	Ordinal0 [0x00EB18A6+1120422]
+	Ordinal0 [0x00E8A73D+960317]
+	Ordinal0 [0x00E8B71F+964383]
+	GetHandleVerifier [0x0126E7E2+2743074]
+	GetHandleVerifier [0x012608D4+2685972]
+	GetHandleVerifier [0x01052BAA+532202]
+	GetHandleVerifier [0x01051990+527568]
+	Ordinal0 [0x00F6080C+1837068]
+	Ordinal0 [0x00F64CD8+1854680]
+	Ordinal0 [0x00F64DC5+1854917]
+	Ordinal0 [0x00F6ED64+1895780]
+	BaseThreadInitThunk [0x776FFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77857B5E+286]
+	RtlGetAppContainerNamedObjectPath [0x77857B2E+238]
+</msg>
+<status status="FAIL" starttime="20221022 17:30:08.220" endtime="20221022 17:30:08.292"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>2 seconds</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="NOT RUN" starttime="20221022 17:30:08.292" endtime="20221022 17:30:08.292"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>0.5 seconds</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="NOT RUN" starttime="20221022 17:30:08.292" endtime="20221022 17:30:08.292"/>
+</kw>
+<kw name="login as bank manager" library="Resources">
+<status status="NOT RUN" starttime="20221022 17:30:08.292" endtime="20221022 17:30:08.292"/>
+</kw>
+<kw name="add Cx as bank manager" library="Resources">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${PINCODE}</arg>
+<status status="NOT RUN" starttime="20221022 17:30:08.292" endtime="20221022 17:30:08.292"/>
+</kw>
+<kw name="open account for new Cx as bank manager" library="Resources">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${CURRENCY}</arg>
+<status status="NOT RUN" starttime="20221022 17:30:08.292" endtime="20221022 17:30:08.292"/>
+</kw>
+<kw name="check customer details in DB" library="Resources">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<status status="NOT RUN" starttime="20221022 17:30:08.292" endtime="20221022 17:30:08.292"/>
+</kw>
+<kw name="Customer operations">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${CURRENCY}</arg>
+<arg>${DEPOSIT}</arg>
+<arg>${WITHDRAWL}</arg>
+<status status="NOT RUN" starttime="20221022 17:30:08.292" endtime="20221022 17:30:08.292"/>
+</kw>
+<status status="FAIL" starttime="20221022 17:30:08.212" endtime="20221022 17:30:08.292"/>
+</kw>
+<tag>Bank_manager_postive_workflow</tag>
+<status status="FAIL" starttime="20221022 17:30:08.196" endtime="20221022 17:30:08.300">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00FC1ED3+2236115]
+	Ordinal0 [0x00F592F1+1807089]
+	Ordinal0 [0x00E666FD+812797]
+	Ordinal0 [0x00E4DFFA+712698]
+	Ordinal0 [0x00EB506B+1134699]
+	Ordinal0 [0x00EC514A+1200458]
+	Ordinal0 [0x00EB18A6+1120422]
+	Ordinal0 [0x00E8A73D+960317]
+	Ordinal0 [0x00E8B71F+964383]
+	GetHandleVerifier [0x0126E7E2+2743074]
+	GetHandleVerifier [0x012608D4+2685972]
+	GetHandleVerifier [0x01052BAA+532202]
+	GetHandleVerifier [0x01051990+527568]
+	Ordinal0 [0x00F6080C+1837068]
+	Ordinal0 [0x00F64CD8+1854680]
+	Ordinal0 [0x00F64DC5+1854917]
+	Ordinal0 [0x00F6ED64+1895780]
+	BaseThreadInitThunk [0x776FFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77857B5E+286]
+	RtlGetAppContainerNamedObjectPath [0x77857B2E+238]
+</status>
+</test>
+<test id="s1-t4" name="TC1_BankManager_workflow_positive" line="16">
+<kw name="Bank manager operations">
+<arg>Jason</arg>
+<arg>Bourne</arg>
+<arg>92334</arg>
+<arg>Rupee</arg>
+<arg>1100</arg>
+<arg>5</arg>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<msg timestamp="20221022 17:30:08.340" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00FC1ED3+2236115]
+	Ordinal0 [0x00F592F1+1807089]
+	Ordinal0 [0x00E666FD+812797]
+	Ordinal0 [0x00E4DFFA+712698]
+	Ordinal0 [0x00EB506B+1134699]
+	Ordinal0 [0x00EC514A+1200458]
+	Ordinal0 [0x00EB18A6+1120422]
+	Ordinal0 [0x00E8A73D+960317]
+	Ordinal0 [0x00E8B71F+964383]
+	GetHandleVerifier [0x0126E7E2+2743074]
+	GetHandleVerifier [0x012608D4+2685972]
+	GetHandleVerifier [0x01052BAA+532202]
+	GetHandleVerifier [0x01051990+527568]
+	Ordinal0 [0x00F6080C+1837068]
+	Ordinal0 [0x00F64CD8+1854680]
+	Ordinal0 [0x00F64DC5+1854917]
+	Ordinal0 [0x00F6ED64+1895780]
+	BaseThreadInitThunk [0x776FFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77857B5E+286]
+	RtlGetAppContainerNamedObjectPath [0x77857B2E+238]
+</msg>
+<msg timestamp="20221022 17:30:08.356" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00FC1ED3+2236115]
+	Ordinal0 [0x00F592F1+1807089]
+	Ordinal0 [0x00E666FD+812797]
+	Ordinal0 [0x00E4DFFA+712698]
+	Ordinal0 [0x00EB506B+1134699]
+	Ordinal0 [0x00EC514A+1200458]
+	Ordinal0 [0x00EB18A6+1120422]
+	Ordinal0 [0x00E8A73D+960317]
+	Ordinal0 [0x00E8B71F+964383]
+	GetHandleVerifier [0x0126E7E2+2743074]
+	GetHandleVerifier [0x012608D4+2685972]
+	GetHandleVerifier [0x01052BAA+532202]
+	GetHandleVerifier [0x01051990+527568]
+	Ordinal0 [0x00F6080C+1837068]
+	Ordinal0 [0x00F64CD8+1854680]
+	Ordinal0 [0x00F64DC5+1854917]
+	Ordinal0 [0x00F6ED64+1895780]
+	BaseThreadInitThunk [0x776FFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77857B5E+286]
+	RtlGetAppContainerNamedObjectPath [0x77857B2E+238]
+</msg>
+<status status="FAIL" starttime="20221022 17:30:08.323" endtime="20221022 17:30:08.356"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>2 seconds</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="NOT RUN" starttime="20221022 17:30:08.359" endtime="20221022 17:30:08.360"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>0.5 seconds</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="NOT RUN" starttime="20221022 17:30:08.360" endtime="20221022 17:30:08.360"/>
+</kw>
+<kw name="login as bank manager" library="Resources">
+<status status="NOT RUN" starttime="20221022 17:30:08.360" endtime="20221022 17:30:08.361"/>
+</kw>
+<kw name="add Cx as bank manager" library="Resources">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${PINCODE}</arg>
+<status status="NOT RUN" starttime="20221022 17:30:08.361" endtime="20221022 17:30:08.361"/>
+</kw>
+<kw name="open account for new Cx as bank manager" library="Resources">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${CURRENCY}</arg>
+<status status="NOT RUN" starttime="20221022 17:30:08.361" endtime="20221022 17:30:08.362"/>
+</kw>
+<kw name="check customer details in DB" library="Resources">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<status status="NOT RUN" starttime="20221022 17:30:08.362" endtime="20221022 17:30:08.362"/>
+</kw>
+<kw name="Customer operations">
+<arg>${FNAME}</arg>
+<arg>${LNAME}</arg>
+<arg>${CURRENCY}</arg>
+<arg>${DEPOSIT}</arg>
+<arg>${WITHDRAWL}</arg>
+<status status="NOT RUN" starttime="20221022 17:30:08.362" endtime="20221022 17:30:08.363"/>
+</kw>
+<status status="FAIL" starttime="20221022 17:30:08.321" endtime="20221022 17:30:08.367"/>
+</kw>
+<tag>Bank_manager_postive_workflow</tag>
+<status status="FAIL" starttime="20221022 17:30:08.311" endtime="20221022 17:30:08.369">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00FC1ED3+2236115]
+	Ordinal0 [0x00F592F1+1807089]
+	Ordinal0 [0x00E666FD+812797]
+	Ordinal0 [0x00E4DFFA+712698]
+	Ordinal0 [0x00EB506B+1134699]
+	Ordinal0 [0x00EC514A+1200458]
+	Ordinal0 [0x00EB18A6+1120422]
+	Ordinal0 [0x00E8A73D+960317]
+	Ordinal0 [0x00E8B71F+964383]
+	GetHandleVerifier [0x0126E7E2+2743074]
+	GetHandleVerifier [0x012608D4+2685972]
+	GetHandleVerifier [0x01052BAA+532202]
+	GetHandleVerifier [0x01051990+527568]
+	Ordinal0 [0x00F6080C+1837068]
+	Ordinal0 [0x00F64CD8+1854680]
+	Ordinal0 [0x00F64DC5+1854917]
+	Ordinal0 [0x00F6ED64+1895780]
+	BaseThreadInitThunk [0x776FFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77857B5E+286]
+	RtlGetAppContainerNamedObjectPath [0x77857B2E+238]
+</status>
+</test>
+<kw name="close browser session" library="Resources" type="TEARDOWN">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
 <errors>
+<msg timestamp="20221022 17:30:05.846" level="WARN">Multiple tests with name 'TC1_BankManager_workflow_positive' executed in suite 'BankOperations positiveScenarios'.</msg>
+<msg timestamp="20221022 17:30:07.645" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00FC1ED3+2236115]
+	Ordinal0 [0x00F592F1+1807089]
+	Ordinal0 [0x00E666FD+812797]
+	Ordinal0 [0x00E4DFFA+712698]
+	Ordinal0 [0x00EB506B+1134699]
+	Ordinal0 [0x00EC514A+1200458]
+	Ordinal0 [0x00EB18A6+1120422]
+	Ordinal0 [0x00E8A73D+960317]
+	Ordinal0 [0x00E8B71F+964383]
+	GetHandleVerifier [0x0126E7E2+2743074]
+	GetHandleVerifier [0x012608D4+2685972]
+	GetHandleVerifier [0x01052BAA+532202]
+	GetHandleVerifier [0x01051990+527568]
+	Ordinal0 [0x00F6080C+1837068]
+	Ordinal0 [0x00F64CD8+1854680]
+	Ordinal0 [0x00F64DC5+1854917]
+	Ordinal0 [0x00F6ED64+1895780]
+	BaseThreadInitThunk [0x776FFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77857B5E+286]
+	RtlGetAppContainerNamedObjectPath [0x77857B2E+238]
+</msg>
+<msg timestamp="20221022 17:30:08.196" level="WARN">Multiple tests with name 'TC1_BankManager_workflow_positive' executed in suite 'BankOperations positiveScenarios'.</msg>
+<msg timestamp="20221022 17:30:08.228" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00FC1ED3+2236115]
+	Ordinal0 [0x00F592F1+1807089]
+	Ordinal0 [0x00E666FD+812797]
+	Ordinal0 [0x00E4DFFA+712698]
+	Ordinal0 [0x00EB506B+1134699]
+	Ordinal0 [0x00EC514A+1200458]
+	Ordinal0 [0x00EB18A6+1120422]
+	Ordinal0 [0x00E8A73D+960317]
+	Ordinal0 [0x00E8B71F+964383]
+	GetHandleVerifier [0x0126E7E2+2743074]
+	GetHandleVerifier [0x012608D4+2685972]
+	GetHandleVerifier [0x01052BAA+532202]
+	GetHandleVerifier [0x01051990+527568]
+	Ordinal0 [0x00F6080C+1837068]
+	Ordinal0 [0x00F64CD8+1854680]
+	Ordinal0 [0x00F64DC5+1854917]
+	Ordinal0 [0x00F6ED64+1895780]
+	BaseThreadInitThunk [0x776FFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77857B5E+286]
+	RtlGetAppContainerNamedObjectPath [0x77857B2E+238]
+</msg>
+<msg timestamp="20221022 17:30:08.308" level="WARN">Multiple tests with name 'TC1_BankManager_workflow_positive' executed in suite 'BankOperations positiveScenarios'.</msg>
+<msg timestamp="20221022 17:30:08.340" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00FC1ED3+2236115]
+	Ordinal0 [0x00F592F1+1807089]
+	Ordinal0 [0x00E666FD+812797]
+	Ordinal0 [0x00E4DFFA+712698]
+	Ordinal0 [0x00EB506B+1134699]
+	Ordinal0 [0x00EC514A+1200458]
+	Ordinal0 [0x00EB18A6+1120422]
+	Ordinal0 [0x00E8A73D+960317]
+	Ordinal0 [0x00E8B71F+964383]
+	GetHandleVerifier [0x0126E7E2+2743074]
+	GetHandleVerifier [0x012608D4+2685972]
+	GetHandleVerifier [0x01052BAA+532202]
+	GetHandleVerifier [0x01051990+527568]
+	Ordinal0 [0x00F6080C+1837068]
+	Ordinal0 [0x00F64CD8+1854680]
+	Ordinal0 [0x00F64DC5+1854917]
+	Ordinal0 [0x00F6ED64+1895780]
+	BaseThreadInitThunk [0x776FFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77857B5E+286]
+	RtlGetAppContainerNamedObjectPath [0x77857B2E+238]
+</msg>
+<msg timestamp="20221022 17:30:19.775" level="ERROR">Execution stopped by user.</msg>
 </errors>
 </robot>

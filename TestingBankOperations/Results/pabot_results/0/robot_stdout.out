@@ -1,0 +1,46 @@
+==============================================================================
+BankOperations                                                                
+==============================================================================
+TC1_BankManager_workflow                                                
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\Z0042JXJ\Desktop\Self-study\TestingBankOperations\TestCases\BankOperations.robot:12
+    T:  TC1_BankManager_workflow    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\Z0042JXJ\Desktop\Self-study\TestingBankOperations\TestCases\BankOperations.robot:18
+      open account for new Cx as bank manager    Roger    Moore    Rupee
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\Z0042JXJ\Desktop\Self-study\TestingBankOperations\Resources\Resources.robot:25
+      Click Button    ${BM_openAcc_tab}
+      |  ${BM_openAcc_tab} = xpath://button[contains(text(), 'Open Account')] (str)
+______________________________________________________________________________
+| FAIL |
+UnexpectedAlertPresentException: Alert Text: Customer added successfully with customer id :6
+Message: unexpected alert open: {Alert text : Customer added successfully with customer id :6}
+  (Session info: chrome=106.0.5249.119)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x002B1ED3+2236115]
+	Ordinal0 [0x002492F1+1807089]
+	Ordinal0 [0x001566FD+812797]
+	Ordinal0 [0x001B584E+1202254]
+	Ordinal0 [0x001A18A6+1120422]
+	Ordinal0 [0x0017A73D+960317]
+	Ordinal0 [0x0017B71F+964383]
+	GetHandleVerifier [0x0055E7E2+2743074]
+	GetHandleVerifier [0x005508D4+2685972]
+	GetHandleVerifier [0x00342BAA+532202]
+	GetHandleVerifier [0x00341990+527568]
+	Ordinal0 [0x0025080C+1837068]
+	Ordinal0 [0x00254CD8+1854680]
+	Ordinal0 [0x00254DC5+1854917]
+	Ordinal0 [0x0025ED64+1895780]
+	BaseThreadInitThunk [0x775FFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77CC7B5E+286]
+	RtlGetAppContainerNamedObjectPath [0x77CC7B2E+238]
+	(No symbol) [0x00000000]
+------------------------------------------------------------------------------
+BankOperations                                                        | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  C:\Users\Z0042JXJ\Desktop\Self-study\TestingBankOperations\Results\pabot_results\0\output.xml

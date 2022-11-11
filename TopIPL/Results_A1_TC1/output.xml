@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.7.4 on win32)" generated="20221107 15:36:38.677" rpa="false" schemaversion="3">
+<suite id="s1" name="Assignment-1" source="C:\Users\Z0042JXJ\Desktop\Self-study\Robot_assignments\TestCases\Assignment-1.robot">
+<kw name="Open browser to specific page" library="resources" type="SETUP">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browserName}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221107 15:36:39.542" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.cricbuzz.com/'.</msg>
+<status status="PASS" starttime="20221107 15:36:39.526" endtime="20221107 15:36:45.241"/>
+</kw>
+<status status="PASS" starttime="20221107 15:36:39.526" endtime="20221107 15:36:45.241"/>
+</kw>
+<test id="s1-t1" name="TC1" line="14">
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221107 15:36:45.249" endtime="20221107 15:36:45.381"/>
+</kw>
+<kw name="Select series from list" library="resources">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${A1_seriesList_btn}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:45.381" level="INFO">Clicking link 'xpath://a[text()='Series']'.</msg>
+<status status="PASS" starttime="20221107 15:36:45.381" endtime="20221107 15:36:46.238"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${A1_T20Wcup_selection}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:46.238" level="INFO">Clicking link 'xpath://a[@title='ICC Mens T20 World Cup 2022 Matches Oct 16, 2022 - Nov 13, 2022 ']'.</msg>
+<status status="PASS" starttime="20221107 15:36:46.238" endtime="20221107 15:36:46.913"/>
+</kw>
+<status status="PASS" starttime="20221107 15:36:45.381" endtime="20221107 15:36:46.913"/>
+</kw>
+<kw name="View points table" library="resources">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${A1_pointsTableLink}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:46.913" level="INFO">Clicking link 'xpath://a[@title='ICC MENS T20 WC 2022 Points Table']'.</msg>
+<status status="PASS" starttime="20221107 15:36:46.913" endtime="20221107 15:36:47.594"/>
+</kw>
+<status status="PASS" starttime="20221107 15:36:46.913" endtime="20221107 15:36:47.594"/>
+</kw>
+<kw name="View data from table" library="resources">
+<arg>${matchesWon}</arg>
+<doc>Retrieve names of teams who have number of matches won = 2</doc>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${cells}</var>
+<arg>${A1_T20_table_rows}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221107 15:36:47.626" level="INFO">${cells} = 20</msg>
+<status status="PASS" starttime="20221107 15:36:47.594" endtime="20221107 15:36:47.626"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${cell}</var>
+<value>1</value>
+<value>${cells}</value>
+<iter>
+<var name="${cell}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elementValue}</var>
+<arg>(${A1_T20_table_matchesWon})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:47.658" level="INFO">${elementValue} = 2</msg>
+<status status="PASS" starttime="20221107 15:36:47.626" endtime="20221107 15:36:47.658"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${elementValue}</var>
+<arg>${elementValue}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221107 15:36:47.658" level="INFO">${elementValue} = 2</msg>
+<status status="PASS" starttime="20221107 15:36:47.658" endtime="20221107 15:36:47.658"/>
+</kw>
+<if>
+<branch type="IF" condition="${elementValue} == ${matchesWon}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${teamName}</var>
+<arg>(${A1_T20_table_teamName})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:47.726" level="INFO">${teamName} = Sri Lanka  (Q)</msg>
+<status status="PASS" starttime="20221107 15:36:47.658" endtime="20221107 15:36:47.726"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${teamName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221107 15:36:47.726" endtime="20221107 15:36:47.726"/>
+</kw>
+<status status="PASS" starttime="20221107 15:36:47.658" endtime="20221107 15:36:47.726"/>
+</branch>
+<status status="PASS" starttime="20221107 15:36:47.658" endtime="20221107 15:36:47.726"/>
+</if>
+<status status="PASS" starttime="20221107 15:36:47.626" endtime="20221107 15:36:47.726"/>
+</iter>
+<iter>
+<var name="${cell}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elementValue}</var>
+<arg>(${A1_T20_table_matchesWon})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:47.789" level="INFO">${elementValue} = 2</msg>
+<status status="PASS" starttime="20221107 15:36:47.726" endtime="20221107 15:36:47.789"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${elementValue}</var>
+<arg>${elementValue}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221107 15:36:47.789" level="INFO">${elementValue} = 2</msg>
+<status status="PASS" starttime="20221107 15:36:47.789" endtime="20221107 15:36:47.789"/>
+</kw>
+<if>
+<branch type="IF" condition="${elementValue} == ${matchesWon}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${teamName}</var>
+<arg>(${A1_T20_table_teamName})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:47.882" level="INFO">${teamName} = Netherlands  (Q)</msg>
+<status status="PASS" starttime="20221107 15:36:47.789" endtime="20221107 15:36:47.882"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${teamName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221107 15:36:47.882" endtime="20221107 15:36:47.882"/>
+</kw>
+<status status="PASS" starttime="20221107 15:36:47.789" endtime="20221107 15:36:47.882"/>
+</branch>
+<status status="PASS" starttime="20221107 15:36:47.789" endtime="20221107 15:36:47.882"/>
+</if>
+<status status="PASS" starttime="20221107 15:36:47.726" endtime="20221107 15:36:47.882"/>
+</iter>
+<iter>
+<var name="${cell}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elementValue}</var>
+<arg>(${A1_T20_table_matchesWon})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:47.927" level="INFO">${elementValue} = 1</msg>
+<status status="PASS" starttime="20221107 15:36:47.882" endtime="20221107 15:36:47.927"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${elementValue}</var>
+<arg>${elementValue}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221107 15:36:47.927" level="INFO">${elementValue} = 1</msg>
+<status status="PASS" starttime="20221107 15:36:47.927" endtime="20221107 15:36:47.927"/>
+</kw>
+<if>
+<branch type="IF" condition="${elementValue} == ${matchesWon}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${teamName}</var>
+<arg>(${A1_T20_table_teamName})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:47.927" endtime="20221107 15:36:47.927"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${teamName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:47.927" endtime="20221107 15:36:47.927"/>
+</kw>
+<status status="NOT RUN" starttime="20221107 15:36:47.927" endtime="20221107 15:36:47.927"/>
+</branch>
+<status status="PASS" starttime="20221107 15:36:47.927" endtime="20221107 15:36:47.927"/>
+</if>
+<status status="PASS" starttime="20221107 15:36:47.882" endtime="20221107 15:36:47.927"/>
+</iter>
+<iter>
+<var name="${cell}">4</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elementValue}</var>
+<arg>(${A1_T20_table_matchesWon})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:47.964" level="INFO">${elementValue} = 1</msg>
+<status status="PASS" starttime="20221107 15:36:47.927" endtime="20221107 15:36:47.964"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${elementValue}</var>
+<arg>${elementValue}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221107 15:36:47.964" level="INFO">${elementValue} = 1</msg>
+<status status="PASS" starttime="20221107 15:36:47.964" endtime="20221107 15:36:47.964"/>
+</kw>
+<if>
+<branch type="IF" condition="${elementValue} == ${matchesWon}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${teamName}</var>
+<arg>(${A1_T20_table_teamName})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:47.964" endtime="20221107 15:36:47.964"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${teamName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:47.964" endtime="20221107 15:36:47.964"/>
+</kw>
+<status status="NOT RUN" starttime="20221107 15:36:47.964" endtime="20221107 15:36:47.964"/>
+</branch>
+<status status="PASS" starttime="20221107 15:36:47.964" endtime="20221107 15:36:47.964"/>
+</if>
+<status status="PASS" starttime="20221107 15:36:47.927" endtime="20221107 15:36:47.964"/>
+</iter>
+<iter>
+<var name="${cell}">5</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elementValue}</var>
+<arg>(${A1_T20_table_matchesWon})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:48.032" level="INFO">${elementValue} = 2</msg>
+<status status="PASS" starttime="20221107 15:36:47.964" endtime="20221107 15:36:48.032"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${elementValue}</var>
+<arg>${elementValue}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221107 15:36:48.032" level="INFO">${elementValue} = 2</msg>
+<status status="PASS" starttime="20221107 15:36:48.032" endtime="20221107 15:36:48.032"/>
+</kw>
+<if>
+<branch type="IF" condition="${elementValue} == ${matchesWon}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${teamName}</var>
+<arg>(${A1_T20_table_teamName})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:48.072" level="INFO">${teamName} = Zimbabwe  (Q)</msg>
+<status status="PASS" starttime="20221107 15:36:48.032" endtime="20221107 15:36:48.072"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${teamName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221107 15:36:48.072" endtime="20221107 15:36:48.072"/>
+</kw>
+<status status="PASS" starttime="20221107 15:36:48.032" endtime="20221107 15:36:48.072"/>
+</branch>
+<status status="PASS" starttime="20221107 15:36:48.032" endtime="20221107 15:36:48.072"/>
+</if>
+<status status="PASS" starttime="20221107 15:36:47.964" endtime="20221107 15:36:48.072"/>
+</iter>
+<iter>
+<var name="${cell}">6</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elementValue}</var>
+<arg>(${A1_T20_table_matchesWon})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:48.158" level="INFO">${elementValue} = 2</msg>
+<status status="PASS" starttime="20221107 15:36:48.072" endtime="20221107 15:36:48.158"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${elementValue}</var>
+<arg>${elementValue}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221107 15:36:48.158" level="INFO">${elementValue} = 2</msg>
+<status status="PASS" starttime="20221107 15:36:48.158" endtime="20221107 15:36:48.158"/>
+</kw>
+<if>
+<branch type="IF" condition="${elementValue} == ${matchesWon}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${teamName}</var>
+<arg>(${A1_T20_table_teamName})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:48.286" level="INFO">${teamName} = Ireland  (Q)</msg>
+<status status="PASS" starttime="20221107 15:36:48.158" endtime="20221107 15:36:48.286"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${teamName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221107 15:36:48.286" endtime="20221107 15:36:48.286"/>
+</kw>
+<status status="PASS" starttime="20221107 15:36:48.158" endtime="20221107 15:36:48.286"/>
+</branch>
+<status status="PASS" starttime="20221107 15:36:48.158" endtime="20221107 15:36:48.286"/>
+</if>
+<status status="PASS" starttime="20221107 15:36:48.072" endtime="20221107 15:36:48.286"/>
+</iter>
+<iter>
+<var name="${cell}">7</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elementValue}</var>
+<arg>(${A1_T20_table_matchesWon})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:48.374" level="INFO">${elementValue} = 1</msg>
+<status status="PASS" starttime="20221107 15:36:48.286" endtime="20221107 15:36:48.374"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${elementValue}</var>
+<arg>${elementValue}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221107 15:36:48.374" level="INFO">${elementValue} = 1</msg>
+<status status="PASS" starttime="20221107 15:36:48.374" endtime="20221107 15:36:48.374"/>
+</kw>
+<if>
+<branch type="IF" condition="${elementValue} == ${matchesWon}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${teamName}</var>
+<arg>(${A1_T20_table_teamName})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:48.374" endtime="20221107 15:36:48.374"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${teamName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:48.374" endtime="20221107 15:36:48.374"/>
+</kw>
+<status status="NOT RUN" starttime="20221107 15:36:48.374" endtime="20221107 15:36:48.374"/>
+</branch>
+<status status="PASS" starttime="20221107 15:36:48.374" endtime="20221107 15:36:48.374"/>
+</if>
+<status status="PASS" starttime="20221107 15:36:48.286" endtime="20221107 15:36:48.374"/>
+</iter>
+<iter>
+<var name="${cell}">8</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elementValue}</var>
+<arg>(${A1_T20_table_matchesWon})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:48.421" level="INFO">${elementValue} = 1</msg>
+<status status="PASS" starttime="20221107 15:36:48.374" endtime="20221107 15:36:48.421"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${elementValue}</var>
+<arg>${elementValue}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221107 15:36:48.421" level="INFO">${elementValue} = 1</msg>
+<status status="PASS" starttime="20221107 15:36:48.421" endtime="20221107 15:36:48.421"/>
+</kw>
+<if>
+<branch type="IF" condition="${elementValue} == ${matchesWon}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${teamName}</var>
+<arg>(${A1_T20_table_teamName})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:48.421" endtime="20221107 15:36:48.437"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${teamName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:48.437" endtime="20221107 15:36:48.437"/>
+</kw>
+<status status="NOT RUN" starttime="20221107 15:36:48.421" endtime="20221107 15:36:48.437"/>
+</branch>
+<status status="PASS" starttime="20221107 15:36:48.421" endtime="20221107 15:36:48.437"/>
+</if>
+<status status="PASS" starttime="20221107 15:36:48.374" endtime="20221107 15:36:48.437"/>
+</iter>
+<iter>
+<var name="${cell}">9</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elementValue}</var>
+<arg>(${A1_T20_table_matchesWon})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:48.515" level="INFO">${elementValue} = 3</msg>
+<status status="PASS" starttime="20221107 15:36:48.437" endtime="20221107 15:36:48.515"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${elementValue}</var>
+<arg>${elementValue}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221107 15:36:48.515" level="INFO">${elementValue} = 3</msg>
+<status status="PASS" starttime="20221107 15:36:48.515" endtime="20221107 15:36:48.515"/>
+</kw>
+<if>
+<branch type="IF" condition="${elementValue} == ${matchesWon}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${teamName}</var>
+<arg>(${A1_T20_table_teamName})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:48.515" endtime="20221107 15:36:48.515"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${teamName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:48.515" endtime="20221107 15:36:48.515"/>
+</kw>
+<status status="NOT RUN" starttime="20221107 15:36:48.515" endtime="20221107 15:36:48.515"/>
+</branch>
+<status status="PASS" starttime="20221107 15:36:48.515" endtime="20221107 15:36:48.515"/>
+</if>
+<status status="PASS" starttime="20221107 15:36:48.437" endtime="20221107 15:36:48.515"/>
+</iter>
+<iter>
+<var name="${cell}">10</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elementValue}</var>
+<arg>(${A1_T20_table_matchesWon})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:48.555" level="INFO">${elementValue} = 3</msg>
+<status status="PASS" starttime="20221107 15:36:48.515" endtime="20221107 15:36:48.555"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${elementValue}</var>
+<arg>${elementValue}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221107 15:36:48.555" level="INFO">${elementValue} = 3</msg>
+<status status="PASS" starttime="20221107 15:36:48.555" endtime="20221107 15:36:48.555"/>
+</kw>
+<if>
+<branch type="IF" condition="${elementValue} == ${matchesWon}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${teamName}</var>
+<arg>(${A1_T20_table_teamName})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:48.555" endtime="20221107 15:36:48.555"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${teamName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:48.555" endtime="20221107 15:36:48.555"/>
+</kw>
+<status status="NOT RUN" starttime="20221107 15:36:48.555" endtime="20221107 15:36:48.555"/>
+</branch>
+<status status="PASS" starttime="20221107 15:36:48.555" endtime="20221107 15:36:48.555"/>
+</if>
+<status status="PASS" starttime="20221107 15:36:48.515" endtime="20221107 15:36:48.555"/>
+</iter>
+<iter>
+<var name="${cell}">11</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elementValue}</var>
+<arg>(${A1_T20_table_matchesWon})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:48.604" level="INFO">${elementValue} = 3</msg>
+<status status="PASS" starttime="20221107 15:36:48.555" endtime="20221107 15:36:48.604"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${elementValue}</var>
+<arg>${elementValue}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221107 15:36:48.604" level="INFO">${elementValue} = 3</msg>
+<status status="PASS" starttime="20221107 15:36:48.604" endtime="20221107 15:36:48.604"/>
+</kw>
+<if>
+<branch type="IF" condition="${elementValue} == ${matchesWon}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${teamName}</var>
+<arg>(${A1_T20_table_teamName})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:48.604" endtime="20221107 15:36:48.604"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${teamName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:48.604" endtime="20221107 15:36:48.604"/>
+</kw>
+<status status="NOT RUN" starttime="20221107 15:36:48.604" endtime="20221107 15:36:48.604"/>
+</branch>
+<status status="PASS" starttime="20221107 15:36:48.604" endtime="20221107 15:36:48.604"/>
+</if>
+<status status="PASS" starttime="20221107 15:36:48.555" endtime="20221107 15:36:48.604"/>
+</iter>
+<iter>
+<var name="${cell}">12</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elementValue}</var>
+<arg>(${A1_T20_table_matchesWon})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:48.719" level="INFO">${elementValue} = 2</msg>
+<status status="PASS" starttime="20221107 15:36:48.612" endtime="20221107 15:36:48.719"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${elementValue}</var>
+<arg>${elementValue}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221107 15:36:48.719" level="INFO">${elementValue} = 2</msg>
+<status status="PASS" starttime="20221107 15:36:48.719" endtime="20221107 15:36:48.719"/>
+</kw>
+<if>
+<branch type="IF" condition="${elementValue} == ${matchesWon}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${teamName}</var>
+<arg>(${A1_T20_table_teamName})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:48.815" level="INFO">${teamName} = Sri Lanka  (E)</msg>
+<status status="PASS" starttime="20221107 15:36:48.719" endtime="20221107 15:36:48.815"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${teamName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221107 15:36:48.815" endtime="20221107 15:36:48.815"/>
+</kw>
+<status status="PASS" starttime="20221107 15:36:48.719" endtime="20221107 15:36:48.815"/>
+</branch>
+<status status="PASS" starttime="20221107 15:36:48.719" endtime="20221107 15:36:48.815"/>
+</if>
+<status status="PASS" starttime="20221107 15:36:48.604" endtime="20221107 15:36:48.815"/>
+</iter>
+<iter>
+<var name="${cell}">13</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elementValue}</var>
+<arg>(${A1_T20_table_matchesWon})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:48.895" level="INFO">${elementValue} = 1</msg>
+<status status="PASS" starttime="20221107 15:36:48.815" endtime="20221107 15:36:48.895"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${elementValue}</var>
+<arg>${elementValue}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221107 15:36:48.895" level="INFO">${elementValue} = 1</msg>
+<status status="PASS" starttime="20221107 15:36:48.895" endtime="20221107 15:36:48.895"/>
+</kw>
+<if>
+<branch type="IF" condition="${elementValue} == ${matchesWon}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${teamName}</var>
+<arg>(${A1_T20_table_teamName})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:48.895" endtime="20221107 15:36:48.895"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${teamName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:48.895" endtime="20221107 15:36:48.895"/>
+</kw>
+<status status="NOT RUN" starttime="20221107 15:36:48.895" endtime="20221107 15:36:48.895"/>
+</branch>
+<status status="PASS" starttime="20221107 15:36:48.895" endtime="20221107 15:36:48.895"/>
+</if>
+<status status="PASS" starttime="20221107 15:36:48.815" endtime="20221107 15:36:48.895"/>
+</iter>
+<iter>
+<var name="${cell}">14</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elementValue}</var>
+<arg>(${A1_T20_table_matchesWon})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:48.934" level="INFO">${elementValue} = 0</msg>
+<status status="PASS" starttime="20221107 15:36:48.903" endtime="20221107 15:36:48.934"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${elementValue}</var>
+<arg>${elementValue}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221107 15:36:48.934" level="INFO">${elementValue} = 0</msg>
+<status status="PASS" starttime="20221107 15:36:48.934" endtime="20221107 15:36:48.934"/>
+</kw>
+<if>
+<branch type="IF" condition="${elementValue} == ${matchesWon}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${teamName}</var>
+<arg>(${A1_T20_table_teamName})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:48.934" endtime="20221107 15:36:48.934"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${teamName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:48.934" endtime="20221107 15:36:48.934"/>
+</kw>
+<status status="NOT RUN" starttime="20221107 15:36:48.934" endtime="20221107 15:36:48.934"/>
+</branch>
+<status status="PASS" starttime="20221107 15:36:48.934" endtime="20221107 15:36:48.934"/>
+</if>
+<status status="PASS" starttime="20221107 15:36:48.895" endtime="20221107 15:36:48.934"/>
+</iter>
+<iter>
+<var name="${cell}">15</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elementValue}</var>
+<arg>(${A1_T20_table_matchesWon})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:48.986" level="INFO">${elementValue} = 4</msg>
+<status status="PASS" starttime="20221107 15:36:48.934" endtime="20221107 15:36:48.986"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${elementValue}</var>
+<arg>${elementValue}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221107 15:36:48.986" level="INFO">${elementValue} = 4</msg>
+<status status="PASS" starttime="20221107 15:36:48.986" endtime="20221107 15:36:48.986"/>
+</kw>
+<if>
+<branch type="IF" condition="${elementValue} == ${matchesWon}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${teamName}</var>
+<arg>(${A1_T20_table_teamName})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:48.986" endtime="20221107 15:36:48.986"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${teamName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:48.986" endtime="20221107 15:36:48.986"/>
+</kw>
+<status status="NOT RUN" starttime="20221107 15:36:48.986" endtime="20221107 15:36:48.986"/>
+</branch>
+<status status="PASS" starttime="20221107 15:36:48.986" endtime="20221107 15:36:48.986"/>
+</if>
+<status status="PASS" starttime="20221107 15:36:48.934" endtime="20221107 15:36:48.986"/>
+</iter>
+<iter>
+<var name="${cell}">16</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elementValue}</var>
+<arg>(${A1_T20_table_matchesWon})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:49.033" level="INFO">${elementValue} = 3</msg>
+<status status="PASS" starttime="20221107 15:36:48.986" endtime="20221107 15:36:49.033"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${elementValue}</var>
+<arg>${elementValue}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221107 15:36:49.033" level="INFO">${elementValue} = 3</msg>
+<status status="PASS" starttime="20221107 15:36:49.033" endtime="20221107 15:36:49.033"/>
+</kw>
+<if>
+<branch type="IF" condition="${elementValue} == ${matchesWon}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${teamName}</var>
+<arg>(${A1_T20_table_teamName})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:49.033" endtime="20221107 15:36:49.033"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${teamName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20221107 15:36:49.033" endtime="20221107 15:36:49.033"/>
+</kw>
+<status status="NOT RUN" starttime="20221107 15:36:49.033" endtime="20221107 15:36:49.033"/>
+</branch>
+<status status="PASS" starttime="20221107 15:36:49.033" endtime="20221107 15:36:49.033"/>
+</if>
+<status status="PASS" starttime="20221107 15:36:48.986" endtime="20221107 15:36:49.033"/>
+</iter>
+<iter>
+<var name="${cell}">17</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elementValue}</var>
+<arg>(${A1_T20_table_matchesWon})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:49.083" level="INFO">${elementValue} = 2</msg>
+<status status="PASS" starttime="20221107 15:36:49.033" endtime="20221107 15:36:49.083"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${elementValue}</var>
+<arg>${elementValue}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221107 15:36:49.083" level="INFO">${elementValue} = 2</msg>
+<status status="PASS" starttime="20221107 15:36:49.083" endtime="20221107 15:36:49.083"/>
+</kw>
+<if>
+<branch type="IF" condition="${elementValue} == ${matchesWon}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${teamName}</var>
+<arg>(${A1_T20_table_teamName})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:49.210" level="INFO">${teamName} = South Africa  (E)</msg>
+<status status="PASS" starttime="20221107 15:36:49.083" endtime="20221107 15:36:49.210"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${teamName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221107 15:36:49.210" endtime="20221107 15:36:49.210"/>
+</kw>
+<status status="PASS" starttime="20221107 15:36:49.083" endtime="20221107 15:36:49.210"/>
+</branch>
+<status status="PASS" starttime="20221107 15:36:49.083" endtime="20221107 15:36:49.210"/>
+</if>
+<status status="PASS" starttime="20221107 15:36:49.033" endtime="20221107 15:36:49.210"/>
+</iter>
+<iter>
+<var name="${cell}">18</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elementValue}</var>
+<arg>(${A1_T20_table_matchesWon})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:49.274" level="INFO">${elementValue} = 2</msg>
+<status status="PASS" starttime="20221107 15:36:49.210" endtime="20221107 15:36:49.274"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${elementValue}</var>
+<arg>${elementValue}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221107 15:36:49.274" level="INFO">${elementValue} = 2</msg>
+<status status="PASS" starttime="20221107 15:36:49.274" endtime="20221107 15:36:49.274"/>
+</kw>
+<if>
+<branch type="IF" condition="${elementValue} == ${matchesWon}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${teamName}</var>
+<arg>(${A1_T20_table_teamName})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:49.321" level="INFO">${teamName} = Netherlands  (E)</msg>
+<status status="PASS" starttime="20221107 15:36:49.274" endtime="20221107 15:36:49.321"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${teamName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221107 15:36:49.321" endtime="20221107 15:36:49.321"/>
+</kw>
+<status status="PASS" starttime="20221107 15:36:49.274" endtime="20221107 15:36:49.321"/>
+</branch>
+<status status="PASS" starttime="20221107 15:36:49.274" endtime="20221107 15:36:49.321"/>
+</if>
+<status status="PASS" starttime="20221107 15:36:49.210" endtime="20221107 15:36:49.336"/>
+</iter>
+<iter>
+<var name="${cell}">19</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elementValue}</var>
+<arg>(${A1_T20_table_matchesWon})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:49.389" level="INFO">${elementValue} = 2</msg>
+<status status="PASS" starttime="20221107 15:36:49.336" endtime="20221107 15:36:49.389"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${elementValue}</var>
+<arg>${elementValue}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20221107 15:36:49.389" level="INFO">${elementValue} = 2</msg>
+<status status="PASS" starttime="20221107 15:36:49.389" endtime="20221107 15:36:49.389"/>
+</kw>
+<if>
+<branch type="IF" condition="${elementValue} == ${matchesWon}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${teamName}</var>
+<arg>(${A1_T20_table_teamName})[${cell}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221107 15:36:49.437" level="INFO">${teamName} = Bangladesh  (E)</msg>
+<status status="PASS" starttime="20221107 15:36:49.389" endtime="20221107 15:36:49.437"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${teamName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221107 15:36:49.437" endtime="20221107 15:36:49.437"/>
+</kw>
+<status status="PASS" starttime="20221107 15:36:49.389" endtime="20221107 15:36:49.437"/>
+</branch>
+<status status="PASS" starttime="20221107 15:36:49.389" endtime="20221107 15:36:49.437"/>
+</if>
+<status status="PASS" starttime="20221107 15:36:49.336" endtime="20221107 15:36:49.437"/>
+</iter>
+<status status="PASS" starttime="20221107 15:36:47.626" endtime="20221107 15:36:49.437"/>
+</for>
+<status status="PASS" starttime="20221107 15:36:47.594" endtime="20221107 15:36:49.437"/>
+</kw>
+<doc>Open the given website and list down names of teams based on points</doc>
+<tag>Assignment-1.1</tag>
+<status status="PASS" starttime="20221107 15:36:45.241" endtime="20221107 15:36:49.437"/>
+</test>
+<kw name="Close all open browsers" library="resources" type="TEARDOWN">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20221107 15:36:49.437" endtime="20221107 15:36:51.715"/>
+</kw>
+<status status="PASS" starttime="20221107 15:36:49.437" endtime="20221107 15:36:51.715"/>
+</kw>
+<status status="PASS" starttime="20221107 15:36:38.677" endtime="20221107 15:36:51.715"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Assignment-1.1</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Assignment-1">Assignment-1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
