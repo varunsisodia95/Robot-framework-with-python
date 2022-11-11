@@ -12,11 +12,19 @@ Robot Framework is a generic open source test automation framework and SeleniumL
 
 **Design pattern used:** Page Object Model (POM)
 
+## Projects:
+
+1) [Finding the top IPL teams in a league.](https://github.com/varunsisodia95/Robot-framework-with-python/tree/main/TopIPL)
+2) [Operations with Google search](https://github.com/varunsisodia95/Robot-framework-with-python/tree/main/TopGoogleResults)
+3) [Cheapest giftcard finder](https://github.com/varunsisodia95/Robot-framework-with-python/tree/main/CheapestGiftCards)
+4) [Testing banking operations](https://github.com/varunsisodia95/Robot-framework-with-python/tree/main/TestingBankOperations)
+
 
 ## Test cases and Utilities
 
-- Test cases for all projects are located under the /TestCases directory of the respective project.
+### Test cases
 
+- Test cases for all projects are located under the <b> /TestCases </b> directory of the respective project.
 
 ### Locators.py
 
