@@ -12,7 +12,7 @@ Robot Framework is a generic open source test automation framework and SeleniumL
 
 **Design pattern used:** Page Object Model (POM)
 
-## Projects:
+## Projects
 
 1) [Finding the top IPL teams in a league.](https://github.com/varunsisodia95/Robot-framework-with-python/tree/main/TopIPL)
 2) [Operations with Google search](https://github.com/varunsisodia95/Robot-framework-with-python/tree/main/TopGoogleResults)
