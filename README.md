@@ -1,14 +1,7 @@
 
 # Web testing using Robot Framework and SeleniumLibrary
 
-Robot Framework is a generic open source test automation framework and SeleniumLibrary is one of the many test libraries that can be used with it. In addition to showing how they can be used together for web testing, this project demonstrates testing the registration and login workflow of a 
-new customer on a demo banking website. 
-
-## Demo application used for testing
-
-I have used the following [demo website](https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login) for a dummy bank for the purpose of testing.
-
-![App Screenshot](https://github.com/varunsisodia95/Robot-framework-with-python/blob/main/DemoWebsite.png)
+Robot Framework is a generic open source test automation framework and SeleniumLibrary is one of the many test libraries that can be used with it. The following projects are done with the intent of cementing my understanding of the same.
 
 
 ## Tech Stack
@@ -22,28 +15,23 @@ I have used the following [demo website](https://www.globalsqa.com/angularJs-pro
 
 ## Test cases and Utilities
 
-### [BankOperations_positiveScenarios.robot](https://github.com/varunsisodia95/Robot-framework-with-python/blob/main/TestingBankOperations/TestCases/BankOperations_positiveScenarios.robot)
-
-This file contains two test cases, one where we check the registration workflow of a new customer 
-and second where we test the login to logout workflow for the same user.
-Note that, the test data for this is provided via an excel sheet uploaded under **Resources folder**.
+- Test cases for all projects are located under the /TestCases directory of the respective project.
 
 
-### [Locators.py](https://github.com/varunsisodia95/Robot-framework-with-python/blob/main/TestingBankOperations/Locators/Locators.py)
+### Locators.py
 
-This file contains all the necessary locators needed for testing the various elements on the demo website.
+- This file contains all the necessary locators needed for testing the various elements on the demo website.
 
 
-### [Resources.robot](https://github.com/varunsisodia95/Robot-framework-with-python/blob/main/TestingBankOperations/Resources/Resources.robot)
+### Resources.robot
 
-This file contains helper functions to perform various activities like button click, navigate to specific webpage etc.
+- This file contains helper functions to perform various activities like button click, navigate to specific webpage etc.
 
 ## Generated results
 
-- [log.html](https://github.com/varunsisodia95/Robot-framework-with-python/tree/main/TestingBankOperations/Results)
-- [output.xml](https://github.com/varunsisodia95/Robot-framework-with-python/tree/main/TestingBankOperations/Results)
-- [report.html](https://github.com/varunsisodia95/Robot-framework-with-python/tree/main/TestingBankOperations/Results)
-
+- log.html
+- output.xml
+- report.html
 
 
 ## Running test cases
@@ -61,7 +49,7 @@ The test cases are located in the **TestCases** directory.
 They can be executed using the robot command:
 
 ```bash
-robot --outputdir Results .\TestCases\BankOperations_positiveScenarios.robot 
+robot --outputdir Results .\TestCases\<TEST_CASE_NAME>.robot 
 ```
 
 
